@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="//localhost:8080/main-sitemap.xsl"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<sitemap>
+		<loc>http://localhost:8080/post-sitemap.xml</loc>
+		<lastmod>2026-09-14T10:00:00+00:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>http://localhost:8080/page-sitemap.xml</loc>
+		<lastmod>2026-11-01T11:39:52+00:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>http://localhost:8080/yd_event-sitemap.xml</loc>
+		<lastmod>2026-11-01T11:39:52+00:00</lastmod>
+	</sitemap>
+</sitemapindex>

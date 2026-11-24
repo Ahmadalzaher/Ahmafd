@@ -1,0 +1,342 @@
+/**
+ * Yalla — admin tweaks for the festival content screens.
+ *
+ * The editor should feel like a simple form, not a database.
+ */
+
+.yd-fields {
+	display: grid;
+	gap: 4px 24px;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	padding: 4px 0 8px;
+}
+
+.yd-fields .yd-field {
+	margin: 0 0 12px;
+}
+
+.yd-fields .yd-field label {
+	display: inline-block;
+	margin-bottom: 4px;
+	color: #201611;
+	font-size: 13px;
+}
+
+.yd-fields .yd-field input[type="text"],
+.yd-fields .yd-field input[type="url"],
+.yd-fields .yd-field input[type="date"],
+.yd-fields .yd-field select {
+	width: 100%;
+	max-width: 100%;
+	min-height: 34px;
+	border-radius: 4px;
+	border-color: #c3c4c7;
+}
+
+.yd-fields .yd-field input:focus,
+.yd-fields .yd-field select:focus {
+	border-color: #b9252b;
+	box-shadow: 0 0 0 1px #b9252b;
+	outline: 2px solid transparent;
+}
+
+.yd-fields .yd-field .description {
+	display: block;
+	margin-top: 4px;
+	color: #646970;
+	font-size: 12px;
+	line-height: 1.45;
+}
+
+.yd-fields .yd-field input[type="checkbox"] {
+	margin-top: 2px;
+}
+
+/* Translation group box in the page sidebar. */
+#yd_meta_page .yd-fields {
+	grid-template-columns: 1fr;
+}
+
+#yd_meta_page .yd-field input[type="text"] {
+	font-family: Consolas, Monaco, monospace;
+	letter-spacing: 0.02em;
+}
+
+/* Seeded content summary on Tools → Yalla Inhalte. */
+.tools_page_yalla-content .wrap > p {
+	max-width: 760px;
+	font-size: 14px;
+	line-height: 1.6;
+}
+
+.tools_page_yalla-content h2 {
+	margin-top: 28px;
+	padding-top: 18px;
+	border-top: 1px solid #dcdcde;
+	max-width: 760px;
+}
+
+.tools_page_yalla-content .button-primary {
+	background: #b9252b;
+	border-color: #9c1f24;
+	box-shadow: none;
+	text-shadow: none;
+}
+
+.tools_page_yalla-content .button-primary:hover,
+.tools_page_yalla-content .button-primary:focus {
+	background: #9c1f24;
+	border-color: #7f181d;
+}
+
+/* Language column in list tables. */
+.column-yd_lang {
+	width: 110px;
+}
+
+.column-yd_lang,
+.fixed .column-yd_lang {
+	font-variant: small-caps;
+	letter-spacing: 0.04em;
+}
+
+/* Event list: keep the date columns narrow and readable. */
+.column-yd_date {
+	width: 140px;
+}
+
+.column-yd_time {
+	width: 120px;
+}
+
+.column-yd_price {
+	width: 230px;
+	color: #50575e;
+}
+
+/* Time inputs match the date inputs. */
+.yd-fields .yd-field input[type="time"] {
+	width: 100%;
+	max-width: 100%;
+	min-height: 34px;
+	border-radius: 4px;
+	border-color: #c3c4c7;
+}
+
+/* Translation switcher in the sidebar. */
+.yd-translations__intro {
+	margin: 0 0 8px;
+	color: #50575e;
+	font-size: 12px;
+}
+
+.yd-translations ul {
+	margin: 0;
+}
+
+.yd-translations li {
+	display: flex;
+	align-items: baseline;
+	gap: 8px;
+	margin: 0 0 6px;
+	padding: 6px 8px;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	background: #fff;
+}
+
+.yd-translations li.is-current {
+	border-color: #b9252b;
+	background: #fdf5f5;
+}
+
+.yd-translations__code {
+	min-width: 26px;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	color: #b9252b;
+}
+
+.yd-translations li a {
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.yd-translations li a:hover {
+	text-decoration: underline;
+}
+
+.yd-translations__hint,
+.yd-translations__missing {
+	margin-left: auto;
+	color: #646970;
+	font-size: 11px;
+}
+
+.yd-translations__missing {
+	color: #b32d2e;
+}
+
+.yd-translations__note {
+	margin: 10px 0 0;
+	color: #646970;
+	font-size: 11px;
+	line-height: 1.5;
+}
+
+/* Dashboard widget. */
+.yd-dash__intro {
+	margin-top: 0;
+	color: #50575e;
+}
+
+.yd-dash__links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 0 0 18px;
+}
+
+.yd-dash__links li {
+	margin: 0;
+}
+
+.yd-dash__links a {
+	display: inline-block;
+	padding: 6px 12px;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	background: #f6f7f7;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.yd-dash__links a:hover {
+	border-color: #b9252b;
+	color: #b9252b;
+}
+
+.yd-dash__title {
+	margin: 0 0 8px;
+	font-size: 13px;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: #50575e;
+}
+
+.yd-dash__events li {
+	display: flex;
+	align-items: baseline;
+	gap: 10px;
+	margin: 0;
+	padding: 6px 0;
+	border-bottom: 1px solid #f0f0f1;
+}
+
+.yd-dash__date {
+	min-width: 52px;
+	font-weight: 600;
+}
+
+.yd-dash__lang {
+	min-width: 26px;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	color: #b9252b;
+}
+
+.yd-dash__time {
+	margin-left: auto;
+	color: #646970;
+	font-size: 12px;
+}
+
+/* Termin in drei Sprachen anlegen. */
+.yd-quick {
+	max-width: 900px;
+}
+
+.yd-quick__intro {
+	max-width: 640px;
+	font-size: 14px;
+	line-height: 1.6;
+	color: #50575e;
+}
+
+.yd-quick__form {
+	margin-top: 18px;
+	padding: 8px 24px 20px;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	background: #fff;
+}
+
+.yd-quick__form .form-table th {
+	width: 180px;
+	font-weight: 600;
+}
+
+.yd-quick__form input[type="date"],
+.yd-quick__form input[type="time"] {
+	min-height: 34px;
+	border-radius: 4px;
+	border-color: #c3c4c7;
+}
+
+.yd-quick__form .yd-inline {
+	margin-right: 4px;
+	color: #50575e;
+}
+
+.yd-quick__form .yd-inline + input {
+	margin-right: 16px;
+}
+
+.yd-req {
+	color: #b32d2e;
+}
+
+.yd-quick__preview {
+	margin: 8px 0 20px;
+	padding: 14px 18px;
+	border-left: 4px solid #b9252b;
+	background: #fdf5f5;
+}
+
+.yd-quick__preview p {
+	margin: 0 0 6px;
+}
+
+.yd-quick__preview ul {
+	margin: 0 0 8px;
+}
+
+.yd-quick__preview li {
+	margin: 0 0 4px;
+}
+
+.yd-quick__lang {
+	display: inline-block;
+	min-width: 28px;
+	margin-right: 6px;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	color: #b9252b;
+}
+
+.yd-quick__form .button-primary {
+	background: #b9252b;
+	border-color: #9c1f24;
+	box-shadow: none;
+	text-shadow: none;
+}
+
+.yd-quick__form .button-primary:hover,
+.yd-quick__form .button-primary:focus {
+	background: #9c1f24;
+	border-color: #7f181d;
+}
+

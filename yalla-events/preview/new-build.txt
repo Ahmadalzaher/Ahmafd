@@ -1,0 +1,147 @@
+	private function build( $name, $event_title, $date, $time, $venue, $persons, $ticket_num, $verify_link, $lang, $output, $event_id = 0 ) {
+		$labels = $this->labels( $lang );
+
+		// The design is authored on a 1620 x 971 canvas; d* helpers map it to the PDF.
+		$named = array();
+		$base  = defined( 'YENA_DIR' ) ? YENA_DIR . 'assets/ticket/' : '';
+		$festival = $this->image_data( $base . 'festival-logo.png' );
+		$pattern  = $this->image_data( $base . 'pattern.png' );
+		$skyline  = $this->image_data( $base . 'skyline.png' );
+		$waves    = $this->image_data( $base . 'waves.png' );
+		if ( $festival ) { $named['Fv'] = $festival; }
+		if ( $pattern )  { $named['Pt'] = $pattern; }
+		if ( $skyline )  { $named['Sk'] = $skyline; }
+		if ( $waves )    { $named['Wv'] = $waves; }
+
+		// Up to four partner logos in the header: Oriental Band plus three participants.
+		$partners = array();
+		foreach ( $this->participant_logos( $event_id ) as $plogo ) {
+			$path  = $this->image_path( $plogo['url'] );
+			$image = $path ? $this->image_data( $path ) : null;
+			if ( $image ) {
+				$partners[] = $image;
+			}
+			if ( count( $partners ) >= 4 ) {
+				break;
+			}
+		}
+		foreach ( $partners as $index => $image ) {
+			$named[ 'Pl' . ( $index + 1 ) ] = $image;
+		}
+
+		// The built-in PDF fonts are Latin only; use the English translation for Arabic titles.
+		$title_text = $this->plain( $event_title );
+		if ( '' === trim( $title_text ) && $event_id ) {
+			$en_id = (int) get_post_meta( $event_id, '_yd_translation_en', true );
+			if ( $en_id ) {
+				$title_text = $this->plain( get_the_title( $en_id ) );
+			}
+		}
+		if ( '' === trim( $title_text ) ) {
+			$title_text = $this->plain( $event_title );
+		}
+
+		$cream = '0.992 0.949 0.859';
+		$brown = '0.251 0.137 0.082';
+		$burg  = '0.647 0.169 0.169';
+		$gold  = '0.788 0.604 0.271';
+
+		$content  = $cream . " rg\n0 0 720 430 re\nf\n";
+		if ( $pattern ) {
+			$content .= $this->dplace( 'Pt', 0, 0, 760, 700 );
+		}
+
+		// Header left: full festival logo (dancer + bilingual name).
+		if ( $festival ) {
+			$content .= $this->dplace( 'Fv', 70, 34, 430, 199 );
+		}
+		// Thin vertical separator between identity and title.
+		$content .= $brown . " rg\n" . $this->dbox( 558, 44, 3, 176 ) . " re\nf\n";
+		// Header center: title and subtitle.
+		$content .= $this->dtext( 'F2', 62, 585, 62, $labels['title'], $brown, 470, true );
+		$content .= $this->dtext( 'F1', 36, 585, 156, 'Arab Kulturfestival', $burg, 470, true );
+
+		// Header right: logos, auto-sized to fit four slots without distortion.
+		if ( $partners ) {
+			$max_w = 300;
+			$max_h = 120;
+			$gap   = 22;
+			$boxes = array();
+			$total = 0;
+			foreach ( $partners as $image ) {
+				$scale   = min( $max_w / max( 1, $image['width'] ), $max_h / max( 1, $image['height'] ) );
+				$w       = round( $image['width'] * $scale, 2 );
+				$h       = round( $image['height'] * $scale, 2 );
+				$boxes[] = array( 'w' => $w, 'h' => $h );
+				$total  += $w;
+			}
+			$total  += $gap * ( count( $boxes ) - 1 );
+			$cursor  = 1576 - $total;
+			foreach ( $boxes as $index => $box ) {
+				$top = 60 + round( ( 120 - $box['h'] ) / 2, 2 );
+				$content .= $this->dplace( 'Pl' . ( $index + 1 ), $cursor, $top, $box['w'], $box['h'] );
+				$cursor  += $box['w'] + $gap;
+			}
+		}
+
+		// Strong horizontal separator under the header.
+		$content .= $brown . " rg\n" . $this->dbox( 0, 247, 1620, 10 ) . " re\nf\n";
+
+		// Dashed vertical divider between the visual and data halves.
+		$content .= $gold . " RG\n0.7 w\n[4 4] 0 d\n";
+		$content .= $this->dx( 445 ) . ' ' . $this->dy( 810 ) . ' m ' . $this->dx( 445 ) . ' ' . $this->dy( 258 ) . " l S\n[] 0 d\n";
+
+		// QR: white panel, thin gold frame, real vector QR inside with a quiet zone.
+		$content .= "1 1 1 rg\n" . $this->dbox( 105, 312, 296, 296 ) . " re\nf\n";
+		$content .= $gold . " RG\n2.7 w\n" . $this->dbox( 105, 312, 296, 296 ) . " re\nS\n";
+		$qr_size = round( 240 * 430 / 971, 2 );
+		$qr_x    = $this->dx( 133 );
+		$qr_y    = $this->dy( 574 );
+		$content .= YENA_QR::pdf_rects( $verify_link, $qr_x, $qr_y, $qr_size, 2 );
+
+		// Hamburg skyline (exact artwork from the reference).
+		if ( $skyline ) {
+			$content .= $this->dplace( 'Sk', 0, 606, 447, 234 );
+		}
+
+		// Right side: ticket data.
+		$content .= $this->dtext( 'F1', 30, 495, 292, $labels['ticket'], '0.45 0.38 0.34' );
+		$content .= $this->dtext( 'F2', 60, 495, 326, $ticket_num, $burg );
+		$content .= $this->dtext( 'F1', 30, 495, 420, $labels['name'], '0.45 0.38 0.34' );
+		$content .= $this->dtext( 'F2', 40, 495, 452, $name, $brown );
+		$content .= $this->dtext( 'F1', 30, 495, 534, $labels['event'], '0.45 0.38 0.34' );
+
+		$event_lines = $this->wrap_lines( $title_text, 720, 36 );
+		foreach ( array_slice( $event_lines, 0, 2 ) as $i => $line ) {
+			$content .= $this->dtext( 'F2', 36, 495, 566 + ( $i * 42 ), $line, $brown );
+		}
+
+		// Date/time row with calendar icon.
+		$content .= $this->icon_calendar( 495, 660, $brown );
+		$content .= $this->dtext( 'F1', 30, 572, 656, $labels['date'] . ' / ' . $labels['time'], '0.45 0.38 0.34' );
+		$content .= $this->dtext( 'F2', 31, 572, 694, $date . '  ' . $time, $brown );
+		// People icon and count.
+		$content .= $this->icon_people( 1052, 660, $brown );
+		$content .= $this->dtext( 'F1', 30, 1124, 656, $labels['persons'], '0.45 0.38 0.34' );
+		$content .= $this->dtext( 'F2', 40, 1124, 694, (string) $persons, $brown );
+		// Thin vertical rule between the two groups.
+		$content .= $brown . " RG\n0.4 w\n" . $this->dx( 1010 ) . ' ' . $this->dy( 742 ) . ' m ' . $this->dx( 1010 ) . ' ' . $this->dy( 650 ) . " l S\n";
+
+		// Location row with pin icon.
+		$content .= $this->icon_pin( 495, 758, $brown );
+		$content .= $this->dtext( 'F1', 30, 572, 758, $labels['venue'], '0.45 0.38 0.34' );
+		$venue_lines = $this->wrap_lines( $venue, 760, 26 );
+		foreach ( array_slice( $venue_lines, 0, 2 ) as $i => $line ) {
+			$content .= $this->dtext( 'F2', 26, 572, 794 + ( $i * 30 ), $line, $brown );
+		}
+
+		// Vertical Code 39 barcode on the far right.
+		$content .= $this->barcode_code39_vertical( $ticket_num, 660, 96, 44, 480 );
+
+		// Decorative waves and footer phrase (exact artwork from the reference).
+		if ( $waves ) {
+			$content .= $this->dplace( 'Wv', 0, 838, 1620, 133 );
+		}
+
+		return $this->write( $content, $output, $named );
+	}

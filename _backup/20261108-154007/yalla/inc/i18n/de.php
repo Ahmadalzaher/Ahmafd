@@ -1,0 +1,214 @@
+<?php
+/**
+ * German interface strings (default language).
+ *
+ * @package Yalla
+ */
+
+return array(
+	// Global chrome.
+	'skip'                 => 'Zum Hauptinhalt springen',
+	'menu'                 => 'Menü',
+	'close'                => 'Schließen',
+	'language'             => 'Sprache',
+	'brand_sub'            => 'Hamburg · Deutschland',
+	'nav_program'          => 'Programm',
+	'nav_events'           => 'Termine',
+	'nav_about'            => 'Über uns',
+	'nav_articles'         => 'Artikel',
+	'nav_press'            => 'Presse',
+	'nav_partners'         => 'Partner',
+	'nav_contact'          => 'Kontakt',
+	'nav_festival'         => 'Festival',
+
+	// Hero.
+	'hero_eyebrow'         => 'Arabische Kultur · Musik · Dabke',
+	'hero_title'           => 'Wo arabische Kultur <em>in Bewegung</em> kommt',
+	'hero_lede'            => 'Das Arab Kulturfestival bringt Musik, Kalligrafie, Literatur und Dabke nach Hamburg. Ein jährliches Fest, das Bilder aufbricht, Räume öffnet und Gemeinschaft feiert.',
+	'hero_cta1'            => 'Kommende Termine',
+	'hero_cta2'            => 'Festivalprogramm',
+	'hero_tag1'            => 'Musik',
+	'hero_tag2'            => 'Dabke',
+	'hero_tag3'            => 'Kalligrafie',
+	'hero_tag4'            => 'Literatur',
+	'hero_scroll'          => 'Entdecken',
+
+	// Programme / events.
+	'program_eyebrow'      => 'Yalla / Programm',
+	'program_title'        => 'Dein nächster Tanz.',
+	'program_cta'          => 'Alle Termine',
+	'program_note'         => 'Nächster Termin je Format · Ortszeit · Alle Termine unter Details',
+	'program_empty'        => 'Neue Termine folgen in Kürze. Schreib uns, wenn du dabei sein möchtest.',
+	'details'              => 'Details',
+	'date'                 => 'Datum',
+	'time'                 => 'Uhrzeit',
+	'venue'                => 'Ort',
+	'city'                 => 'Stadt',
+	'free'                 => 'Eintritt frei',
+	'price'                => 'Preis / Hinweis',
+	'upcoming'             => 'Kommend',
+	'past'                 => 'Vergangen',
+	'next'                 => 'Als Nächstes',
+	'all_events'           => 'Alle Termine ansehen',
+
+	// Statement band.
+	'statement_eyebrow'    => 'Was uns antreibt',
+	'statement_title'      => 'Arabische Kultur ist <em>lebendige Energie</em>',
+	'statement_text'       => 'Von Bühnenauftritten bis zu offenen Werkstätten bleibt der Fokus derselbe: Rhythmus, Zugehörigkeit und eine klare gemeinsame Präsenz im Raum.',
+	'statement_cta'        => 'Mitmachen',
+	'statement_link1'      => 'Programm',
+	'statement_link2'      => 'Community',
+	'statement_link3'      => 'Dein Event',
+
+	// Feature / video.
+	'feature_eyebrow'      => 'Von Marokko bis Europa',
+	'feature_title'        => 'Vertrauen entsteht in Bewegung',
+	'feature_text'         => 'In einer halbkreisförmigen Formation begegnen sich Menschen Hand in Hand und Schulter an Schulter. Synchrone Bewegungen schaffen auf natürliche Weise Vertrauen und psychologische Sicherheit in der Gruppe.',
+	'feature_quote'        => 'Dabke kommt aus Bilad Al-Sham (بلاد الشام) — aus Palästina, Libanon, Syrien und Jordanien.',
+	'feature_play'         => 'Video ansehen',
+	'feature_note'         => 'Video von YouTube · wird erst nach deiner Zustimmung geladen.',
+	'yt_note'              => 'YouTube-Video · wird erst nach deiner Erlaubnis geladen.',
+	'yt_denied'            => 'Du hast YouTube nicht erlaubt. Das Video bleibt deaktiviert.',
+	'yt_play'              => 'Video abspielen',
+
+	// About.
+	'about_eyebrow'        => 'Wer wir sind',
+	'about_title'          => 'Mehr als ein Festival',
+	'about_text'           => 'Das Arab Kulturfestival ist eine Praxis kultureller Kontinuität: kollektive Freude, geteiltes Wissen und Begegnung durch Musik, Tanz und Sprache.',
+	'about_story_title'    => 'Unsere Geschichte',
+	'about_story_text'     => 'Seit Jahren bringen wir arabische Kultur nach Hamburg — im Goldbekhaus, an der Universität und mitten in der Stadt. Getragen von einem Team aus Künstler:innen, Übersetzer:innen und Ehrenamtlichen.',
+	'about_team_title'     => 'Das Team',
+	'about_team_text'      => 'Menschen, die das Festival organisieren, übersetzen, aufbauen und das ganze Jahr über daran arbeiten.',
+	'read_more'            => 'Mehr erfahren',
+
+	// Stats.
+	'stats_eyebrow'        => 'In Zahlen',
+	'stats_title'          => 'Was wir in Bewegung setzen',
+	'stat1_value'          => '04',
+	'stat1_label'          => 'Kunstformen',
+	'stat1_desc'           => 'Musik, Dabke, Kalligrafie und Literatur — jedes Jahr neu kuratiert.',
+	'stat2_value'          => '01',
+	'stat2_label'          => 'Festival im Jahr',
+	'stat2_desc'           => 'Im Goldbekhaus, an der Universität Hamburg und im Stadtraum.',
+	'stat3_value'          => '∞',
+	'stat3_label'          => 'Offen für alle',
+	'stat3_desc'           => 'Viele Formate sind kostenlos und ohne Anmeldung zugänglich.',
+
+	// Marquee.
+	'marquee1'             => 'Gemeinsam',
+	'marquee2'             => 'Im Rhythmus',
+	'marquee3'             => 'In Bewegung',
+	'marquee4'             => 'Offen für alle',
+
+	// Rhythm game.
+	'game_eyebrow'         => 'Lerne die Dabke-Schritte',
+	'game_title'           => 'Ein Schritt. Ein Wir.',
+	'game_text'            => 'Sechs Schritte, ein Rhythmus: rechts, links, rechts, links, rechts, links. Starte den Beat und folge dem hervorgehobenen Fuß.',
+	'game_cta'             => 'Programm entdecken',
+	'game_cta2'            => 'Dabke-Schritt-Trainer',
+	'game_ready'           => 'Bereit',
+	'game_playing'         => 'Läuft',
+	'game_paused'          => 'Pausiert',
+	'game_play'            => 'Abspielen',
+	'game_pause'           => 'Pause',
+	'game_reset'           => 'Zurücksetzen',
+	'game_volume'          => 'Lautstärke',
+	'game_stop'            => 'Stopp',
+	'game_speed'           => 'Tempo',
+	'game_slow'            => 'Langsam',
+	'game_medium'          => 'Mittel',
+	'game_fast'            => 'Schnell',
+	'game_bpm'             => 'BPM',
+	'game_step'            => 'Schritt',
+	'game_order'           => 'Schrittfolge',
+	'game_foot_right'      => 'Rechter Fuß',
+	'game_foot_left'       => 'Linker Fuß',
+	'game_hint'            => 'Tippe auf einen Schritt zum Üben oder starte den Beat. Die sechs Schritte laufen automatisch in der Schleife.',
+	'game_footnote'        => 'Ein spielerisches Rhythmusgefühl. Die echten Dabke-Schritte lernst du bei uns vor Ort.',
+	'game_name'            => 'Yalla!',
+	'game_beat'            => 'Schritt',
+	'game_of'              => 'von',
+
+	// Dabke trainer moves.
+	'move_1'               => 'Linker Fuß kreuzt vorn',
+	'move_1_alt'           => 'Linker Fuß kreuzt vor dem rechten Fuß',
+	'move_1_hint'          => 'Linken Fuß heben und vor den rechten kreuzen.',
+	'move_2'               => 'Rechter Fuß vor',
+	'move_2_alt'           => 'Rechter Fuß tritt vor, linker Fuß bleibt hinten',
+	'move_2_hint'          => 'Mit dem rechten Fuß nach vorn treten.',
+	'move_3'               => 'Linker Fuß vor',
+	'move_3_alt'           => 'Linker Fuß geht vor dem rechten Fuß vorbei',
+	'move_3_hint'          => 'Linken Fuß nach vorn am rechten vorbeiführen.',
+	'move_4'               => 'Rechter Fuß vor',
+	'move_4_alt'           => 'Rechter Fuß geht vor dem linken Fuß vorbei',
+	'move_4_hint'          => 'Rechten Fuß nach vorn am linken vorbeiführen.',
+	'move_5'               => 'Linker Kniehub 90°',
+	'move_5_alt'           => 'Linkes Bein auf 90 Grad angehoben, Knie gebeugt',
+	'move_5_hint'          => 'Linkes Knie auf 90 Grad heben und balancieren.',
+	'move_6'               => 'Linker Fußstampfen',
+	'move_6_alt'           => 'Linker Fuß schlägt auf den Boden, mit Aufpralleffekt',
+	'move_6_hint'          => 'Linken Fuß kräftig aufstampfen.',
+
+	// Testimonials / magazine.
+	'testimonials_eyebrow' => 'Aus dem Festivalmagazin',
+	'testimonials_title'   => 'Stimmen & Texte',
+	'testimonials_text'    => 'Auszüge aus unseren Artikeln — über Dabke, Kalligrafie und das Leben arabischer Kultur im Exil.',
+	'testimonials_cta'     => 'Alle Artikel lesen',
+	'source'               => 'Aus',
+
+	// Occasions.
+	'occasions_eyebrow'    => 'Was wir machen',
+	'occasions_title'      => 'Kultur zum Mitmachen',
+	'occasions_text'       => 'Vier Formate, ein Kreis: entdecke, was zu dir passt.',
+	'occasion_cta'         => 'Format entdecken',
+
+	// Partners.
+	'partners_eyebrow'     => 'Gemeinsam stärker',
+	'partners_title'       => 'Unsere Partner',
+	'partners_text'        => 'Das Festival entsteht mit Menschen und Häusern, die Kultur in Hamburg möglich machen.',
+
+	// CTA band.
+	'cta_title'            => 'Lass uns reden.',
+	'cta_text'             => 'Du möchtest mitmachen, ausstellen, spielen oder berichten? Schreib uns — wir antworten persönlich.',
+	'cta_button'           => 'Kontakt aufnehmen',
+	'cta_button2'          => 'Programm ansehen',
+
+	// Footer.
+	'footer_about'         => 'Arabische Kultur in Hamburg: Musik, Dabke, Kalligrafie und Literatur — getragen von einer Community.',
+	'footer_contact'       => 'Kontakt',
+	'footer_legal'         => 'Rechtliches',
+	'footer_follow'        => 'Folgen Sie uns',
+	'footer_privacy_note'  => 'Keine eigenen Analyse- oder Werbetracker.',
+	'footer_rights'        => 'Alle Rechte vorbehalten.',
+	'footer_made_with'     => 'Kulturarbeit aus Hamburg',
+
+	// Archives & search.
+	'articles_title'       => 'Artikel',
+	'articles_empty'       => 'Noch keine Artikel veröffentlicht.',
+	'no_results'           => 'Nichts gefunden.',
+	'search'               => 'Suchen',
+	'search_placeholder'   => 'Wonach suchst du?',
+	'read_article'         => 'Artikel lesen',
+	'related'              => 'Das könnte dich auch interessieren',
+	'back'                 => 'Zurück',
+	'back_home'            => 'Zur Startseite',
+	'404_title'            => 'Diese Seite ist weitergereist.',
+	'404_text'             => 'Der Link ist vielleicht veraltet. Programm, Team und Kontakt findest du weiterhin hier.',
+	'404_cta'              => 'Zur Startseite',
+	'search_title'         => 'Suchergebnisse für %s',
+
+	// Contact form.
+	'form_name'            => 'Name',
+	'form_email'           => 'E-Mail',
+	'form_subject'         => 'Betreff',
+	'form_message'         => 'Nachricht',
+	'form_send'            => 'Nachricht senden',
+	'form_consent'         => 'Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage gespeichert werden.',
+	'form_ok'              => 'Danke! Deine Nachricht ist angekommen. Wir melden uns persönlich bei dir.',
+	'form_error'           => 'Bitte prüfe die markierten Felder.',
+	'form_required'        => 'Pflichtfeld',
+	'contact_email'        => 'E-Mail',
+	'contact_location'     => 'Ort',
+	'contact_follow'       => 'Folgen Sie uns',
+	'contact_intro'        => 'Du planst einen Workshop, einen Auftritt oder eine Zusammenarbeit? Schick uns die wichtigsten Angaben — wir antworten persönlich.',
+);

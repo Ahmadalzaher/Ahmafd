@@ -1,0 +1,24 @@
+const fs=require('fs');
+let p='D:/oben code/arap-library.de-fix/live-backup/arap-tweaks-2.2.16.php';
+let s=fs.readFileSync(p,'utf8');
+s=s.replace('Version: 2.2.16','Version: 2.2.17');
+const old = `		$html = str_replace( '>Search</', '>بحث</', $html );
+		$html = str_replace( 'Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our', 'سيتم استخدام بياناتك الشخصية لدعم تجربتك في هذا الموقع، وإدارة الوصول إلى حسابك، ولأغراض أخرى موضحة في', $html );
+		$html = str_replace( '>privacy policy<', '>سياسة الخصوصية<', $html );
+		return $html;`;
+const neu = `		$html = str_replace( '>Search</', '>بحث</', $html );
+		$html = str_replace( 'Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our', 'سيتم استخدام بياناتك الشخصية لدعم تجربتك في هذا الموقع، وإدارة الوصول إلى حسابك، ولأغراض أخرى موضحة في', $html );
+		$html = str_replace( '>privacy policy<', '>سياسة الخصوصية<', $html );
+		$html = str_replace( '>WordPress.org<', '>ووردبريس.أورج<', $html );
+		$html = str_replace( 'class="elementor-screen-only">Twitter</span>', 'class="elementor-screen-only">تويتر</span>', $html );
+		$html = str_replace( 'class="elementor-screen-only">Instagram</span>', 'class="elementor-screen-only">إنستغرام</span>', $html );
+		$html = str_replace( 'class="elementor-screen-only">Youtube</span>', 'class="elementor-screen-only">يوتيوب</span>', $html );
+		$html = str_replace( 'class="elementor-screen-only">Envelope</span>', 'class="elementor-screen-only">البريد الإلكتروني</span>', $html );
+		$html = str_replace( 'class="elementor-screen-only">Spotify</span>', 'class="elementor-screen-only">سبوتيفاي</span>', $html );
+		$html = str_replace( 'class="elementor-screen-only">Facebook-f</span>', 'class="elementor-screen-only">فيسبوك</span>', $html );
+		$html = str_replace( 'class="elementor-screen-only">Facebook</span>', 'class="elementor-screen-only">فيسبوك</span>', $html );
+		return $html;`;
+if(!s.includes(old)){console.error('not found'); process.exit(1);}
+s=s.replace(old,neu);
+fs.writeFileSync('D:/oben code/arap-library.de-fix/live-backup/arap-tweaks-2.2.17.php',s,'utf8');
+console.log('ok', s.includes('Version: 2.2.17'));

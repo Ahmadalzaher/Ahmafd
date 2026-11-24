@@ -1,0 +1,49 @@
+{
+  "date": "2026-12-04",
+  "time": "18:00",
+  "end": "21:00",
+  "venue": "Gemeinde St. Markus",
+  "city": "Hamburg",
+  "address": "Heider Straße 1, Hoheluft-Ost",
+  "thumb": 2836,
+  "poster": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-19.webp",
+  "logos": [
+    {
+      "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/11/logo-small.png",
+      "name": "Oriental Band Hamburg",
+      "link": ""
+    }
+  ],
+  "langs": {
+    "de": {
+      "title": "Einladung zur Jahresabschlussfeier 2026",
+      "slug": "jahresabschlussfeier-2026",
+      "excerpt": "Gemeinsam auf ein ereignisreiches Jahr zurückblicken – mit Live-Musik, Bastelangeboten und internationalem Mitbring-Buffet.",
+      "cta_label": "Anmelden",
+      "seo_title": "Jahresabschlussfeier 2026 – 4. Dezember in Hamburg | Hamburger* mit Herz e.V.",
+      "seo_desc": "Einladung zur Jahresabschlussfeier 2026 am Freitag, 4. Dezember, 18:00–21:00 Uhr in der Gemeinde St. Markus, Heider Straße 1, Hamburg. Live-Musik, Bastelangebote und internationales Mitbring-Buffet.",
+      "focus": "Jahresabschlussfeier 2026 Hamburg",
+      "content": "<p>Das Jahr neigt sich dem Ende zu – und wir möchten es gemeinsam mit Dir feiern!</p>\n<p><strong>Freitag, 04. Dezember 2026 | 18:00–21:00 Uhr</strong></p>\n<p><strong>Gemeinde St. Markus</strong><br />\nHeider Straße 1, Hoheluft-Ost</p>\n<p>Wir laden Dich herzlich ein, gemeinsam auf ein ereignisreiches Jahr zurückzublicken und es in festlicher Atmosphäre ausklingen zu lassen.</p>\n<p>Freu Dich auf einen schönen Abend mit:</p>\n<ul>\n<li>Live-Musik von der Oriental Band Hamburg</li>\n<li>Kreativen Bastelangeboten</li>\n<li>Guten Gesprächen und netten Begegnungen</li>\n<li>Einem internationalen Mitbring-Buffet</li>\n</ul>\n<p>Damit unser Buffet so vielfältig wird wie unser Miteinander, bring gerne eine kleine Köstlichkeit aus Deiner Heimat oder Deiner Lieblingsküche mit.</p>\n<p>Für Getränke ist gesorgt.</p>\n<p>Bitte melde Dich über den Anmeldebutton in der Einladung an.</p>\n<p>Wir freuen uns auf Dich!</p>\n<p><strong>Dein Vorstand und Team von Hamburger* mit Herz e.V.</strong></p>"
+    },
+    "ar": {
+      "title": "دعوة للاحتفال بنهاية العام 2026",
+      "slug": "حفل-نهاية-العام-2026",
+      "excerpt": "أمسية احتفالية نستعيد فيها معاً ذكريات العام الحافل — مع موسيقى حية وأنشطة إبداعية وبوفيه عالمي.",
+      "cta_label": "التسجيل",
+      "seo_title": "دعوة للاحتفال بنهاية العام 2026 — 4 ديسمبر في هامبورغ | Hamburger* mit Herz e.V.",
+      "seo_desc": "دعوة للاحتفال بنهاية العام 2026 يوم الجمعة 4 ديسمبر من الساعة 18:00 حتى 21:00 في كنيسة سانت ماركوس، Heider Straße 1 في هامبورغ. موسيقى حية وأنشطة إبداعية وبوفيه عالمي.",
+      "focus": "حفل نهاية العام 2026 هامبورغ",
+      "content": "<p>مع اقتراب نهاية العام، يسعدنا أن نحتفل معاً بهذه المناسبة الجميلة!</p>\n<p><strong>الجمعة، 4 ديسمبر/كانون الأول 2026 | من الساعة 18:00 حتى 21:00</strong></p>\n<p><strong>كنيسة سانت ماركوس – Gemeinde St. Markus</strong><br />\nHeider Straße 1, Hoheluft-Ost</p>\n<p>ندعوك لقضاء أمسية مميزة نستعيد فيها معاً أحداث عام حافل بالتجارب والذكريات، ونودّعه في أجواء احتفالية دافئة.</p>\n<p>ينتظرك برنامج متنوع يتضمن:</p>\n<ul>\n<li>موسيقى حية مع فرقة Oriental Band Hamburg</li>\n<li>أنشطة إبداعية وأعمال يدوية</li>\n<li>لقاءات جميلة وأحاديث ودية</li>\n<li>بوفيه عالمي من أطباق ومأكولات متنوعة</li>\n</ul>\n<p>ولكي تعكس مائدتنا تنوع ثقافاتنا، يسعدنا أن تحضر معك طبقاً صغيراً من مطبخ بلدك أو من أطباقك المفضلة.</p>\n<p>المشروبات متوفرة من طرفنا.</p>\n<p>يرجى التسجيل مسبقاً عبر زر التسجيل الموجود في الدعوة.</p>\n<p>نتطلع إلى لقائك والاحتفال معك!</p>\n<p><strong>مجلس الإدارة وفريق العمل في جمعية Hamburger* mit Herz e.V.</strong></p>"
+    },
+    "en": {
+      "title": "Invitation to the 2026 Year-End Celebration",
+      "slug": "year-end-celebration-2026",
+      "excerpt": "Looking back on an eventful year together – with live music, creative crafts and an international potluck buffet.",
+      "cta_label": "Register",
+      "seo_title": "2026 Year-End Celebration – 4 December in Hamburg | Hamburger* mit Herz e.V.",
+      "seo_desc": "Invitation to the 2026 Year-End Celebration on Friday, 4 December, 6:00–9:00 PM at Gemeinde St. Markus, Heider Straße 1, Hamburg. Live music, arts and crafts, and an international potluck buffet.",
+      "focus": "year-end celebration 2026 Hamburg",
+      "content": "<p>As the year draws to a close, we would love to celebrate it together with you!</p>\n<p><strong>Friday, 4 December 2026 | 6:00 PM – 9:00 PM</strong></p>\n<p><strong>Gemeinde St. Markus</strong><br />\nHeider Straße 1, Hoheluft-Ost</p>\n<p>We warmly invite you to join us for a special evening as we look back on an eventful year and celebrate its end in a festive and welcoming atmosphere.</p>\n<p>Enjoy an evening featuring:</p>\n<ul>\n<li>Live music by Oriental Band Hamburg</li>\n<li>Creative arts and crafts activities</li>\n<li>Great conversations and friendly encounters</li>\n<li>An international potluck buffet</li>\n</ul>\n<p>To make our buffet as diverse as our community, feel free to bring a small dish from your home country or one of your favourite cuisines.</p>\n<p>Drinks will be provided.</p>\n<p>Please register in advance using the registration button in the invitation.</p>\n<p>We look forward to celebrating with you!</p>\n<p><strong>Your Board and Team of Hamburger* mit Herz e.V.</strong></p>"
+    }
+  }
+}

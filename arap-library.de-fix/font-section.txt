@@ -1,0 +1,38 @@
+
+
+/* =========================================================
+ * V2.2.0 - Icon fonts: font-display swap + preload + trim
+ * Rollback: set ARAP_FONT_OPT to false.
+ * ======================================================= */
+define( 'ARAP_FONT_OPT', true );
+
+/* Foundation Icons is enqueued by the WooVina menu-icons module. Its only
+ * icon on this site sits in a nav widget hidden on every breakpoint, so the
+ * stylesheet and its font request are dropped. */
+add_action( 'wp_head', 'arap_font_dequeue_unused', 1 );
+function arap_font_dequeue_unused() {
+	if ( ! ARAP_FONT_OPT || is_admin() ) { return; }
+	wp_dequeue_style( 'foundation-icons' );
+}
+
+add_action( 'wp_head', 'arap_font_face_override', 99 );
+function arap_font_face_override() {
+	if ( ! ARAP_FONT_OPT || is_admin() ) { return; }
+
+	$theme = get_template_directory_uri();
+	$plug  = plugins_url();
+
+	// Preload the two icon fonts that are used above the fold.
+	echo '<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="' . esc_url( $theme . '/assets/fonts/fontawesome/webfonts/fa-solid-900.woff2' ) . '">' . "\n";
+	echo '<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="' . esc_url( $theme . '/assets/fonts/simple-line-icons/Simple-Line-Icons.woff2?v=2.4.0' ) . '">' . "\n";
+
+	// Theme Font Awesome 5 ships font-display:block. Re-declaring the same
+	// family/weight later in the cascade switches it to swap without a new
+	// download (identical src URL).
+	$css  = '@font-face{font-family:"Font Awesome 5 Brands";font-style:normal;font-weight:400;font-display:swap;src:url("' . esc_url_raw( $theme . '/assets/fonts/fontawesome/webfonts/fa-brands-400.woff2' ) . '") format("woff2")}';
+	$css .= '@font-face{font-family:"Font Awesome 5 Free";font-style:normal;font-weight:400;font-display:swap;src:url("' . esc_url_raw( $theme . '/assets/fonts/fontawesome/webfonts/fa-regular-400.woff2' ) . '") format("woff2")}';
+	$css .= '@font-face{font-family:"Font Awesome 5 Free";font-style:normal;font-weight:900;font-display:swap;src:url("' . esc_url_raw( $theme . '/assets/fonts/fontawesome/webfonts/fa-solid-900.woff2' ) . '") format("woff2")}';
+	$css .= '@font-face{font-family:eicons-bc;font-style:normal;font-weight:400;font-display:swap;src:url("' . esc_url_raw( $plug . '/woovina-elementor-widgets/assets/css/eicons-bc/fonts/eicons-bc.woff2?1.0.0' ) . '") format("woff2")}';
+
+	echo '<style id="arap-font-display">' . $css . '</style>' . "\n";
+}

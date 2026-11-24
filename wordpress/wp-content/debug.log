@@ -1,0 +1,122 @@
+[01-Nov-2026 11:38:10 UTC] PHP Warning:  Undefined variable $self in D:\oben code\wordpress\wp-content\plugins\yalla-engage\includes\class-yen-db.php on line 66
+[01-Nov-2026 11:38:18 UTC] PHP Warning:  Undefined variable $self in D:\oben code\wordpress\wp-content\plugins\yalla-engage\includes\class-yen-db.php on line 66
+[01-Nov-2026 11:38:21 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in D:\oben code\wordpress\wp-includes\Requests\src\Transport\Curl.php on line 206
+[01-Nov-2026 11:38:54 UTC] WordPress database error <div style="clear:both">&nbsp;</div>
+<div class="queries" style="clear:both;margin-bottom:2px;border:red dotted thin;">
+<p>MySQL query:</p>
+<p>SELECT ID FROM wp_posts WHERE post_type = 'yd_event' AND post_status = 'publish' AND _yd_date BETWEEN '2026-11-02 00:00:00' AND '2026-11-02 23:59:59'</p>
+<p>Queries made or created this session were:</p>
+<ol>
+<li>Executing: SELECT `ID` FROM `wp_posts` WHERE `post_type` = &#039;yd_event&#039; AND `post_status` = &#039;publish&#039; AND `_yd_date` BETWEEN &#039;2026-11-02 00:00:00&#039; AND &#039;2026-11-02 23:59:59&#039; | (no parameters)</li>
+</ol>
+</div>
+<div style="clear:both;margin-bottom:2px;border:red dotted thin;" class="error_message" style="border-bottom:dotted blue thin;">
+SQLSTATE[HY000]: General error: 1 no such column: _yd_date
+</div>
+<p>Backtrace:</p>
+<pre>#0 D:\oben code\wordpress\wp-content\plugins\sqlite-database-integration\wp-includes\database\sqlite\class-wp-mysql-on-sqlite.php(8217): WP_MySQL_On_SQLite->new_driver_exception('SQLSTATE[HY000]...', 'HY000', Object(PDOException))
+#1 D:\oben code\wordpress\wp-content\plugins\sqlite-database-integration\wp-includes\database\sqlite\class-wp-mysql-on-sqlite.php(1235): WP_MySQL_On_SQLite->convert_sqlite_exception(Object(PDOException))
+#2 D:\oben code\wordpress\wp-content\plugins\sqlite-database-integration\wp-includes\sqlite\class-wp-sqlite-db.php(676): WP_MySQL_On_SQLite->query('SELECT ID FROM ...', 5)
+#3 D:\oben code\wordpress\wp-content\plugins\sqlite-database-integration\wp-includes\sqlite\class-wp-sqlite-db.php(596): WP_SQLite_DB->_do_query('SELECT ID FROM ...')
+#4 D:\oben code\wordpress\wp-includes\class-wpdb.php(3145): WP_SQLite_DB->query('SELECT ID FROM ...')
+#5 D:\oben code\wordpress\wp-content\plugins\yalla-engage\includes\class-yen-cron.php(55): wpdb->get_col('SELECT ID FROM ...')
+#6 D:\oben code\wordpress\wp-includes\class-wp-hook.php(353): YENA_Cron->send_reminders()
+#7 D:\oben code\wordpress\wp-includes\class-wp-hook.php(377): WP_Hook->apply_filters('', Array)
+#8 D:\oben code\wordpress\wp-includes\plugin.php(571): WP_Hook->do_action(Array)
+#9 D:\oben code\wordpress\wp-cron.php(191): do_action_ref_array('yena_send_remin...', Array)
+#10 {main}</pre>
+ for query SELECT ID FROM wp_posts WHERE post_type = 'yd_event' AND post_status = 'publish' AND _yd_date BETWEEN '2026-11-02 00:00:00' AND '2026-11-02 23:59:59' made by do_action_ref_array('yena_send_reminders'), WP_Hook->do_action, WP_Hook->apply_filters, YENA_Cron->send_reminders, WP_SQLite_DB->query, WP_SQLite_DB->print_error
+[01-Nov-2026 11:39:00 UTC] WordPress database error <div style="clear:both">&nbsp;</div>
+<div class="queries" style="clear:both;margin-bottom:2px;border:red dotted thin;">
+<p>MySQL query:</p>
+<p>PRAGMA table_info(wp_yena_registrations)</p>
+<p>Queries made or created this session were:</p>
+<ol>
+</ol>
+</div>
+<div style="clear:both;margin-bottom:2px;border:red dotted thin;" class="error_message" style="border-bottom:dotted blue thin;">
+Failed to parse the MySQL query.
+</div>
+<p>Backtrace:</p>
+<pre>#0 D:\oben code\wordpress\wp-content\plugins\sqlite-database-integration\wp-includes\database\sqlite\class-wp-mysql-on-sqlite.php(1121): WP_MySQL_On_SQLite->new_driver_exception('Failed to parse...')
+#1 D:\oben code\wordpress\wp-content\plugins\sqlite-database-integration\wp-includes\sqlite\class-wp-sqlite-db.php(676): WP_MySQL_On_SQLite->query('PRAGMA table_in...', 5)
+#2 D:\oben code\wordpress\wp-content\plugins\sqlite-database-integration\wp-includes\sqlite\class-wp-sqlite-db.php(596): WP_SQLite_DB->_do_query('PRAGMA table_in...')
+#3 D:\oben code\wordpress\wp-includes\class-wpdb.php(3145): WP_SQLite_DB->query('PRAGMA table_in...')
+#4 C:\Users\ahmad\AppData\Local\Temp\opencode\wp-state.php(30): wpdb->get_col('PRAGMA table_in...')
+#5 {main}</pre>
+ for query PRAGMA table_info(wp_yena_registrations) made by WP_SQLite_DB->query, WP_SQLite_DB->print_error
+[01-Nov-2026 13:31:49 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in D:\oben code\wordpress\wp-includes\class-wp-list-util.php:110
+Stack trace:
+#0 D:\oben code\wordpress\wp-includes\functions.php(5426): WP_List_Util->filter('yd_registration', 'AND')
+#1 D:\oben code\wordpress\wp-includes\post.php(1690): wp_filter_object_list(Array, 'yd_registration', 'and', 'name')
+#2 C:\Users\ahmad\AppData\Local\Temp\opencode\state-check.php(42): get_post_types('yd_registration')
+#3 {main}
+  thrown in D:\oben code\wordpress\wp-includes\class-wp-list-util.php on line 110
+[01-Nov-2026 13:32:09 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_all_options() in C:\Users\ahmad\AppData\Local\Temp\opencode\deep-check.php:33
+Stack trace:
+#0 {main}
+  thrown in C:\Users\ahmad\AppData\Local\Temp\opencode\deep-check.php on line 33
+[01-Nov-2026 13:32:50 UTC] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, false given in C:\Users\ahmad\AppData\Local\Temp\opencode\check-options.php:7
+Stack trace:
+#0 {main}
+  thrown in C:\Users\ahmad\AppData\Local\Temp\opencode\check-options.php on line 7
+[05-Nov-2026 10:47:27 UTC] PHP Warning:  Undefined property: stdClass::$roles in D:\oben code\wordpress\_inspect.php on line 10
+[05-Nov-2026 10:47:52 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>yalla-engage</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in D:\oben code\wordpress\wp-includes\functions.php on line 6260
+[05-Nov-2026 10:48:44 UTC] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function yena_add_poster_meta_box(), 1 passed in D:\oben code\wordpress\wp-includes\class-wp-hook.php on line 355 and exactly 2 expected in D:\oben code\wordpress\wp-content\plugins\yalla-engage\includes\class-yen-admin.php:664
+Stack trace:
+#0 D:\oben code\wordpress\wp-includes\class-wp-hook.php(355): yena_add_poster_meta_box('yd_event')
+#1 D:\oben code\wordpress\wp-includes\class-wp-hook.php(377): WP_Hook->apply_filters('', Array)
+#2 D:\oben code\wordpress\wp-includes\plugin.php(523): WP_Hook->do_action(Array)
+#3 D:\oben code\wordpress\_test_boxes.php(42): do_action('add_meta_boxes', 'yd_event', Object(WP_Post))
+#4 {main}
+  thrown in D:\oben code\wordpress\wp-content\plugins\yalla-engage\includes\class-yen-admin.php on line 664
+[05-Nov-2026 10:49:09 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function add_meta_box() in D:\oben code\wordpress\wp-content\plugins\yalla-engage\includes\class-yen-admin.php:673
+Stack trace:
+#0 D:\oben code\wordpress\wp-includes\class-wp-hook.php(353): yena_add_poster_meta_box('yd_event', Object(WP_Post))
+#1 D:\oben code\wordpress\wp-includes\class-wp-hook.php(377): WP_Hook->apply_filters('', Array)
+#2 D:\oben code\wordpress\wp-includes\plugin.php(523): WP_Hook->do_action(Array)
+#3 D:\oben code\wordpress\_test_boxes.php(42): do_action('add_meta_boxes', 'yd_event', Object(WP_Post))
+#4 {main}
+  thrown in D:\oben code\wordpress\wp-content\plugins\yalla-engage\includes\class-yen-admin.php on line 673
+[05-Nov-2026 10:49:20 UTC] PHP Notice:  Function convert_to_screen(), add_meta_box() was called <strong>incorrectly</strong>. Likely direct inclusion of <code>wp-admin/includes/template.php</code> in order to use <code>add_meta_box()</code>. This is very wrong. Hook the <code>add_meta_box()</code> call into the <code>add_meta_boxes</code> action instead. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 3.3.0.) in D:\oben code\wordpress\wp-includes\functions.php on line 6260
+[05-Nov-2026 10:49:20 UTC] PHP Notice:  Function convert_to_screen(), add_meta_box() was called <strong>incorrectly</strong>. Likely direct inclusion of <code>wp-admin/includes/template.php</code> in order to use <code>add_meta_box()</code>. This is very wrong. Hook the <code>add_meta_box()</code> call into the <code>add_meta_boxes</code> action instead. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 3.3.0.) in D:\oben code\wordpress\wp-includes\functions.php on line 6260
+[05-Nov-2026 10:49:20 UTC] PHP Notice:  Function convert_to_screen(), add_meta_box() was called <strong>incorrectly</strong>. Likely direct inclusion of <code>wp-admin/includes/template.php</code> in order to use <code>add_meta_box()</code>. This is very wrong. Hook the <code>add_meta_box()</code> call into the <code>add_meta_boxes</code> action instead. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 3.3.0.) in D:\oben code\wordpress\wp-includes\functions.php on line 6260
+[05-Nov-2026 10:49:20 UTC] PHP Notice:  Function convert_to_screen(), add_meta_box() was called <strong>incorrectly</strong>. Likely direct inclusion of <code>wp-admin/includes/template.php</code> in order to use <code>add_meta_box()</code>. This is very wrong. Hook the <code>add_meta_box()</code> call into the <code>add_meta_boxes</code> action instead. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 3.3.0.) in D:\oben code\wordpress\wp-includes\functions.php on line 6260
+[05-Nov-2026 10:49:20 UTC] PHP Notice:  Function convert_to_screen(), add_meta_box() was called <strong>incorrectly</strong>. Likely direct inclusion of <code>wp-admin/includes/template.php</code> in order to use <code>add_meta_box()</code>. This is very wrong. Hook the <code>add_meta_box()</code> call into the <code>add_meta_boxes</code> action instead. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 3.3.0.) in D:\oben code\wordpress\wp-includes\functions.php on line 6260
+[05-Nov-2026 10:49:20 UTC] PHP Notice:  Function convert_to_screen(), add_meta_box() was called <strong>incorrectly</strong>. Likely direct inclusion of <code>wp-admin/includes/template.php</code> in order to use <code>add_meta_box()</code>. This is very wrong. Hook the <code>add_meta_box()</code> call into the <code>add_meta_boxes</code> action instead. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 3.3.0.) in D:\oben code\wordpress\wp-includes\functions.php on line 6260
+[05-Nov-2026 10:49:20 UTC] PHP Notice:  Function convert_to_screen(), add_meta_box() was called <strong>incorrectly</strong>. Likely direct inclusion of <code>wp-admin/includes/template.php</code> in order to use <code>add_meta_box()</code>. This is very wrong. Hook the <code>add_meta_box()</code> call into the <code>add_meta_boxes</code> action instead. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 3.3.0.) in D:\oben code\wordpress\wp-includes\functions.php on line 6260
+[05-Nov-2026 10:49:20 UTC] PHP Notice:  Function convert_to_screen(), add_meta_box() was called <strong>incorrectly</strong>. Likely direct inclusion of <code>wp-admin/includes/template.php</code> in order to use <code>add_meta_box()</code>. This is very wrong. Hook the <code>add_meta_box()</code> call into the <code>add_meta_boxes</code> action instead. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 3.3.0.) in D:\oben code\wordpress\wp-includes\functions.php on line 6260
+[05-Nov-2026 10:49:20 UTC] PHP Notice:  Function convert_to_screen(), add_meta_box() was called <strong>incorrectly</strong>. Likely direct inclusion of <code>wp-admin/includes/template.php</code> in order to use <code>add_meta_box()</code>. This is very wrong. Hook the <code>add_meta_box()</code> call into the <code>add_meta_boxes</code> action instead. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 3.3.0.) in D:\oben code\wordpress\wp-includes\functions.php on line 6260
+[05-Nov-2026 10:49:20 UTC] PHP Notice:  Function convert_to_screen(), add_meta_box() was called <strong>incorrectly</strong>. Likely direct inclusion of <code>wp-admin/includes/template.php</code> in order to use <code>add_meta_box()</code>. This is very wrong. Hook the <code>add_meta_box()</code> call into the <code>add_meta_boxes</code> action instead. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 3.3.0.) in D:\oben code\wordpress\wp-includes\functions.php on line 6260
+[05-Nov-2026 10:49:20 UTC] PHP Notice:  Function convert_to_screen(), add_meta_box() was called <strong>incorrectly</strong>. Likely direct inclusion of <code>wp-admin/includes/template.php</code> in order to use <code>add_meta_box()</code>. This is very wrong. Hook the <code>add_meta_box()</code> call into the <code>add_meta_boxes</code> action instead. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 3.3.0.) in D:\oben code\wordpress\wp-includes\functions.php on line 6260
+[05-Nov-2026 10:49:20 UTC] PHP Notice:  Function convert_to_screen(), add_meta_box() was called <strong>incorrectly</strong>. Likely direct inclusion of <code>wp-admin/includes/template.php</code> in order to use <code>add_meta_box()</code>. This is very wrong. Hook the <code>add_meta_box()</code> call into the <code>add_meta_boxes</code> action instead. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 3.3.0.) in D:\oben code\wordpress\wp-includes\functions.php on line 6260
+[05-Nov-2026 10:49:20 UTC] PHP Notice:  Function convert_to_screen(), add_meta_box() was called <strong>incorrectly</strong>. Likely direct inclusion of <code>wp-admin/includes/template.php</code> in order to use <code>add_meta_box()</code>. This is very wrong. Hook the <code>add_meta_box()</code> call into the <code>add_meta_boxes</code> action instead. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 3.3.0.) in D:\oben code\wordpress\wp-includes\functions.php on line 6260
+[05-Nov-2026 10:49:20 UTC] PHP Notice:  Function convert_to_screen(), add_meta_box() was called <strong>incorrectly</strong>. Likely direct inclusion of <code>wp-admin/includes/template.php</code> in order to use <code>add_meta_box()</code>. This is very wrong. Hook the <code>add_meta_box()</code> call into the <code>add_meta_boxes</code> action instead. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 3.3.0.) in D:\oben code\wordpress\wp-includes\functions.php on line 6260
+[05-Nov-2026 10:49:20 UTC] PHP Notice:  Function convert_to_screen(), add_meta_box() was called <strong>incorrectly</strong>. Likely direct inclusion of <code>wp-admin/includes/template.php</code> in order to use <code>add_meta_box()</code>. This is very wrong. Hook the <code>add_meta_box()</code> call into the <code>add_meta_boxes</code> action instead. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 3.3.0.) in D:\oben code\wordpress\wp-includes\functions.php on line 6260
+[05-Nov-2026 10:49:20 UTC] PHP Notice:  Function convert_to_screen(), add_meta_box() was called <strong>incorrectly</strong>. Likely direct inclusion of <code>wp-admin/includes/template.php</code> in order to use <code>add_meta_box()</code>. This is very wrong. Hook the <code>add_meta_box()</code> call into the <code>add_meta_boxes</code> action instead. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 3.3.0.) in D:\oben code\wordpress\wp-includes\functions.php on line 6260
+[05-Nov-2026 10:49:20 UTC] PHP Notice:  Function convert_to_screen(), add_meta_box() was called <strong>incorrectly</strong>. Likely direct inclusion of <code>wp-admin/includes/template.php</code> in order to use <code>add_meta_box()</code>. This is very wrong. Hook the <code>add_meta_box()</code> call into the <code>add_meta_boxes</code> action instead. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 3.3.0.) in D:\oben code\wordpress\wp-includes\functions.php on line 6260
+[05-Nov-2026 10:49:28 UTC] PHP Fatal error:  Uncaught Error: Class "WP_Screen" not found in D:\oben code\wordpress\wp-admin\includes\screen.php:243
+Stack trace:
+#0 D:\oben code\wordpress\_test_boxes.php(44): set_current_screen('yd_event')
+#1 {main}
+  thrown in D:\oben code\wordpress\wp-admin\includes\screen.php on line 243
+[05-Nov-2026 11:02:33 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function submit_button() in D:\oben code\wordpress\wp-content\plugins\yalla-engage\templates\settings.php:147
+Stack trace:
+#0 D:\oben code\wordpress\_test_settings.php(9): include()
+#1 {main}
+  thrown in D:\oben code\wordpress\wp-content\plugins\yalla-engage\templates\settings.php on line 147
+[05-Nov-2026 11:02:39 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function submit_button() in D:\oben code\wordpress\wp-content\plugins\yalla-engage\templates\settings.php:147
+Stack trace:
+#0 D:\oben code\wordpress\_test_settings.php(9): include()
+#1 {main}
+  thrown in D:\oben code\wordpress\wp-content\plugins\yalla-engage\templates\settings.php on line 147
+[05-Nov-2026 11:02:51 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at D:\oben code\wordpress\_test_settings.php:13) in D:\oben code\wordpress\wp-includes\pluggable.php on line 1539
+[05-Nov-2026 11:02:51 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at D:\oben code\wordpress\_test_settings.php:13) in D:\oben code\wordpress\wp-includes\pluggable.php on line 1542
+[05-Nov-2026 11:03:08 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at D:\oben code\wordpress\_test_settings.php:13) in D:\oben code\wordpress\wp-includes\pluggable.php on line 1539
+[05-Nov-2026 11:03:08 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at D:\oben code\wordpress\_test_settings.php:13) in D:\oben code\wordpress\wp-includes\pluggable.php on line 1542
+[08-Nov-2026 14:50:17 UTC] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in D:\oben code\wordpress\wp-includes\Requests\src\Transport\Curl.php on line 205
+[08-Nov-2026 14:54:14 UTC] yd_rank_math_og_image: image empty, queried=112
+[08-Nov-2026 14:54:14 UTC] yd_rank_math_og_image: stored=
+[08-Nov-2026 14:54:14 UTC] yd_rank_math_og_image: image empty, queried=112
+[08-Nov-2026 14:54:14 UTC] yd_rank_math_og_image: stored=
+[08-Nov-2026 15:12:50 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>seo-by-rank-math</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in D:\oben code\wordpress\wp-includes\functions.php on line 6260

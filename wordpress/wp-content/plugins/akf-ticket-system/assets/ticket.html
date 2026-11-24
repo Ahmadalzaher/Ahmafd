@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="de" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>ARAB KULTURFESTIVAL — Eintrittskarte</title>
+<style>
+  /* Palette */
+  :root {
+    --cream: #F8F0DF;
+    --beige: #E9D3A6;
+    --brown: #402315;
+    --burg: #A52B2B;
+    --gold: #C99A45;
+  }
+  html, body { margin:0; padding:0; }
+  .ticket {
+    width: 1620px; height: 971px; max-width: 100%; background: var(--cream);
+    position: relative; overflow: hidden; font-family: 'Segoe UI', Arial, sans-serif;
+  }
+  .ticket .header { position: absolute; top:0; left:0; right:0; height: 25.5vh; background: var(--cream); border-bottom: 4px solid var(--brown); display:flex; }
+  .ticket .main { position: absolute; top: 25.5vh; left:0; right:0; bottom: 8vh; display:flex; }
+  .ticket .footer { position: absolute; bottom: 0; left:0; right:0; height: 8vh; background: var(--brown); }
+  .left { width: 27%; padding: 12px; }
+  .right { width: 73%; border-left: 2px dashed var(--gold); background: var(--cream); padding: 12px; }
+  .festival { font-weight: bold; color: var(--brown); font-size: 22px; }
+  .title { position: absolute; top: 20vh; left: 0; width: 100%; text-align:center; font-weight:bold; color: var(--brown); font-size: 32px; }
+  .subtitle { font-weight:bold; color: var(--burg); font-size: 14px; }
+  .partner { position: absolute; right: 0; top: 10vh; height: fit-content; font-size: 18px; }
+  .qr { background: #fff; border: 3px solid var(--gold); border-radius: 8px; width: 64vh; height: 64vh; }
+  .fields { font-size: 13px; color: var(--brown); }
+  .fields b, .fields strong { color: var(--burg); font-weight: bold; }
+  .footer-text { position: absolute; bottom: 3vh; right: 12px; color: #fff; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="ticket">
+  <div class="header">
+    <div style="padding:8px 20px">
+      <div class="festival">Arab Kulturfestival</div>
+      <div class="subtitle">Mahragan al-Thaqafa al-Arabiya</div>
+      <div class="subtitle">Arab Kulturfestival</div>
+    </div>
+    <div class="partner">Oriental Band Hamburg</div>
+  </div>
+  <div class="main">
+    <div class="left">
+      <div class="qr">
+        <!-- QR placeholder area: black squares approximating QR -->
+        <svg width="100%" height="100%" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" fill="#000">
+          <rect x="0" y="0" width="65" height="65"/>
+          <rect x="65" y="0" width="65" height="65" fill="#fff"/>
+          <rect x="130" y="0" width="65" height="65"/>
+          <rect x="0" y="65" width="65" height="65" fill="#fff"/>
+          <rect x="65" y="65" width="65" height="65"/>
+          <rect x="130" y="65" width="65" height="65" fill="#fff"/>
+          <rect x="0" y="130" width="65" height="65"/>
+          <rect x="65" y="130" width="65" height="65" fill="#fff"/>
+          <rect x="130" y="130" width="65" height="65"/>
+        </svg>
+      </div>
+    </div>
+    <div class="right">
+      <div class="fields">
+        <div><b>Ticket-Nummer</b><br><strong>AKF-2026-000123</strong></div><br>
+        <div>Name:&nbsp;<strong>Ahmad Alzaher</strong></div><br>
+        <div>Veranstaltung:&nbsp;Einladung zur Jahresabschlussfeier 2026</div><br>
+        <div>Datum / Uhrzeit:&nbsp;04.12.2026 | 18:00 - 21:00</div><br>
+        <div>Personen:&nbsp;<strong>2</strong></div><br>
+        <div>Ort:&nbsp;Gemeinde St. Markus, Heider Str. 1, 20251 Hamburg-Nord</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-text">Gemeinsam feiern – Kultur leben</div>
+  </div>
+</div>
+</body>
+</html>

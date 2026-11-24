@@ -1,0 +1,10 @@
+date,query,source,country,device,position,ranking_url,impressions,clicks,ctr,notes
+2026-11-11,Dabke Hamburg,search-integration,DE,desktop,7,https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-12-03-2/,,,,baseline: event page ranks; service page not indexed at all
+2026-11-11,Dabke Kurs Hamburg,search-integration,DE,desktop,>10,,,,,,baseline: not visible in top 10; service page unknown to Google
+2026-11-11,-,gsc,-,-,-,-,,106,,total web clicks last ~3 months (context)
+2026-11-25,Dabke Hamburg,gsc,DE,all,,,,,,,check 1 (2 weeks): expect 88 discovered in sitemaps + service pages indexed
+2026-11-25,Dabke Kurs Hamburg,gsc,DE,all,,,,,,,check 1 (2 weeks)
+2026-12-02,Dabke Hamburg,gsc,DE,all,,,,,,,check 2 (3 weeks)
+2026-12-02,Dabke Kurs Hamburg,gsc,DE,all,,,,,,,check 2 (3 weeks)
+2026-12-09,Dabke Hamburg,gsc,DE,all,,,,,,,check 3 (4 weeks)
+2026-12-09,Dabke Kurs Hamburg,gsc,DE,all,,,,,,,check 3 (4 weeks)

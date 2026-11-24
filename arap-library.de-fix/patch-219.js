@@ -1,0 +1,26 @@
+const fs=require('fs');
+let p='D:/oben code/arap-library.de-fix/live-backup/arap-tweaks-2.2.18.php';
+let s=fs.readFileSync(p,'utf8');
+s=s.replace('Version: 2.2.18','Version: 2.2.19');
+const oldOb = `		$html = str_replace( 'الرمز البريدي / ZIP', 'الرمز البريدي', $html );
+		$html = str_replace( '>Billing details<', '>تفاصيل الفاتورة<', $html );
+		$html = str_replace( '>Your order<', '>طلبك<', $html );
+		$html = str_replace( '>Have a coupon?<', '>لديك قسيمة؟<', $html );
+		$html = str_replace( '>Click here to enter your code<', '>انقر هنا لإدخال الرمز<', $html );
+		return $html;`;
+const newOb = `		$html = str_replace( 'الرمز البريدي / ZIP', 'الرمز البريدي', $html );
+		$html = str_replace( 'الرمز البريدي&nbsp;/ ZIP', 'الرمز البريدي', $html );
+		$html = str_replace( 'Postcode / ZIP', 'الرمز البريدي', $html );
+		$html = str_replace( '>Billing details<', '>تفاصيل الفاتورة<', $html );
+		$html = str_replace( '>Your order<', '>طلبك<', $html );
+		$html = str_replace( '>Have a coupon?<', '>لديك قسيمة؟<', $html );
+		$html = str_replace( '>Click here to enter your code<', '>انقر هنا لإدخال الرمز<', $html );
+		$html = str_replace( '>Privacy Policy<', '>سياسة الخصوصية<', $html );
+		$html = str_replace( 'Datenschutzerklärung – Arap Library', 'سياسة الخصوصية – مكتبة آراب', $html );
+		$html = str_replace( 'Datenschutzerklärung - Arap Library', 'سياسة الخصوصية – مكتبة آراب', $html );
+		$html = str_replace( '>PayPal<', '>باي بال<', $html );
+		return $html;`;
+if(!s.includes(oldOb)){console.error('not found'); process.exit(1);}
+s=s.replace(oldOb,newOb);
+fs.writeFileSync('D:/oben code/arap-library.de-fix/live-backup/arap-tweaks-2.2.19.php',s,'utf8');
+console.log('ok');

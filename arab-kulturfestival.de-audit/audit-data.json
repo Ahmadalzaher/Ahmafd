@@ -1,0 +1,551 @@
+{
+  "audit": {
+    "url": "https://arab-kulturfestival.de/",
+    "domain": "arab-kulturfestival.de",
+    "date": "2026-11-08",
+    "pages_crawled": 91,
+    "pages_in_sitemap": 91,
+    "platform": "WordPress 7.1.4 / Rank Math / Yalla theme",
+    "languages": ["de", "en", "ar"],
+    "tooling": "Claude SEO v2.5.0"
+  },
+  "summary": {
+    "health_score": 74,
+    "business_type": "Local cultural organisation / event series (Hamburg, Germany)",
+    "top_findings": [
+      "9 duplicate/legacy URLs live, self-canonical and in the sitemap",
+      "All 12 /angebot/ service pages orphaned (zero inbound internal links)",
+      "18 event URLs have non-reciprocal hreflang (DE/EN/AR not linked)",
+      "Hero image is a 180 KB JPEG with no dimensions, fetchpriority or alt",
+      "184 of 618 images (29.8%) missing alt text",
+      "Event schema has no offers - Event rich results blocked",
+      "Placeholder meta descriptions ('Your Attractive Heading') on legacy pages",
+      "Homepage carries 3.47 MB of images across 61 files"
+    ],
+    "quick_wins": [
+      "301 the 9 legacy duplicate URLs and remove from sitemap",
+      "Add offers to Event schema (unlocks event rich results)",
+      "Add services block to homepage - fixes 12 orphan pages",
+      "Replace 3 placeholder meta descriptions",
+      "Convert hero image to WebP with width/height/fetchpriority",
+      "Create a 1200x630 OG image (current is a 639x219 logo)"
+    ],
+    "measured": {
+      "pages_http_200": 91,
+      "broken_internal_links": 0,
+      "broken_images": 0,
+      "internal_redirects": 5,
+      "orphan_pages": 19,
+      "unreachable_from_home": 27,
+      "median_ttfb_ms": { "home": 676, "inner_pages": "524-637" },
+      "homepage_html_gzip_kb": 107,
+      "homepage_images_mb": 3.47,
+      "images_total": 618,
+      "images_missing_alt": 184,
+      "images_missing_dimensions": 274,
+      "duplicate_title_groups": 2,
+      "duplicate_description_groups": 3,
+      "near_duplicate_pairs": 64,
+      "hreflang_reciprocity_failures": 18
+    },
+    "not_measured": [
+      "Core Web Vitals (PSI rate limit exceeded)",
+      "Rendered mobile/desktop screenshots (Playwright not installed)",
+      "Backlink profile (no credentials)",
+      "Search Console / GA4 (no credentials)",
+      "Live SERP positions (no SERP API)"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "weight": 0.22,
+      "score": 78,
+      "what_works": [
+        "HTTPS with correct http->https and www->non-www 301s",
+        "robots.txt allows crawling and declares the sitemap index",
+        "91/91 sitemap URLs return 200",
+        "91/91 self-referencing canonicals, no accidental noindex",
+        "Real 404 responses, server-rendered content, correct lang/dir"
+      ],
+      "findings": [
+        {
+          "title": "9 duplicate/legacy URLs live and self-canonical",
+          "severity": "High",
+          "description": "Legacy slugs (/2147-2/, /privacy-policy/, /festivalprogramm/, /kulturartikel/, /arab-kulturfestival-2/, /arabische-musik/, /arabische-musik-2/, /kalligrafie/, /kalligrafie-2/, /arabische-kultur-im-exil-2/) are indexable and in the sitemap.",
+          "recommendation": "301 each to the current equivalent and remove from the sitemap."
+        },
+        {
+          "title": "19 orphan pages, 27 unreachable from home",
+          "severity": "High",
+          "description": "All 12 /angebot/ service pages have zero inbound internal links; /festivalprogramm/, /kulturartikel/, /newsletter/, /privacy-policy/, /2147-2/ and both category archives are also orphaned.",
+          "recommendation": "Add a services block to the homepage and /festival/; link /angebot/ from navigation or footer."
+        },
+        {
+          "title": "Security headers missing",
+          "severity": "Medium",
+          "description": "No HSTS, CSP, X-Content-Type-Options, X-Frame-Options or Referrer-Policy. X-Powered-By exposes PHP/8.4.27.",
+          "recommendation": "Add the five headers (CSP report-only first) and set expose_php = Off."
+        },
+        {
+          "title": "5 internal links redirect via /uncategorized/",
+          "severity": "Low",
+          "description": "Menu/related-post links still point at the old category path.",
+          "recommendation": "Update templates to the final URLs."
+        },
+        {
+          "title": "Category archives in the sitemap",
+          "severity": "Low",
+          "description": "2 category archives with no unique value are in category-sitemap.xml.",
+          "recommendation": "Exclude the category sitemap or noindex archives."
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "weight": 0.23,
+      "score": 80,
+      "what_works": [
+        "Homepage content quality 96/100, zero AI-pattern flags, zero filler",
+        "Real entity signals: address, phone, founder, social profiles",
+        "Specific venue, schedule and artist detail",
+        "Native Arabic copy, not machine translation"
+      ],
+      "findings": [
+        {
+          "title": "12 service pages are 55-74% near-duplicates",
+          "severity": "High",
+          "description": "All /angebot/* pages share hero, 'Was dich erwartet', 'Für wen' and CTA blocks; only the first paragraph differs.",
+          "recommendation": "Rewrite each to 700-1,000 words with unique instructor, schedule, price, venue, FAQ and photos."
+        },
+        {
+          "title": "9 duplicate/legacy article pairs dilute topical authority",
+          "severity": "High",
+          "description": "Duplicates include arabische-kultur-im-exil, arabische-musik, kalligrafie, festivalprogramm, kulturartikel, privacy-policy and 2147-2.",
+          "recommendation": "Consolidate with 301s and keep one canonical article per topic."
+        },
+        {
+          "title": "Thin pages",
+          "severity": "Medium",
+          "description": "/newsletter/ 183 words, /kulturartikel/ 206, article indexes 312-327 with no intro; legal pages 277-298 are acceptable.",
+          "recommendation": "Merge or expand /newsletter/; add a 100-word intro to article indexes."
+        },
+        {
+          "title": "E-E-A-T gaps",
+          "severity": "Medium",
+          "description": "Article author is the Organization; no author bios, no visible dateModified, no press citations, no foundingDate/nonprofitStatus.",
+          "recommendation": "Add Person authors with bios, show last-updated dates, cite press mentions, extend Organization schema."
+        },
+        {
+          "title": "No Arabic webfont subset",
+          "severity": "Medium",
+          "description": "Only fraunces-normal-latin and work-sans-normal-latin are preloaded, so Arabic pages fall back to system fonts.",
+          "recommendation": "Add and preload an Arabic subset on lang=ar pages."
+        }
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "weight": 0.2,
+      "score": 74,
+      "what_works": [
+        "Titles on 91/91, descriptions on 88/91, canonicals on 91/91",
+        "OG and Twitter cards present",
+        "Homepage title is keyword-relevant"
+      ],
+      "findings": [
+        {
+          "title": "Placeholder and broken meta descriptions",
+          "severity": "High",
+          "description": "'Your Attractive Heading' on /festivalprogramm/; auto-scraped body text on /kulturartikel/; 'datenschutz' on /privacy-policy/; 'Haftungsausschluss:' on /2147-2/.",
+          "recommendation": "301 the legacy pages or write real 140-155 char descriptions."
+        },
+        {
+          "title": "Duplicate H1s on two pages",
+          "severity": "High",
+          "description": "/arabische-kultur-im-exil-2/ has 'RechnungRechnung' plus the real title; /kulturartikel/ repeats 'Kulturartikel' twice.",
+          "recommendation": "Remove the leftover block and demote the duplicate heading to H2."
+        },
+        {
+          "title": "19 titles over 60 characters",
+          "severity": "Medium",
+          "description": "Worst are 179 and 108 chars on 2023 archive posts; 12 event titles are 62 chars.",
+          "recommendation": "Rewrite to ~55 chars, keep the date unique on events."
+        },
+        {
+          "title": "9 titles under 30 characters",
+          "severity": "Medium",
+          "description": "Includes 'Arab Kulturfestival' (19), 'Artikel -arab-kulturfestival' (28, malformed), and 6 EN pages at 27-29.",
+          "recommendation": "Add city or differentiator to each."
+        },
+        {
+          "title": "19 descriptions under 70 characters",
+          "severity": "Medium",
+          "description": "Shortest are 11, 19, 23, 35 and 39 chars.",
+          "recommendation": "Expand to 140-155 chars with a call to action."
+        },
+        {
+          "title": "Duplicate titles and descriptions",
+          "severity": "Medium",
+          "description": "2 duplicate title pairs (arabische-musik, kalligrafie) and 3 description groups covering 18 event URLs.",
+          "recommendation": "Differentiate with date/venue per event; 301 the duplicate service pages."
+        },
+        {
+          "title": "OG image is a 639x219 logo",
+          "severity": "Medium",
+          "description": "Used with summary_large_image, which expects 1200x630. twitter:data1 exposes 'admin'.",
+          "recommendation": "Create 1200x630 OG images and remove the admin label."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "weight": 0.1,
+      "score": 78,
+      "what_works": [
+        "JSON-LD on 91/91 pages with zero parse errors",
+        "Organization includes address, phone, email, founder and sameAs",
+        "BreadcrumbList on 86, Article on 20, Event on 19"
+      ],
+      "findings": [
+        {
+          "title": "No LocalBusiness/NGO markup",
+          "severity": "High",
+          "description": "A physical Hamburg cultural organisation has only generic Organization markup.",
+          "recommendation": "Add NGO + LocalBusiness with foundingDate, areaServed and nonprofitStatus."
+        },
+        {
+          "title": "Event schema missing offers",
+          "severity": "High",
+          "description": "No offers, performer, isAccessibleForFree or eventSchedule; image is a theme placeholder. Event rich results are blocked.",
+          "recommendation": "Add offers with price, priceCurrency, availability and url."
+        },
+        {
+          "title": "Article author is the Organization",
+          "severity": "Medium",
+          "description": "No Person author, no bio, no author URL.",
+          "recommendation": "Attribute posts to a named Person and add a visible byline."
+        },
+        {
+          "title": "No Service schema on 12 service pages",
+          "severity": "Medium",
+          "description": "Bookable cultural services have no Service markup.",
+          "recommendation": "Add Service with provider, areaServed, serviceType and offers."
+        },
+        {
+          "title": "No FAQPage markup",
+          "severity": "Medium",
+          "description": "Registration, price, venue and language questions are answered in prose only.",
+          "recommendation": "Add 3-5 Q&As per service page and event series with FAQPage schema."
+        },
+        {
+          "title": "WebSite lacks SearchAction",
+          "severity": "Low",
+          "description": "No potentialAction declared.",
+          "recommendation": "Add SearchAction if /?s= search is enabled."
+        }
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "weight": 0.1,
+      "score": 68,
+      "what_works": [
+        "JS 55 KB and CSS 33 KB are modest",
+        "Two font preloads in place",
+        "Gallery images already use WebP"
+      ],
+      "findings": [
+        {
+          "title": "Hero image is an unoptimised 180 KB JPEG",
+          "severity": "High",
+          "description": "hero-dabke.jpg has no width/height, no fetchpriority, empty alt and is likely the LCP element.",
+          "recommendation": "Convert to WebP ~1600px, add dimensions, fetchpriority=high and preload."
+        },
+        {
+          "title": "3.47 MB of images on the homepage",
+          "severity": "High",
+          "description": "61 images, 45 gallery slides at 80-102 KB each, srcset stops at 1400px.",
+          "recommendation": "Add 480w/768w candidates, cap the gallery at 8-12 images, add content-visibility."
+        },
+        {
+          "title": "TTFB borderline and HTML uncacheable",
+          "severity": "Medium",
+          "description": "676 ms median on home, 524-637 ms inner pages; Cache-Control max-age=0 blocks all caching.",
+          "recommendation": "Enable page caching/CDN and set public, max-age=600, s-maxage=86400."
+        },
+        {
+          "title": "45 gallery slides in the initial DOM",
+          "severity": "Medium",
+          "description": "Inflates DOM and forces image decode during scroll.",
+          "recommendation": "Render 5 slides server-side and load the rest on interaction."
+        },
+        {
+          "title": "No Arabic webfont on RTL pages",
+          "severity": "Medium",
+          "description": "FOUT and inconsistent metrics on Arabic pages.",
+          "recommendation": "Add an Arabic subset and preload it only on lang=ar pages."
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "weight": 0.1,
+      "score": 62,
+      "what_works": [
+        "Server-rendered content visible without JavaScript",
+        "AI crawlers allowed in robots.txt",
+        "Real 404s and semantic HTML",
+        "Complete Organization entity"
+      ],
+      "findings": [
+        {
+          "title": "No llms.txt",
+          "severity": "Medium",
+          "description": "https://arab-kulturfestival.de/llms.txt returns 404.",
+          "recommendation": "Publish llms.txt with programme, services, about and contact links."
+        },
+        {
+          "title": "Weak citability",
+          "severity": "Medium",
+          "description": "No definition paragraph, no FAQ blocks, no visible dateModified, price/registration not stated early.",
+          "recommendation": "Add 40-60 word definition paragraphs and Q&A blocks to key pages."
+        },
+        {
+          "title": "No Content-Signal declaration",
+          "severity": "Low",
+          "description": "robots.txt does not declare AI training/input preferences.",
+          "recommendation": "Add Content-Signal with a deliberate policy."
+        },
+        {
+          "title": "No Markdown delivery",
+          "severity": "Low",
+          "description": "Agents requesting text/markdown receive HTML.",
+          "recommendation": "Optional: add .md variants or content negotiation."
+        }
+      ]
+    },
+    {
+      "name": "Images",
+      "weight": 0.05,
+      "score": 62,
+      "what_works": [
+        "Zero broken images",
+        "79% lazy-loaded",
+        "Descriptive filenames",
+        "WebP used in the gallery"
+      ],
+      "findings": [
+        {
+          "title": "184 images missing alt text (29.8%)",
+          "severity": "High",
+          "description": "Concentrated in 11 theme assets across 40 pages: hero-dabke, stage-group, calligraphy, music, community-circle and 6 SVG step diagrams.",
+          "recommendation": "Add descriptive alt to the 11 theme files; fixes ~120 instances."
+        },
+        {
+          "title": "Wrong image on music pages",
+          "severity": "High",
+          "description": "calligraphy.jpg appears twice on /angebot/arabische-musik/ and its translations.",
+          "recommendation": "Replace with a concert photo."
+        },
+        {
+          "title": "Gallery alt text is auto-numbered",
+          "severity": "Medium",
+          "description": "45 images use 'Bilder vom Arab Kulturfestival - 34' style alt.",
+          "recommendation": "Describe subjects, or use empty alt if purely decorative."
+        },
+        {
+          "title": "274 images lack width/height",
+          "severity": "Medium",
+          "description": "44% of images have no intrinsic dimensions, causing CLS risk.",
+          "recommendation": "Add width/height and CSS aspect-ratio backstops."
+        }
+      ]
+    },
+    {
+      "name": "International SEO (Hreflang)",
+      "weight": 0.0,
+      "score": 55,
+      "what_works": [
+        "91/91 pages emit hreflang with self-reference and x-default",
+        "Correct lang and dir attributes",
+        "Locale-prefixed URLs"
+      ],
+      "findings": [
+        {
+          "title": "18 event URLs have non-reciprocal hreflang",
+          "severity": "High",
+          "description": "Each event translation declares only its own language (DE: de+x-default, EN: en, AR: ar).",
+          "recommendation": "Link the three URLs of each date in one translation group."
+        },
+        {
+          "title": "5 legacy pages point hreflang at the homepage",
+          "severity": "High",
+          "description": "/2147-2/, /festivalprogramm/, /kulturartikel/, /newsletter/, /privacy-policy/ declare /en/ and /ar/, which do not link back.",
+          "recommendation": "301 the legacy pages or point at the real translated equivalents."
+        },
+        {
+          "title": "Category archives declare listing pages as translations",
+          "severity": "Medium",
+          "description": "Both category archives point at /artikel/, /en/articles/, /ar/articles/, which do not link back.",
+          "recommendation": "Remove hreflang from category archives."
+        }
+      ]
+    },
+    {
+      "name": "Local SEO",
+      "weight": 0.0,
+      "score": 72,
+      "what_works": [
+        "NAP consistent across DE/EN/AR legal pages and schema",
+        "Named responsible person with role",
+        "Venue-level event detail",
+        "City in homepage title and H1"
+      ],
+      "findings": [
+        {
+          "title": "No LocalBusiness schema",
+          "severity": "High",
+          "description": "No machine-readable local entity, so no knowledge panel or map pack feed.",
+          "recommendation": "Add NGO + LocalBusiness markup."
+        },
+        {
+          "title": "No location landing pages",
+          "severity": "Medium",
+          "description": "Service pages target the activity but not Hamburg.",
+          "recommendation": "Add Hamburg to service H1/titles; build 3 location pages."
+        },
+        {
+          "title": "Google Business Profile not linked",
+          "severity": "Medium",
+          "description": "No GBP URL in sameAs and no hasMap.",
+          "recommendation": "Create or claim GBP and link it."
+        },
+        {
+          "title": "No map or directions on /kontakt/",
+          "severity": "Low",
+          "description": "Address is present but no map embed, transit or parking note.",
+          "recommendation": "Add a map and 'So erreichst du uns'."
+        }
+      ]
+    },
+    {
+      "name": "Search Experience (SXO)",
+      "weight": 0.0,
+      "score": 70,
+      "what_works": [
+        "Homepage matches the brand + festival query well",
+        "Article content matches informational queries",
+        "Programme and events pages exist for date queries"
+      ],
+      "findings": [
+        {
+          "title": "Service intent lands on expiring event pages",
+          "severity": "High",
+          "description": "'Dabke Kurs Hamburg' resolves to dated instances while the durable /angebot/ page is thin and orphaned.",
+          "recommendation": "Build a Dabke hub page with all dates and link events to it."
+        },
+        {
+          "title": "No conversion path on event pages",
+          "severity": "High",
+          "description": "Price, registration status and calendar CTA are not above the fold.",
+          "recommendation": "Add price, 'Keine Anmeldung nötig' and calendar/route CTAs above the fold."
+        },
+        {
+          "title": "Homepage H1 is poetic, not entity-matching",
+          "severity": "Medium",
+          "description": "'Wo arabische Kultur in Bewegung kommt' contains no entity or city.",
+          "recommendation": "Use 'Arabisches Kulturfestival Hamburg' as H1 and keep the line as a subheading."
+        },
+        {
+          "title": "No FAQ blocks",
+          "severity": "Medium",
+          "description": "Registration, price, venue and language questions are answered only in prose.",
+          "recommendation": "Add 5-question FAQ blocks with FAQPage schema."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Week 1",
+        "items": [
+          "301 the 9 duplicate/legacy URLs and remove them from the sitemap",
+          "Fix event hreflang reciprocity for 6 dates x 3 languages",
+          "Add offers/performer to Event schema",
+          "Replace placeholder meta descriptions",
+          "Remove duplicate H1s on /arabische-kultur-im-exil-2/ and /kulturartikel/",
+          "Add a services block to the homepage to fix 12 orphans",
+          "Convert and preload the hero image as WebP with dimensions",
+          "Add alt text to the 11 theme image files"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Build the Dabke hub page with all upcoming dates",
+          "Expand the 12 service pages to 700-1,000 unique words",
+          "Add LocalBusiness/NGO schema",
+          "Add price and CTAs above the fold on event pages",
+          "Trim the homepage gallery to 8-12 images and add mobile srcset",
+          "Replace calligraphy.jpg on music pages",
+          "Fix the 5 /uncategorized/ internal redirects",
+          "Add security headers and remove X-Powered-By",
+          "Enable page caching and CDN",
+          "Create a 1200x630 OG image",
+          "Shorten 19 long titles and lengthen 9 short titles",
+          "Add an Arabic webfont subset"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Month 2",
+        "items": [
+          "Publish llms.txt",
+          "Add FAQ blocks with FAQPage schema",
+          "Add definition paragraphs to key pages",
+          "Add Person authors and visible bylines",
+          "Create location landing pages (Dabke/Musik/Kalligrafie Hamburg)",
+          "Create or link a Google Business Profile",
+          "Add map and directions to /kontakt/",
+          "Add Content-Signal to robots.txt",
+          "Add SearchAction to WebSite schema",
+          "Add participant testimonials"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring & Iteration",
+        "timeframe": "Ongoing",
+        "items": [
+          "Store the current crawl as a pre-fix baseline",
+          "Connect Search Console and submit the sitemap index",
+          "Retry PSI with an API key after image fixes",
+          "Set up seo-drift baselines before each deploy",
+          "Run monthly orphan/duplicate/alt/TTFB checks"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/",
+    "files": [
+      "FULL-AUDIT-REPORT.md",
+      "ACTION-PLAN.md",
+      "audit-data.json",
+      "crawl-results.json",
+      "linkcheck.json",
+      "duplicates.json",
+      "linkgraph.json",
+      "agentic.json",
+      "sitemap.json",
+      "content.json",
+      "parse.json",
+      "homepage.html",
+      "pagespeed-mobile.json"
+    ]
+  }
+}

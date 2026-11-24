@@ -1,0 +1,74 @@
+
+	/** Map a design X coordinate (1620-wide canvas) to the PDF (720 pt). */
+	private function dx( $x ) {
+		return round( (float) $x * 720 / 1620, 2 );
+	}
+
+	/** Map a design width to the PDF. */
+	private function dw( $w ) {
+		return round( (float) $w * 720 / 1620, 2 );
+	}
+
+	/** Map a design height to the PDF (971-high canvas -> 430 pt). */
+	private function dh( $h ) {
+		return round( (float) $h * 430 / 971, 2 );
+	}
+
+	/** Map a design top coordinate to a PDF bottom coordinate. */
+	private function dy( $top, $h = 0 ) {
+		return round( ( 971 - (float) $top - (float) $h ) * 430 / 971, 2 );
+	}
+
+	/** Return "x y w h" for a design-space rectangle in PDF coordinates. */
+	private function dbox( $x, $top, $w, $h ) {
+		return $this->dx( $x ) . ' ' . $this->dy( $top, $h ) . ' ' . $this->dw( $w ) . ' ' . $this->dh( $h );
+	}
+
+	/** Draw a named image placed in design coordinates. */
+	private function dplace( $name, $x, $top, $w, $h ) {
+		return "q\n" . $this->dw( $w ) . ' 0 0 ' . $this->dh( $h ) . ' ' . $this->dx( $x ) . ' ' . $this->dy( $top, $h ) . " cm\n/" . $name . " Do\nQ\n";
+	}
+
+	/** Draw text placed in design coordinates (top baseline, optional centering). */
+	private function dtext( $font, $size, $x, $top, $value, $rgb, $width = 0, $center = false ) {
+		$value = $this->plain( $value );
+		if ( '' === $value ) {
+			return '';
+		}
+		$pt = round( (float) $size * 430 / 971 * 1.1, 2 );
+		$px = $this->dx( $x );
+		if ( $center && $width ) {
+			$px = round( $this->dx( $x + $width / 2 ) - $this->text_width( $value, $pt ) / 2, 2 );
+		}
+		$py = round( ( 971 - (float) $top ) * 430 / 971 - $pt * 0.82, 2 );
+		return $this->text( $font, $pt, $px, $py, $value, $rgb );
+	}
+
+	/** Calendar icon (design coordinates). */
+	private function icon_calendar( $x, $top, $rgb ) {
+		$out  = $rgb . " RG\n0.8 w\n";
+		$out .= $this->dbox( $x + 5, $top + 12, 46, 39 ) . " re\nS\n";
+		$out .= $this->dx( $x + 5 ) . ' ' . $this->dy( $top + 24 ) . ' m ' . $this->dx( $x + 51 ) . ' ' . $this->dy( $top + 24 ) . " l S\n";
+		$out .= $rgb . " rg\n";
+		foreach ( array( 30, 41 ) as $row ) {
+			foreach ( array( 12, 24, 36 ) as $col ) {
+				$out .= $this->dbox( $x + $col, $top + $row, 7, 7 ) . " re\nf\n";
+			}
+		}
+		return $out;
+	}
+
+	/** People/group icon (design coordinates). */
+	private function icon_people( $x, $top, $rgb ) {
+		$out  = $rgb . " rg\n";
+		$out .= $this->dbox( $x + 19, $top + 7, 18, 18 ) . " re\nf\n";
+		$out .= $this->dbox( $x + 8, $top + 30, 40, 22 ) . " re\nf\n";
+		return $out;
+	}
+
+	/** Location pin icon (design coordinates). */
+	private function icon_pin( $x, $top, $rgb ) {
+		$out  = $rgb . " rg\n";
+		$out .= $this->dbox( $x + 8, $top + 4, 32, 36 ) . " re\nf\n";
+		return $out;
+	}

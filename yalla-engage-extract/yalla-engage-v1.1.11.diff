@@ -1,0 +1,442 @@
+--- a/includes/class-yen-forms.php
++++ b/includes/class-yen-forms.php
+@@ -37,7 +37,16 @@
+ 
+ 		add_action( 'template_redirect', array( $instance, 'newsletter_action' ) );
+ 		add_action( 'template_redirect', array( $instance, 'registration_cancel' ) );
+-		add_action( 'woocommerce_order_completed', array( $instance, 'yena_woocommerce_order_completed' ) );
++		add_action( 'yena_cleanup_pending_payments', array( $instance, 'cleanup_pending_payments' ) );
++
++		if ( function_exists( 'WC' ) || class_exists( 'WooCommerce' ) ) {
++			add_action( 'woocommerce_order_status_processing', array( $instance, 'yena_woocommerce_order_paid' ) );
++			add_action( 'woocommerce_order_status_completed', array( $instance, 'yena_woocommerce_order_paid' ) );
++			add_action( 'woocommerce_payment_complete', array( $instance, 'yena_woocommerce_order_paid' ) );
++			add_action( 'woocommerce_order_status_cancelled', array( $instance, 'yena_woocommerce_order_cancelled' ) );
++			add_action( 'woocommerce_order_status_failed', array( $instance, 'yena_woocommerce_order_failed' ) );
++			add_action( 'woocommerce_order_status_refunded', array( $instance, 'yena_woocommerce_order_refunded' ) );
++		}
+ 	}
+ 
+ 	/* ------------------------------------------------------------------ */
+@@ -527,7 +536,7 @@
+ 			// Paid event
+ 			$status = 'pending_payment';
+ 			$payment_status = 'pending';
+-			$payment_method = 'woocommerce' . ( defined( 'WOOCOMMERCE' ) ? '' : 'manual' );
++			$payment_method = 'woocommerce';
+ 			$payment_amount = $event_price * $persons;
+ 		}
+ 
+@@ -547,10 +556,24 @@
+ 			$this->engage_redirect( array( 'yena_reg' => 'already' ), 'registration' );
+ 		}
+ 
++		// Serialize registrations per event so simultaneous requests cannot take the last seat twice.
++		$lock_name = 'yena_event_' . $event_id;
++		$lock      = $wpdb->get_var( $wpdb->prepare( 'SELECT GET_LOCK(%s, 10)', $lock_name ) );
++		if ( '1' !== (string) $lock ) {
++			$this->engage_redirect( array( 'yena_reg' => 'error' ), 'registration' );
++		}
++
++		// Recheck the duplicate and capacity after acquiring the per-event lock.
++		$existing = $wpdb->get_row( $wpdb->prepare( "SELECT id, status FROM {$table} WHERE event_id = %d AND email = %s", $event_id, $email ) );
++		if ( $existing && 'cancelled' !== $existing->status ) {
++			$wpdb->get_var( $wpdb->prepare( 'SELECT RELEASE_LOCK(%s)', $lock_name ) );
++			$this->engage_redirect( array( 'yena_reg' => 'already' ), 'registration' );
++		}
++
+ 		$capacity = (int) get_post_meta( $event_id, 'yena_capacity', true );
+ 		$taken    = $this->taken_seats( $event_id );
+-
+ 		if ( $capacity > 0 && $taken + $persons > $capacity ) {
++			$wpdb->get_var( $wpdb->prepare( 'SELECT RELEASE_LOCK(%s)', $lock_name ) );
+ 			$this->engage_redirect( array( 'yena_reg' => 'full' ), 'registration' );
+ 		}
+ 
+@@ -563,27 +586,44 @@
+ 		$ticket_code = bin2hex( random_bytes( 16 ) );
+ 		$ticket_number = $this->generate_ticket_number( $event_id );
+ 
+-		// For paid events, create a WooCommerce order during registration.
++		// Paid registrations require an actual WooCommerce order with a fee item.
++		$wc_order    = null;
+ 		$wc_order_id = null;
+-		if ( $is_paid_event && class_exists( 'WooCommerce' ) ) {
+-			$order_data = array(
+-				'status' => 'pending',
+-				'payment_method' => 'direct bank transfer',
+-				'payment_method_title' => 'Direct bank transfer',
+-				'total' => $total_amount,
+-				'currency' => 'EUR',
+-				'line_items' => array(
+-					array(
+-						'product_id' => $event_id,
+-						'quantity' => $persons,
+-						'price' => $event_price,
+-					),
+-				),
+-			);
+-			$wc_order = wc_create_order( $order_data );
+-			if ( $wc_order ) {
+-				$wc_order_id = $wc_order->get_id();
++		if ( $is_paid_event ) {
++			if ( ! function_exists( 'wc_create_order' ) || ! function_exists( 'wc_get_order' ) ) {
++				$wpdb->get_var( $wpdb->prepare( 'SELECT RELEASE_LOCK(%s)', $lock_name ) );
++				$this->engage_redirect( array( 'yena_reg' => 'payment_unavailable' ), 'registration' );
+ 			}
++
++			$wc_order = wc_create_order( array( 'status' => 'pending' ) );
++			if ( is_wp_error( $wc_order ) || ! $wc_order instanceof WC_Order ) {
++				$wpdb->get_var( $wpdb->prepare( 'SELECT RELEASE_LOCK(%s)', $lock_name ) );
++				$this->log_payment_error( 'Could not create WooCommerce order for event ' . $event_id );
++				$this->engage_redirect( array( 'yena_reg' => 'payment_unavailable' ), 'registration' );
++			}
++
++			$wc_order->set_billing_first_name( $name );
++			$wc_order->set_billing_email( $email );
++			$wc_order->set_billing_phone( $phone );
++			$wc_order->set_currency( get_woocommerce_currency() );
++
++			$fee = new WC_Order_Item_Fee();
++			$fee->set_name( get_the_title( $event_id ) );
++			$fee->set_amount( $total_amount );
++			$fee->set_total( $total_amount );
++			$fee->set_tax_status( 'none' );
++			$wc_order->add_item( $fee );
++			$wc_order->calculate_totals( false );
++
++			if ( count( $wc_order->get_items( 'fee' ) ) < 1 || abs( (float) $wc_order->get_total() - (float) $total_amount ) > 0.01 ) {
++				$wc_order->update_status( 'cancelled', 'Yalla Engage order total validation failed.' );
++				$wpdb->get_var( $wpdb->prepare( 'SELECT RELEASE_LOCK(%s)', $lock_name ) );
++				$this->log_payment_error( 'Order total mismatch for event ' . $event_id . ', expected ' . $total_amount . ', got ' . $wc_order->get_total() );
++				$this->engage_redirect( array( 'yena_reg' => 'payment_unavailable' ), 'registration' );
++			}
++
++			$wc_order->save();
++			$wc_order_id = $wc_order->get_id();
+ 		}
+ 
+ 		// For paid events, set status to 'pending_payment' until an administrator confirms.
+@@ -594,9 +634,10 @@
+ 		}
+ 
+ 		$consent_text = isset( $_POST['yena_reg_consent_text'] ) ? sanitize_textarea_field( wp_unslash( $_POST['yena_reg_consent_text'] ) ) : '';
++		$registration_saved = true;
+ 
+ 		if ( $existing ) {
+-			$wpdb->update(
++			$registration_saved = false !== $wpdb->update(
+ 				$table,
+ 				array(
+ 					'name'             => $name,
+@@ -615,16 +656,16 @@
+ 					'checked_in_at'    => null,
+ 					'checked_in_by'    => null,
+ 					'checked_in_persons' => null,
+-					'payment_status'   => $is_paid_event ? 'pending' : 'paid',
++					'payment_status'   => $payment_status,
+ 					'order_id'         => $wc_order_id,
+ 					'payment_amount'   => $is_paid_event ? $total_amount : 0,
+-					'payment_method'   => null,
++					'payment_method'   => $payment_method,
+ 				),
+ 				array( 'id' => $existing->id )
+ 			);
+ 			$reg_id = $existing->id;
+ 		} else {
+-			$reg_id = $wpdb->insert(
++			$registration_saved = false !== $wpdb->insert(
+ 				$table,
+ 				array(
+ 					'event_id'         => $event_id,
+@@ -642,18 +683,28 @@
+ 					'created_at'       => $now,
+ 					'ticket_code'      => $ticket_code,
+ 					'ticket_number'    => $ticket_number,
+-					'payment_status'   => $is_paid_event ? 'pending' : 'paid',
++					'payment_status'   => $payment_status,
+ 					'order_id'         => $wc_order_id,
+ 					'payment_amount'   => $is_paid_event ? $total_amount : 0,
+-					'payment_method'   => null,
++					'payment_method'   => $payment_method,
+ 				)
+ 			);
+-			$reg_id = $wpdb->insert_id;
+-		}
+-
+-		if ( ! $reg_id ) {
++			$reg_id = $registration_saved ? absint( $wpdb->insert_id ) : 0;
++		}
++
++		if ( ! $registration_saved || ! $reg_id ) {
++			if ( $wc_order ) {
++				$wc_order->update_status( 'cancelled', 'Yalla Engage registration record could not be saved.' );
++			}
++			$wpdb->get_var( $wpdb->prepare( 'SELECT RELEASE_LOCK(%s)', $lock_name ) );
+ 			$this->engage_redirect( array( 'yena_reg' => 'error' ), 'registration' );
+ 		}
++
++		if ( $wc_order ) {
++			$wc_order->update_meta_data( '_yena_registration_id', absint( $reg_id ) );
++			$wc_order->save();
++		}
++		$wpdb->get_var( $wpdb->prepare( 'SELECT RELEASE_LOCK(%s)', $lock_name ) );
+ 
+ 		if ( $newsletter ) {
+ 			$this->subscribe_newsletter( $name, $email, $lang );
+@@ -687,73 +738,126 @@
+ 			if ( $admin_email ) {
+ 				wp_mail( $admin_email, sprintf( $texts['reg_admin_subject'], get_the_title( $event_id ) ), 'Paid registration pending payment: ' . $email );
+ 			}
+-			// Redirect to WooCommerce checkout for paid events
+-			if ( function_exists( 'wc_get_checkout_url' ) ) {
+-				$checkout_url = wc_get_checkout_url();
+-				// Add registration event ID as note for the order
+-				wp_safe_redirect( add_query_arg( array(
+-					'yena_reg' => 'pending_payment',
+-					'yena_reg_event' => $event_id,
+-				), $checkout_url ) );
+-			} else {
+-				$this->engage_redirect( array( 'yena_reg' => 'pending_payment' ), 'registration' );
++			// Send this registrant to payment for their own order.
++			$order = wc_get_order( $wc_order_id );
++			if ( $order ) {
++				wp_safe_redirect( $order->get_checkout_payment_url() );
++				exit;
+ 			}
+-		}
+-	}
+-
+-	/**
+-	 * Handle WooCommerce order completed webhook - activate registration and send ticket
+-	 */
+-	public function yena_woocommerce_order_completed( $order_id ) {
+-		if ( ! class_exists( 'WooCommerce' ) ) {
++			$this->engage_redirect( array( 'yena_reg' => 'payment_unavailable' ), 'registration' );
++		}
++	}
++
++	/** Confirm a paid order and send its ticket at most once. */
++	public function yena_woocommerce_order_paid( $order_id ) {
++		$order = function_exists( 'wc_get_order' ) ? wc_get_order( $order_id ) : false;
++		if ( ! $order || 'yes' === $order->get_meta( '_yena_ticket_sent' ) ) {
+ 			return;
+ 		}
+ 
+-		$order = wc_get_order( $order_id );
+-		if ( ! $order ) {
+-			return;
+-		}
+-
+-		// Find registration by order ID
+ 		global $wpdb;
+ 		$table = YENA_DB::registrations();
+-		$reg   = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table} WHERE order_id = %d", $order_id ) );
+-
+-		if ( ! $reg ) {
++		$reg   = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$table} WHERE order_id = %d", absint( $order_id ) ) );
++		if ( ! $reg || 'confirmed' === $reg->status || 'refunded' === $reg->status || 'cancelled' === $reg->status ) {
+ 			return;
+ 		}
+ 
+-		// Already processed?
+-		if ( 'paid' === $reg->payment_status ) {
++		$updated = $wpdb->update(
++			$table,
++			array( 'status' => 'confirmed', 'payment_status' => 'paid', 'payment_method' => sanitize_key( $order->get_payment_method() ) ),
++			array( 'id' => absint( $reg->id ), 'status' => 'pending_payment' ),
++			array( '%s', '%s', '%s' ),
++			array( '%d', '%s' )
++		);
++		if ( false === $updated || 0 === $updated ) {
+ 			return;
+ 		}
+ 
+-		// Update registration status
+-		$wpdb->update(
+-			$table,
+-			array(
+-				'status'          => 'confirmed',
+-				'payment_status'  => 'paid',
+-				'payment_method'  => $order->get_payment_method(),
+-			),
+-			array( 'id' => $reg->id ),
+-			array( '%s', '%s', '%s' )
++		$sent = $this->send_registration_confirmation(
++			$reg->id,
++			$reg->event_id,
++			$reg->name,
++			$reg->email,
++			$reg->persons,
++			$reg->lang,
++			$reg->ticket_code,
++			$reg->ticket_number
+ 		);
+-
+-		// Send confirmation ticket email
+-		$texts = $this->get_texts_for_lang( $reg->lang );
+-		$event = get_post( $reg->event_id );
+-		if ( $event ) {
+-			$this->send_registration_confirmation(
+-				$reg->id,
+-				$reg->event_id,
+-				$reg->name,
+-				$reg->email,
+-				$reg->persons,
+-				$reg->lang,
+-				$reg->ticket_code,
+-				$reg->ticket_number
++		if ( $sent ) {
++			$order->update_meta_data( '_yena_ticket_sent', 'yes' );
++			$order->save();
++		} else {
++			$this->log_payment_error( 'Ticket email failed for registration ' . absint( $reg->id ) . ', order ' . absint( $order_id ) );
++		}
++	}
++
++	/** Keep failed registrations pending until the 24-hour cleanup; do not release seats early. */
++	public function yena_woocommerce_order_failed( $order_id ) {
++		$this->update_order_registration_state( $order_id, 'pending_payment', 'failed' );
++	}
++
++	/** A cancelled WooCommerce order cancels its registration and releases its seat. */
++	public function yena_woocommerce_order_cancelled( $order_id ) {
++		$this->update_order_registration_state( $order_id, 'cancelled', 'cancelled' );
++	}
++
++	/** A refunded order remains auditable as refunded, and releases its seat once. */
++	public function yena_woocommerce_order_refunded( $order_id ) {
++		$order = function_exists( 'wc_get_order' ) ? wc_get_order( $order_id ) : false;
++		if ( ! $order || 'yes' === $order->get_meta( '_yena_refund_processed' ) ) {
++			return;
++		}
++		if ( $this->update_order_registration_state( $order_id, 'refunded', 'refunded' ) ) {
++			$order->update_meta_data( '_yena_refund_processed', 'yes' );
++			$order->save();
++		}
++	}
++
++	/** Update the linked registration once for a WooCommerce state transition. */
++	private function update_order_registration_state( $order_id, $registration_status, $payment_status ) {
++		global $wpdb;
++		$table = YENA_DB::registrations();
++		$allowed_statuses = 'failed' === $payment_status ? array( 'pending_payment' ) : array( 'pending_payment', 'confirmed' );
++		$status_placeholders = implode( ', ', array_fill( 0, count( $allowed_statuses ), '%s' ) );
++		$sql                 = "UPDATE {$table} SET status = %s, payment_status = %s WHERE order_id = %d AND status IN ({$status_placeholders})";
++		$args                = array_merge( array( $registration_status, $payment_status, absint( $order_id ) ), $allowed_statuses );
++		$updated             = $wpdb->query( $wpdb->prepare( $sql, $args ) );
++		return 1 === (int) $updated;
++	}
++
++	/** Cancel only aged registrations whose WooCommerce order is still pending or failed. */
++	public function cleanup_pending_payments() {
++		if ( ! function_exists( 'wc_get_order' ) ) {
++			return;
++		}
++		global $wpdb;
++		$table  = YENA_DB::registrations();
++		$cutoff = gmdate( 'Y-m-d H:i:s', time() - DAY_IN_SECONDS );
++		$regs   = $wpdb->get_results( $wpdb->prepare(
++			"SELECT id, order_id FROM {$table} WHERE status = %s AND created_at < %s",
++			'pending_payment',
++			$cutoff
++		) );
++		foreach ( $regs as $reg ) {
++			$order = $reg->order_id ? wc_get_order( $reg->order_id ) : false;
++			if ( ! $order || ! in_array( $order->get_status(), array( 'pending', 'failed' ), true ) ) {
++				continue;
++			}
++			$order->update_status( 'cancelled', 'Yalla Engage: pending registration expired after 24 hours.' );
++			$wpdb->update(
++				$table,
++				array( 'status' => 'cancelled', 'payment_status' => 'cancelled' ),
++				array( 'id' => absint( $reg->id ), 'status' => 'pending_payment' ),
++				array( '%s', '%s' ),
++				array( '%d', '%s' )
+ 			);
++		}
++	}
++
++	/** Write payment integration diagnostics to WooCommerce's log system. */
++	private function log_payment_error( $message ) {
++		if ( function_exists( 'wc_get_logger' ) ) {
++			wc_get_logger()->error( $message, array( 'source' => 'yalla-engage' ) );
+ 		}
+ 	}
+ 
+@@ -1012,7 +1116,7 @@
+ 		global $wpdb;
+ 		$table = YENA_DB::registrations();
+ 		$total = $wpdb->get_var( $wpdb->prepare(
+-			"SELECT COALESCE(SUM(persons), 0) FROM {$table} WHERE event_id = %d AND status = 'confirmed'",
++			"SELECT COALESCE(SUM(persons), 0) FROM {$table} WHERE event_id = %d AND status IN ('confirmed', 'pending_payment')",
+ 			$event_id
+ 		) );
+ 		return (int) $total;
+--- a/includes/class-yen-admin.php
++++ b/includes/class-yen-admin.php
+@@ -768,7 +768,9 @@
+ 		return;
+ 	}
+ 	add_meta_box( 'yena_participant_logos_meta', __( 'شعارات المشاركين أو الشركاء', 'yalla-engage' ), 'yena_participant_logos_meta_box_callback', $post_type, 'normal', 'default' );
+-}
++	}
++
++function yena_participant_logos_meta_box_callback( $post ) {
+ 	$logos = get_post_meta( $post->ID, 'yena_participant_logos', true );
+ 	$logos = is_array( $logos ) ? $logos : array();
+ 	if ( empty( $logos ) ) {
+--- a/yalla-engage.php
++++ b/yalla-engage.php
+@@ -15,7 +15,7 @@
+ /**
+  * Plugin constants.
+  */
+-define( 'YENA_VERSION', '1.1.8' );
++define( 'YENA_VERSION', '1.1.11' );
+ define( 'YENA_DIR', plugin_dir_path( __FILE__ ) );
+ define( 'YENA_URI', plugin_dir_url( __FILE__ ) );
+ define( 'YENA_DB_VERSION', '1.1' );
+@@ -34,6 +34,10 @@
+ 	$schedules['yena_reminder_cron'] = array(
+ 		'interval' => DAY_IN_SECONDS,
+ 		'display'  => __( 'مرة يومياً', 'yalla-engage' ),
++	);
++	$schedules['yena_cron_hourly'] = array(
++		'interval' => HOUR_IN_SECONDS,
++		'display'  => __( 'مرة كل ساعة', 'yalla-engage' ),
+ 	);
+ 
+ 	return $schedules;
+@@ -71,9 +75,20 @@
+ function yena_deactivate() {
+ 	wp_clear_scheduled_hook( 'yena_process_queue' );
+ 	wp_clear_scheduled_hook( 'yena_send_reminders' );
++	wp_clear_scheduled_hook( 'yena_cleanup_pending_payments' );
+ 	flush_rewrite_rules();
+ }
+ register_deactivation_hook( __FILE__, 'yena_deactivate' );
++
++/** Declare HPOS compatibility using WooCommerce's supported feature API. */
++add_action(
++	'before_woocommerce_init',
++	function () {
++		if ( class_exists( '\\Automattic\\WooCommerce\\Utilities\\FeaturesUtil' ) ) {
++			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
++		}
++	}
++);
+ 
+ /**
+  * Initialize the plugin.
+@@ -100,6 +115,10 @@
+ 	if ( ! wp_next_scheduled( 'yena_send_reminders' ) ) {
+ 		wp_schedule_event( time() + MINUTE_IN_SECONDS, 'yena_reminder_cron', 'yena_send_reminders' );
+ 	}
++	// Schedule cleanup of old pending payment registrations
++	if ( ! wp_next_scheduled( 'yena_cleanup_pending_payments' ) ) {
++		wp_schedule_event( time() + HOUR_IN_SECONDS, 'yena_cron_hourly', 'yena_cleanup_pending_payments' );
++	}
+ 
+ 	YENA_Forms::init();
+ 	YENA_Emails::init();

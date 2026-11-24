@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 360" width="440" height="360" role="img" aria-label="Left foot stamps the ground">
+  <title>Left foot stamps the ground</title>
+  <defs>
+    <radialGradient id="stage" cx="50%" cy="42%" r="72%">
+      <stop offset="0" stop-color="#fbf2e0"/>
+      <stop offset=".62" stop-color="#f2e3c9"/>
+      <stop offset="1" stop-color="#e6d1b2"/>
+    </radialGradient>
+    <linearGradient id="trouser" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1f160f"/>
+      <stop offset=".26" stop-color="#3d2e22"/>
+      <stop offset=".62" stop-color="#33261c"/>
+      <stop offset="1" stop-color="#1a120d"/>
+    </linearGradient>
+    <linearGradient id="leather" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7d5130"/>
+      <stop offset=".5" stop-color="#633f23"/>
+      <stop offset="1" stop-color="#402512"/>
+    </linearGradient>
+    <linearGradient id="leatherActive" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b1793f"/>
+      <stop offset=".5" stop-color="#8c592f"/>
+      <stop offset="1" stop-color="#5c381b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#e0b35f" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#e0b35f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+    <filter id="soft2" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="2.4"/>
+    </filter>
+  </defs>
+  <rect width="440" height="360" rx="16" fill="url(#stage)"/>
+  <ellipse cx="240" cy="286" rx="44" ry="10" fill="#3a2416" opacity="0.18" filter="url(#soft)"/>
+  <ellipse cx="195" cy="286" rx="52" ry="11" fill="#3a2416" opacity="0.24" filter="url(#soft)"/>
+  
+  <g class="leg" opacity=".78" transform="translate(240 30) scale(1 1) rotate(0)">
+    <path d="M -31 0 C -35 34 -33 66 -29 97 L 29 97 C 33 66 35 34 31 0 Z" fill="url(#trouser)"/>
+    <path d="M -9 5 C -12 38 -13 68 -12 94" stroke="#4b3a2c" stroke-width="2" fill="none" opacity=".5"/>
+    <path d="M 13 6 C 16 36 16 66 15 93" stroke="#0f0a07" stroke-width="3" fill="none" opacity=".32"/>
+    <path d="M -28 94 C -12 99 12 99 28 94" stroke="#17100b" stroke-width="4" fill="none" opacity=".55"/>
+    <g transform="translate(0 97) rotate(0)">
+      <path d="M -29 -3 C -27 24 -23 54 -21 76 L -19 93 L 19 93 L 21 76 C 23 54 27 24 29 -3 Z" fill="url(#trouser)"/>
+      <path d="M -9 2 C -11 26 -11 54 -10 75" stroke="#4b3a2c" stroke-width="2" fill="none" opacity=".45"/>
+      <path d="M -20 72 L 20 72 L 19 95 L -19 95 Z" fill="#1a120d"/>
+      <rect x="-12" y="86" width="24" height="29" rx="8" fill="#b97c54"/>
+      <rect x="-14" y="84" width="28" height="6" rx="3" fill="#7d6a51" opacity=".5"/>
+      <g transform="translate(0 103) rotate(0)">
+        <path d="M -22 6 L 2 6 C 12 6 15 12 19 20 L 35 28 C 43 32 45 40 39 46 L -18 48 C -28 48 -32 43 -32 36 L -32 16 C -32 10 -28 6 -22 6 Z" fill="url(#leather)"/>
+        <path d="M -30 40 L 37 40 C 41 43 41 48 35 50 L -20 50 C -28 50 -31 46 -30 40 Z" fill="#17110c"/>
+        <path d="M -27 18 C -16 15 -4 15 6 17" stroke="#2e1b0d" stroke-width="2" fill="none" opacity=".45"/>
+        <path d="M 2 12 L 20 18 M 0 20 L 18 26" stroke="#c9b391" stroke-width="2" opacity=".7"/>
+      </g>
+    </g>
+  </g>
+  
+  <g class="leg leg--active" transform="translate(190 45) scale(-1 1) rotate(0)">
+    <path d="M -31 0 C -35 34 -33 66 -29 97 L 29 97 C 33 66 35 34 31 0 Z" fill="url(#trouser)"/>
+    <path d="M -9 5 C -12 38 -13 68 -12 94" stroke="#4b3a2c" stroke-width="2" fill="none" opacity=".5"/>
+    <path d="M 13 6 C 16 36 16 66 15 93" stroke="#0f0a07" stroke-width="3" fill="none" opacity=".32"/>
+    <path d="M -28 94 C -12 99 12 99 28 94" stroke="#17100b" stroke-width="4" fill="none" opacity=".55"/>
+    <g transform="translate(0 97) rotate(0)">
+      <path d="M -29 -3 C -27 24 -23 54 -21 76 L -19 93 L 19 93 L 21 76 C 23 54 27 24 29 -3 Z" fill="url(#trouser)"/>
+      <path d="M -9 2 C -11 26 -11 54 -10 75" stroke="#4b3a2c" stroke-width="2" fill="none" opacity=".45"/>
+      <path d="M -20 72 L 20 72 L 19 95 L -19 95 Z" fill="#1a120d"/>
+      <rect x="-12" y="86" width="24" height="29" rx="8" fill="#b97c54"/>
+      <rect x="-15" y="81" width="30" height="9" rx="4" fill="#d9a94f"/>
+       <rect x="-15" y="81" width="30" height="3" rx="1.5" fill="#f6e2ba" opacity=".8"/>
+      <g transform="translate(0 103) rotate(0)">
+        <path d="M -22 6 L 2 6 C 12 6 15 12 19 20 L 35 28 C 43 32 45 40 39 46 L -18 48 C -28 48 -32 43 -32 36 L -32 16 C -32 10 -28 6 -22 6 Z" fill="url(#leatherActive)"/>
+        <path d="M -30 40 L 37 40 C 41 43 41 48 35 50 L -20 50 C -28 50 -31 46 -30 40 Z" fill="#d9a94f"/>
+        <path d="M -27 18 C -16 15 -4 15 6 17" stroke="#2e1b0d" stroke-width="2" fill="none" opacity=".45"/>
+        <path d="M 2 12 L 20 18 M 0 20 L 18 26" stroke="#f6e2ba" stroke-width="2" opacity=".7"/>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(280 50)">
+    <circle r="16" fill="#f6ead3" stroke="#a98a5f" stroke-width="2"/>
+    <text x="0" y="1" text-anchor="middle" dominant-baseline="middle" font-family="Arial Narrow, Arial, sans-serif" font-size="17" font-weight="700" fill="#6b4f2f">R</text>
+  </g>
+  <g transform="translate(150 50)">
+    <circle r="16" fill="#d9a94f" stroke="#8f5f1c" stroke-width="2"/>
+    <text x="0" y="1" text-anchor="middle" dominant-baseline="middle" font-family="Arial Narrow, Arial, sans-serif" font-size="17" font-weight="700" fill="#2d1c14">L</text>
+  </g>
+  <g stroke="#b07922" stroke-width="3.5" stroke-linecap="round" opacity=".9">
+        <path d="M 175 246 L 161 226"/>
+        <path d="M 195 250 L 197 226"/>
+        <path d="M 215 248 L 231 230"/>
+      </g>
+  <path d="M 150 214 C 142 228 138 240 136 252" fill="none" stroke="#b07922" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="2 10" opacity="0.35"/>
+  <g opacity="0.95" fill="none" stroke="#b07922" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M 165 178 L 165 239"/>
+    </g>
+    <path d="M 153 234 L 165 252 L 177 234 Z" fill="#b07922" opacity="0.95"/>
+</svg>

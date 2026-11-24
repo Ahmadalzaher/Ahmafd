@@ -1,0 +1,226 @@
+/**
+ * Yalla Engage — front-end form styles.
+ * Self-contained; not in theme.css.
+ */
+
+/* Newsletter section */
+.yena-newsletter {
+	max-width: 600px;
+	margin: 2rem auto;
+	padding: 0 1rem;
+	text-align: center;
+}
+.yena-newsletter__head {
+	margin-bottom: 1.5rem;
+}
+.yena-newsletter .eyebrow {
+	display: inline-block;
+	font-size: .8rem;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	color: #b9252b;
+	margin-bottom: .5rem;
+}
+.yena-newsletter__title {
+	font-size: 1.6rem;
+	margin: 0 0 .5rem;
+}
+.yena-newsletter__text {
+	font-size: 1rem;
+	color: #555;
+	margin: 0;
+}
+
+/* Registration section */
+.yena-registration {
+	max-width: 600px;
+	margin: 2rem auto;
+	padding: 0 1rem;
+}
+.yena-registration__head {
+	margin-bottom: 1.5rem;
+	text-align: center;
+}
+.yena-registration__seats {
+	font-size: .9rem;
+	color: #2b1c14;
+	margin-top: .5rem;
+}
+.yena-registration__price {
+	display: inline-block;
+	font-weight: 700;
+	color: #b9252b;
+	margin: .75rem 0 0;
+}
+
+/* Fields */
+.yena-field {
+	margin-bottom: 1rem;
+	text-align: left;
+}
+.yena-field label {
+	display: block;
+	font-size: .85rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	color: #66584d;
+	margin-bottom: .35rem;
+}
+.yena-field input,
+.yena-field select,
+.yena-field textarea {
+	width: 100%;
+	padding: .75rem .85rem;
+	border: 1px solid #d8cdbd;
+	border-radius: 4px;
+	font: inherit;
+	color: #222;
+	box-sizing: border-box;
+}
+.yena-field input:focus,
+.yena-field select:focus,
+.yena-field textarea:focus {
+	outline: 2px solid #b9252b;
+	outline-offset: 1px;
+	border-color: #b9252b;
+}
+.yena-field--check {
+	display: flex;
+	gap: .6rem;
+	align-items: flex-start;
+}
+.yena-field--check input {
+	width: auto;
+	margin-top: .25rem;
+}
+
+/* Alerts */
+.yena-form-alert {
+	border: 1px solid #d8cdbd;
+	background: #f5eddd;
+	padding: 1rem 1.2rem;
+	margin-bottom: 1.2rem;
+	border-radius: 4px;
+	font-size: .95rem;
+}
+.yena-form-alert--ok {
+	border-color: #6d9c76;
+	background: #eef5ea;
+	color: #2d5a2d;
+}
+
+/* Buttons */
+.yena-btn {
+	display: inline-block;
+	padding: .75rem 1.5rem;
+	font-size: 1rem;
+	font-weight: 700;
+	text-align: center;
+	text-decoration: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	cursor: pointer;
+	background: #b9252b;
+	color: #fff;
+}
+.yena-btn:hover {
+	background: #8f1d24;
+}
+.yena-btn--hard {
+	box-shadow: 0 2px 0 #993;
+}
+.yena-btn--hard:hover {
+	box-shadow: 0 4px 0 #993;
+}
+
+/* Form note */
+.yena-form-note {
+	font-size: .8rem;
+	color: #66584d;
+	margin-top: .5rem;
+}
+
+/* Screen reader */
+.yena-screen-reader-text {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* RTL adjustments */
+html[dir="rtl"] .yena-field label,
+html[dir="rtl"] .yena-registration__head,
+html[dir="rtl"] .yena-newsletter__head {
+	text-align: right;
+}
+html[dir="rtl"] .yena-field--check {
+	flex-direction: row-reverse;
+}
+
+/* Poster image */
+.yena-registration__poster {
+	text-align: center;
+	margin-bottom: 16px;
+}
+.yena-registration__poster img {
+	max-width: 100%;
+	height: auto;
+	max-height: 240px;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Optional participant and partner logos */
+.yena-participant-logos {
+	margin-top: 2rem;
+	padding-top: 1.25rem;
+	border-top: 1px solid #d8cdbd;
+	text-align: center;
+}
+.yena-participant-logos h3 {
+	margin: 0 0 1rem;
+	font-size: 1rem;
+}
+.yena-participant-logos__grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 1rem;
+}
+.yena-participant-logos__item {
+	width: 120px;
+	font-size: .75rem;
+	color: #66584d;
+}
+.yena-participant-logos__item img {
+	display: block;
+	width: 100%;
+	height: 64px;
+	object-fit: contain;
+	background: #fff;
+	border-radius: 6px;
+}
+.yena-participant-logos__item span {
+	display: block;
+	margin-top: .35rem;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+	.yena-newsletter,
+	.yena-registration {
+		margin: 1rem auto;
+		padding: 0 .75rem;
+	}
+	.yena-newsletter__title {
+		font-size: 1.4rem;
+	}
+}

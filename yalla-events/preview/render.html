@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>ticket preview</title>
+<style>
+	html, body { margin: 0; background: #23262b; }
+	#wrap { padding: 16px; display: inline-block; }
+	canvas { display: block; box-shadow: 0 8px 30px rgba(0,0,0,.5); background: #fff; }
+</style>
+</head>
+<body>
+<div id="wrap"><canvas id="c"></canvas></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+	(function () {
+		var file = new URLSearchParams(location.search).get('file') || 'ticket-de.pdf';
+		var scale = parseFloat(new URLSearchParams(location.search).get('scale') || '1.7');
+		pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+		pdfjsLib.getDocument(file).promise
+			.then(function (pdf) { return pdf.getPage(1); })
+			.then(function (page) {
+				var viewport = page.getViewport({ scale: scale });
+				var canvas = document.getElementById('c');
+				canvas.width = Math.round(viewport.width);
+				canvas.height = Math.round(viewport.height);
+				return page.render({ canvasContext: canvas.getContext('2d'), viewport: viewport }).promise;
+			})
+			.then(function () { document.title = 'rendered'; })
+			.catch(function (err) { document.title = 'error: ' + err.message; });
+	})();
+</script>
+</body>
+</html>

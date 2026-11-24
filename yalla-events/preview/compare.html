@@ -1,0 +1,26 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Ticket comparison</title>
+<style>
+  body { margin: 0; font: 14px Arial, sans-serif; background: #1f2328; color: #eee; }
+  .wrap { padding: 20px; }
+  h2 { margin: 0 0 10px; font-size: 16px; }
+  .grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+  .card { background: #2b3038; padding: 14px; border-radius: 10px; }
+  img, iframe { width: 100%; max-width: 1100px; height: auto; border: 0; background: #fff; display: block; }
+  iframe { height: 700px; }
+  .note { color: #bbb; font-size: 12px; margin-top: 8px; }
+</style>
+<div class="wrap">
+  <div class="grid">
+    <div class="card">
+      <h2>المرجع الذي أرسلته (Reference)</h2>
+      <img src="ref-ticket.png" alt="reference">
+    </div>
+    <div class="card">
+      <h2>المعاينة الحالية (Current preview)</h2>
+      <iframe src="render.html?file=ticket-de.pdf&scale=1.5"></iframe>
+      <div class="note">إذا لم يظهر الـ PDF، افتح: <a href="render.html?file=ticket-de.pdf&scale=1.6" style="color:#8cf">render.html?file=ticket-de.pdf&scale=1.6</a></div>
+    </div>
+  </div>
+</div>

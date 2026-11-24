@@ -1,0 +1,16 @@
+const r = require('D:/oben code/arap-library.de-fix/lh-before.json');
+const a = r.audits;
+console.log('lh', r.lighthouseVersion);
+console.log('FCP', a['first-contentful-paint'].displayValue, a['first-contentful-paint'].numericValue);
+console.log('LCP', a['largest-contentful-paint'].displayValue, a['largest-contentful-paint'].numericValue);
+console.log('CLS', a['cumulative-layout-shift'].numericValue);
+console.log('TBT', a['total-blocking-time'].numericValue, a['total-blocking-time'].displayValue);
+const rb = a['render-blocking-resources'];
+console.log('RB score', rb.score, 'items', (rb.details && rb.details.items || []).length);
+console.log('RB items:');
+(rb.details && rb.details.items || []).forEach(i => console.log('  -', i.url, i.transferSize, 'items->', i.totalTransferSize));
+const nw = a['network-requests'];
+const items = (nw.details && nw.details.items) || [];
+console.log('network-requests count', items.length);
+console.log('largest 10 by transferSize:');
+items.slice().sort((x, y) => (y.transferSize || 0) - (x.transferSize || 0)).slice(0, 10).forEach(i => console.log('  ', i.url.split('arap-library.de')[1] || i.url, Math.round((i.transferSize || 0) / 1000), 'KB'));

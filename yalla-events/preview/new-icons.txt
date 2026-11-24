@@ -1,0 +1,50 @@
+	/** Calendar icon (design coordinates). */
+	private function icon_calendar( $x, $top, $rgb ) {
+		$out  = $rgb . " RG\n0.8 w\n";
+		$out .= $this->dbox( $x + 5, $top + 12, 46, 39 ) . " re\nS\n";
+		$out .= $this->dx( $x + 5 ) . ' ' . $this->dy( $top + 24 ) . ' m ' . $this->dx( $x + 51 ) . ' ' . $this->dy( $top + 24 ) . " l S\n";
+		$out .= $rgb . " rg\n";
+		foreach ( array( 30, 41 ) as $row ) {
+			foreach ( array( 12, 24, 36 ) as $col ) {
+				$out .= $this->dbox( $x + $col, $top + $row, 7, 7 ) . " re\nf\n";
+			}
+		}
+		return $out;
+	}
+
+	/** Draw a filled circle in design coordinates. */
+	private function circle( $cx, $cy, $r, $rgb ) {
+		$k = 0.5523;
+		return $rgb . " rg\n" . $cx . ' ' . ( $cy + $r ) . " m\n"
+			. ( $cx + $r ) . ' ' . ( $cy + $r ) . ' ' . ( $cx + $r ) . ' ' . ( $cy - $r * $k ) . ' ' . $cx . ' ' . ( $cy - $r ) . " c\n"
+			. ( $cx - $r * $k ) . ' ' . ( $cy - $r ) . ' ' . ( $cx - $r ) . ' ' . ( $cy - $r * $k ) . ' ' . ( $cx - $r ) . ' ' . $cy . " c\n"
+			. ( $cx - $r ) . ' ' . ( $cy + $r * $k ) . ' ' . ( $cx - $r * $k ) . ' ' . ( $cy + $r ) . ' ' . $cx . ' ' . ( $cy + $r ) . " c\nf\n";
+	}
+
+	/** People/group icon: rounded heads and shoulders, not squares. */
+	private function icon_people( $x, $top, $rgb ) {
+		$out = $this->circle( $this->dx( $x + 20 ), $this->dy( $top + 16 ), $this->dw( 8 ), $rgb );
+		$out .= $this->circle( $this->dx( $x + 36 ), $this->dy( $top + 16 ), $this->dw( 8 ), $rgb );
+		$a  = $this->dx( $x + 6 ) . ' ' . $this->dy( $top + 52 );
+		$p  = $this->dx( $x + 28 ) . ' ' . $this->dy( $top + 28 );
+		$b  = $this->dx( $x + 50 ) . ' ' . $this->dy( $top + 52 );
+		$out .= $rgb . " rg\n" . $a . " m\n"
+			. $this->dx( $x + 6 ) . ' ' . $this->dy( $top + 36 ) . ' ' . $this->dx( $x + 16 ) . ' ' . $this->dy( $top + 28 ) . ' ' . $p . " c\n"
+			. $this->dx( $x + 40 ) . ' ' . $this->dy( $top + 28 ) . ' ' . $this->dx( $x + 50 ) . ' ' . $this->dy( $top + 36 ) . ' ' . $b . " c\nf\n";
+		return $out;
+	}
+
+	/** Location pin icon: teardrop with a hollow centre. */
+	private function icon_pin( $x, $top, $rgb ) {
+		$t = $this->dx( $x + 24 ) . ' ' . $this->dy( $top + 2 );
+		$r = $this->dx( $x + 46 ) . ' ' . $this->dy( $top + 24 );
+		$b = $this->dx( $x + 24 ) . ' ' . $this->dy( $top + 54 );
+		$l = $this->dx( $x + 2 ) . ' ' . $this->dy( $top + 24 );
+		$out  = $rgb . " rg\n" . $t . " m\n";
+		$out .= $this->dx( $x + 38 ) . ' ' . $this->dy( $top + 2 ) . ' ' . $r . ' ' . $this->dy( $top + 12 ) . ' ' . $r . " c\n";
+		$out .= $this->dx( $x + 46 ) . ' ' . $this->dy( $top + 38 ) . ' ' . $this->dx( $x + 32 ) . ' ' . $this->dy( $top + 46 ) . ' ' . $b . " c\n";
+		$out .= $this->dx( $x + 16 ) . ' ' . $this->dy( $top + 46 ) . ' ' . $this->dx( $x + 2 ) . ' ' . $this->dy( $top + 38 ) . ' ' . $l . " c\n";
+		$out .= $this->dx( $x + 2 ) . ' ' . $this->dy( $top + 12 ) . ' ' . $this->dx( $x + 10 ) . ' ' . $this->dy( $top + 2 ) . ' ' . $t . " c\nf\n";
+		$out .= $this->circle( $this->dx( $x + 24 ), $this->dy( $top + 23 ), $this->dw( 9 ), '0.992 0.949 0.859' );
+		return $out;
+	}

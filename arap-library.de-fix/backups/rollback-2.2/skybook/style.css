@@ -1,0 +1,94 @@
+/*
+Theme Name: Skybook
+Theme URI: https://themeforest.net/item/x/19710474
+Description: VG Skybook is a clean responsive WooCommerce powered WordPress store theme suitable for book stores, libraries, book shops, digital products, ebooks, software apps or can be used to create affiliate sites linking to store like Amazon and BN.
+Author: WooVina.com
+Author URI: https://woovina.com/
+Template: woovina
+Version: 2.2
+*/
+
+/* Parent stylesheet should be loaded from functions.php not using wp_enqueue  */
+/* تحسين مربع النص */
+.comment-textarea textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
+}
+
+.comment-textarea textarea:focus {
+  border-color: #0073aa;
+  outline: none;
+}
+
+/* زر الإرسال */
+#comment-submit {
+  background-color: #0073aa;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+#comment-submit:hover {
+  background-color: #005177;
+}
+
+/* تنسيق قائمة التعليقات */
+.comment-list li.comment {
+  border-bottom: 1px solid #eaeaea;
+  padding: 15px 0;
+}
+
+.comment-list li.comment .comment-author {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+}
+
+/* تعليقات مغلقة */
+.no-comments {
+  font-style: italic;
+  color: #666;
+}
+
+/* النصوص الخاصة بالحالة مثل تسجيل الدخول */
+.must-log-in,
+.logged-in-as {
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+/* التنقل بين التعليقات */
+.comment-navigation,
+.comment-navigation a {
+  font-weight: bold;
+  color: #0073aa;
+}
+
+/* تجاوب مع شاشات الموبايل */
+@media (max-width: 768px) {
+  .comment-textarea textarea {
+    font-size: 0.9rem;
+    min-height: 100px;
+  }
+  #comment-submit {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+  }
+  .comment-list li.comment {
+    padding: 10px 0;
+  }
+}

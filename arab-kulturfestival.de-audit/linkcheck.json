@@ -1,0 +1,1455 @@
+{
+ "links": [
+  {
+   "url": "https://arab-kulturfestival.de/abschluss-der-veranstaltungen-des-arabischen-kulturfestivals-2023-in-der-stadt-hamburg/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/abschluss-der-veranstaltungen-des-arabischen-kulturfestivals-2023-in-der-stadt-hamburg/",
+   "bytes": 65486,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/",
+   "bytes": 109609,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/1554/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/1554/",
+   "bytes": 53700,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/ar/about/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/ar/about/",
+   "bytes": 55650,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/ar/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/ar/",
+   "bytes": 117211,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/2147-2/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/2147-2/",
+   "bytes": 47806,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/ar/contact/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/ar/contact/",
+   "bytes": 56604,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/ar/articles/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/ar/articles/",
+   "bytes": 52046,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/ar/cookies/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/ar/cookies/",
+   "bytes": 49768,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/ar/events/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/ar/events/",
+   "bytes": 55647,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/ar/festival/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/ar/festival/",
+   "bytes": 68384,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/ar/imprint/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/ar/imprint/",
+   "bytes": 49368,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/ar/press/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/ar/press/",
+   "bytes": 52952,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/ar/privacy/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/ar/privacy/",
+   "bytes": 49672,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/ar/program/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/ar/program/",
+   "bytes": 56481,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/arabic-culture-in-exile-ar/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/arabic-culture-in-exile-ar/",
+   "bytes": 55410,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/arab-kulturfestival-2/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/arab-kulturfestival-2/",
+   "bytes": 52065,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/arabic-culture-in-exile/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/arabic-culture-in-exile/",
+   "bytes": 50159,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/arabic-music-ar/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/arabic-music-ar/",
+   "bytes": 54854,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/arabic-music/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/arabic-music/",
+   "bytes": 49625,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/arabische-kultur-im-exil/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/arabische-kultur-im-exil/",
+   "bytes": 57825,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/arabische-kultur-im-exil-2/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/arabische-kultur-im-exil-2/",
+   "bytes": 55564,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/arabische-musik/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/arabische-musik/",
+   "bytes": 53907,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/arabische-musik-2/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/arabische-musik-2/",
+   "bytes": 50631,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/calligraphy-ar/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/calligraphy-ar/",
+   "bytes": 54269,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/artikel/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/artikel/",
+   "bytes": 48122,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/calligraphy/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/calligraphy/",
+   "bytes": 49610,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/cookies/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/cookies/",
+   "bytes": 45751,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/dabke-la-tahtaj-dawa/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/dabke-la-tahtaj-dawa/",
+   "bytes": 55241,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/dabke-needs-no-invitation/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/dabke-needs-no-invitation/",
+   "bytes": 50138,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/datenschutz/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/datenschutz/",
+   "bytes": 46165,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/das-waren-die-tage-des-arabischen-kulturfestivals-2023-in-deutschland-und-wir-freuen-uns-auf-mehr-kuenstlerische-und-kulturelle-interaktionen-in-der-zukunft/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/das-waren-die-tage-des-arabischen-kulturfestivals-2023-in-deutschland-und-wir-freuen-uns-auf-mehr-kuenstlerische-und-kulturelle-interaktionen-in-der-zukunft/",
+   "bytes": 56033,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/die-arabische-kultur-westliche-vorurteile/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/die-arabische-kultur-westliche-vorurteile/",
+   "bytes": 51216,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/en/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/en/",
+   "bytes": 108721,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/die-dabke-braucht-keine-einladung/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/die-dabke-braucht-keine-einladung/",
+   "bytes": 54558,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/en/about/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/en/about/",
+   "bytes": 50050,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/en/articles/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/en/articles/",
+   "bytes": 47295,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/en/contact/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/en/contact/",
+   "bytes": 51376,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/en/cookies/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/en/cookies/",
+   "bytes": 45055,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/en/legal-notice/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/en/legal-notice/",
+   "bytes": 44866,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/en/events/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/en/events/",
+   "bytes": 49706,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/en/festival/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/en/festival/",
+   "bytes": 61953,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/en/privacy/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/en/privacy/",
+   "bytes": 45216,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/en/programme/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/en/programme/",
+   "bytes": 49829,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/en/press/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/en/press/",
+   "bytes": 48009,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-10-08-4/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-10-08-4/",
+   "bytes": 56533,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-10-08-2/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-10-08-2/",
+   "bytes": 52390,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/event/dabke-hamburg-2026-11-14/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/event/dabke-hamburg-2026-11-14/",
+   "bytes": 55861,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-10-08/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-10-08/",
+   "bytes": 52891,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-10-22-3/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-10-22-3/",
+   "bytes": 52391,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-10-22-5/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-10-22-5/",
+   "bytes": 56534,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-10-22/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-10-22/",
+   "bytes": 52820,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-11-05-3/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-11-05-3/",
+   "bytes": 56533,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-11-05-2/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-11-05-2/",
+   "bytes": 52390,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-11-05/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-11-05/",
+   "bytes": 52819,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-11-19-3/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-11-19-3/",
+   "bytes": 51788,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-11-19/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-11-19/",
+   "bytes": 52222,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-11-19-4/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-11-19-4/",
+   "bytes": 55899,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-12-03-2/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-12-03-2/",
+   "bytes": 51787,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-12-03-3/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-12-03-3/",
+   "bytes": 55898,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-12-03/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-12-03/",
+   "bytes": 52221,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-12-17-3/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-12-17-3/",
+   "bytes": 51788,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-12-17/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-12-17/",
+   "bytes": 52222,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-12-17-5/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/event/dabke-kurs-hamburg-2026-12-17-5/",
+   "bytes": 56534,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/festival/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/festival/",
+   "bytes": 62594,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/events/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/events/",
+   "bytes": 51363,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/festivalprogramm/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/festivalprogramm/",
+   "bytes": 99004,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/impressum/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/impressum/",
+   "bytes": 45651,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/kalligrafie/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/kalligrafie/",
+   "bytes": 51367,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/kalligrafie-2/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/kalligrafie-2/",
+   "bytes": 50623,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/kontakt/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/kontakt/",
+   "bytes": 51685,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/kulturartikel/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/kulturartikel/",
+   "bytes": 59872,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/newsletter/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/newsletter/",
+   "bytes": 43827,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/presse/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/presse/",
+   "bytes": 48634,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/privacy-policy/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/privacy-policy/",
+   "bytes": 75944,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/programm/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/programm/",
+   "bytes": 50653,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/ueber-uns/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/ueber-uns/",
+   "bytes": 50935,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/uncategorized/arab-kulturfestival/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de",
+   "bytes": 109609,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2564",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2564",
+   "bytes": 526,
+   "type": "text/calendar; charset=utf-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/uncategorized/arabische-kultur-im-exil/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/arabische-kultur-im-exil/",
+   "bytes": 57825,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/uncategorized/die-arabische-kultur-westliche-vorurteile/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/die-arabische-kultur-westliche-vorurteile/",
+   "bytes": 51216,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/uncategorized/die-dabke-braucht-keine-einladung/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/die-dabke-braucht-keine-einladung/",
+   "bytes": 54558,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2567",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2567",
+   "bytes": 530,
+   "type": "text/calendar; charset=utf-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2570",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2570",
+   "bytes": 542,
+   "type": "text/calendar; charset=utf-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/uncategorized/kalligrafie/",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/kalligrafie/",
+   "bytes": 51367,
+   "type": "text/html; charset=UTF-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2573",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2573",
+   "bytes": 526,
+   "type": "text/calendar; charset=utf-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2576",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2576",
+   "bytes": 530,
+   "type": "text/calendar; charset=utf-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2582",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2582",
+   "bytes": 526,
+   "type": "text/calendar; charset=utf-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2579",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2579",
+   "bytes": 542,
+   "type": "text/calendar; charset=utf-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2585",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2585",
+   "bytes": 530,
+   "type": "text/calendar; charset=utf-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2591",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2591",
+   "bytes": 526,
+   "type": "text/calendar; charset=utf-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2588",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2588",
+   "bytes": 542,
+   "type": "text/calendar; charset=utf-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2594",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2594",
+   "bytes": 530,
+   "type": "text/calendar; charset=utf-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2598",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2598",
+   "bytes": 542,
+   "type": "text/calendar; charset=utf-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2601",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2601",
+   "bytes": 526,
+   "type": "text/calendar; charset=utf-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2608",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2608",
+   "bytes": 542,
+   "type": "text/calendar; charset=utf-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2604",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2604",
+   "bytes": 530,
+   "type": "text/calendar; charset=utf-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2612",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2612",
+   "bytes": 526,
+   "type": "text/calendar; charset=utf-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/pdf/programm-2022.pdf",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/pdf/programm-2022.pdf",
+   "bytes": 4831179,
+   "type": "application/pdf"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2618",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2618",
+   "bytes": 542,
+   "type": "text/calendar; charset=utf-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/pdf/programm-2024.pdf",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/pdf/programm-2024.pdf",
+   "bytes": 4535392,
+   "type": "application/pdf"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2615",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-admin/admin-post.php?action=yd_event_ics&event_id=2615",
+   "bytes": 530,
+   "type": "text/calendar; charset=utf-8"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2024/06/Arab-Kulturfestival-2022.pdf",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2024/06/Arab-Kulturfestival-2022.pdf",
+   "bytes": 4831179,
+   "type": "application/pdf"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2024/06/Arab-Kulturfestival-2024.pdf",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2024/06/Arab-Kulturfestival-2024.pdf",
+   "bytes": 4535392,
+   "type": "application/pdf"
+  }
+ ],
+ "images": [
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/moves/dabke-step-1.svg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/moves/dabke-step-1.svg",
+   "bytes": 6018,
+   "type": "image/svg+xml"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/logo-mark.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/logo-mark.webp",
+   "bytes": 55466,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/calligraphy.jpg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/calligraphy.jpg",
+   "bytes": 40099,
+   "type": "image/jpeg"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/community-circle.jpg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/community-circle.jpg",
+   "bytes": 72558,
+   "type": "image/jpeg"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/logo-mark.png",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/logo-mark.png",
+   "bytes": 81526,
+   "type": "image/png"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/moves/dabke-step-2.svg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/moves/dabke-step-2.svg",
+   "bytes": 6016,
+   "type": "image/svg+xml"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/hero-dabke.jpg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/hero-dabke.jpg",
+   "bytes": 184253,
+   "type": "image/jpeg"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/moves/dabke-step-3.svg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/moves/dabke-step-3.svg",
+   "bytes": 6014,
+   "type": "image/svg+xml"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/moves/dabke-step-4.svg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/moves/dabke-step-4.svg",
+   "bytes": 6016,
+   "type": "image/svg+xml"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/moves/dabke-step-5.svg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/moves/dabke-step-5.svg",
+   "bytes": 5858,
+   "type": "image/svg+xml"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/moves/dabke-step-6.svg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/moves/dabke-step-6.svg",
+   "bytes": 6232,
+   "type": "image/svg+xml"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/partner-arap-library.png",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/partner-arap-library.png",
+   "bytes": 19535,
+   "type": "image/png"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/music.jpg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/music.jpg",
+   "bytes": 49934,
+   "type": "image/jpeg"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/partner-arap.png",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/partner-arap.png",
+   "bytes": 14816,
+   "type": "image/png"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/partner-bkm.png",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/partner-bkm.png",
+   "bytes": 5401,
+   "type": "image/png"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/partner-adwaa.png",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/partner-adwaa.png",
+   "bytes": 20817,
+   "type": "image/png"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/partner-goldbekhaus.png",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/partner-goldbekhaus.png",
+   "bytes": 23097,
+   "type": "image/png"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/partner-rooh-alsharq.png",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/partner-rooh-alsharq.png",
+   "bytes": 33573,
+   "type": "image/png"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2022/10/23-e1696955525293.jpg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2022/10/23-e1696955525293.jpg",
+   "bytes": 82313,
+   "type": "image/jpeg"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/portrait-ahmad.jpg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/portrait-ahmad.jpg",
+   "bytes": 102175,
+   "type": "image/jpeg"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/stage-group.jpg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/themes/yalla/assets/img/stage-group.jpg",
+   "bytes": 72558,
+   "type": "image/jpeg"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2022/10/EYASadsWAAAoJ66-1-e1696956158817.jpg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2022/10/EYASadsWAAAoJ66-1-e1696956158817.jpg",
+   "bytes": 230006,
+   "type": "image/jpeg"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2022/10/4-scaled-e1696956347204.jpg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2022/10/4-scaled-e1696956347204.jpg",
+   "bytes": 346290,
+   "type": "image/jpeg"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2022/10/مهرجان-الثقافة-العربية-2023في-مدينة-هامبورغ-الالمانية-e1696955998142.jpg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2022/10/%D9%85%D9%87%D8%B1%D8%AC%D8%A7%D9%86-%D8%A7%D9%84%D8%AB%D9%82%D8%A7%D9%81%D8%A9-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-2023%D9%81%D9%8A-%D9%85%D8%AF%D9%8A%D9%86%D8%A9-%D9%87%D8%A7%D9%85%D8%A8%D9%88%D8%B1%D8%BA-%D8%A7%D9%84%D8%A7%D9%84%D9%85%D8%A7%D9%86%D9%8A%D8%A9-e1696955998142.jpg",
+   "bytes": 239505,
+   "type": "image/jpeg"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2022/10/IMG-20190908-WA0009.jpg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2022/10/IMG-20190908-WA0009.jpg",
+   "bytes": 385784,
+   "type": "image/jpeg"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2023/09/Logo-2.png",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2023/09/Logo-2.png",
+   "bytes": 27093,
+   "type": "image/png"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2023/09/آراب.png",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2023/09/%D8%A2%D8%B1%D8%A7%D8%A8.png",
+   "bytes": 18371,
+   "type": "image/png"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2023/09/455214.jpg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2023/09/455214.jpg",
+   "bytes": 94134,
+   "type": "image/jpeg"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2022/10/IMG_2984-e1696956256942.jpg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2022/10/IMG_2984-e1696956256942.jpg",
+   "bytes": 559779,
+   "type": "image/jpeg"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2023/09/اضواء.png",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2023/09/%D8%A7%D8%B6%D9%88%D8%A7%D8%A1.png",
+   "bytes": 31045,
+   "type": "image/png"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2023/09/فرقة-روح-الشرق-1.png",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2023/09/%D9%81%D8%B1%D9%82%D8%A9-%D8%B1%D9%88%D8%AD-%D8%A7%D9%84%D8%B4%D8%B1%D9%82-1.png",
+   "bytes": 35357,
+   "type": "image/png"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2023/09/مكتبة-آراب.png",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2023/09/%D9%85%D9%83%D8%AA%D8%A8%D8%A9-%D8%A2%D8%B1%D8%A7%D8%A8.png",
+   "bytes": 37969,
+   "type": "image/png"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2024/04/غلاف-الدعوة-copy-1-1024x574.jpg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2024/04/%D8%BA%D9%84%D8%A7%D9%81-%D8%A7%D9%84%D8%AF%D8%B9%D9%88%D8%A9-copy-1-1024x574.jpg",
+   "bytes": 112267,
+   "type": "image/jpeg"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2023/10/21-1024x1024.jpg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2023/10/21-1024x1024.jpg",
+   "bytes": 137091,
+   "type": "image/jpeg"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2024/04/غلاف-الدعوة-copy-1-e1714065264313.jpg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2024/04/%D8%BA%D9%84%D8%A7%D9%81-%D8%A7%D9%84%D8%AF%D8%B9%D9%88%D8%A9-copy-1-e1714065264313.jpg",
+   "bytes": 325138,
+   "type": "image/jpeg"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-04-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-04-1024x682.webp",
+   "bytes": 50198,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-03-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-03-1024x682.webp",
+   "bytes": 54734,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-05-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-05-1024x682.webp",
+   "bytes": 52280,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-01-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-01-1024x682.webp",
+   "bytes": 54734,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-06-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-06-1024x682.webp",
+   "bytes": 86730,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-08-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-08-1024x682.webp",
+   "bytes": 57784,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-07-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-07-1024x682.webp",
+   "bytes": 89850,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-10-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-10-1024x682.webp",
+   "bytes": 82978,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-09-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-09-1024x682.webp",
+   "bytes": 80042,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-11-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-11-1024x682.webp",
+   "bytes": 61990,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-12-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-12-1024x682.webp",
+   "bytes": 83584,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-13-682x1024.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-13-682x1024.webp",
+   "bytes": 59536,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-14-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-14-1024x682.webp",
+   "bytes": 85184,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-16-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-16-1024x682.webp",
+   "bytes": 55374,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-15-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-15-1024x682.webp",
+   "bytes": 78628,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-17-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-17-1024x682.webp",
+   "bytes": 78310,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-18-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-18-1024x682.webp",
+   "bytes": 87768,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-19-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-19-1024x682.webp",
+   "bytes": 55400,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-20-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-20-1024x682.webp",
+   "bytes": 59490,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-21-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-21-1024x682.webp",
+   "bytes": 75952,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-22-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-22-1024x682.webp",
+   "bytes": 56158,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-23-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-23-1024x682.webp",
+   "bytes": 55788,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-24-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-24-1024x682.webp",
+   "bytes": 97344,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-26-682x1024.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-26-682x1024.webp",
+   "bytes": 96682,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-25-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-25-1024x682.webp",
+   "bytes": 97958,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-27-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-27-1024x682.webp",
+   "bytes": 75462,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-28-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-28-1024x682.webp",
+   "bytes": 87172,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-29-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-29-1024x682.webp",
+   "bytes": 90180,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-30-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-30-1024x682.webp",
+   "bytes": 95768,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-32-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-32-1024x682.webp",
+   "bytes": 57454,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-34-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-34-1024x682.webp",
+   "bytes": 52152,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-33-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-33-1024x682.webp",
+   "bytes": 47354,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-31-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-31-1024x682.webp",
+   "bytes": 59908,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-35-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-35-1024x682.webp",
+   "bytes": 66132,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-36-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-36-1024x682.webp",
+   "bytes": 81924,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-38-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-38-1024x682.webp",
+   "bytes": 32012,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-37-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-37-1024x682.webp",
+   "bytes": 24888,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-39-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-39-1024x682.webp",
+   "bytes": 70630,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-41-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-41-1024x682.webp",
+   "bytes": 46314,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-40-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-40-1024x682.webp",
+   "bytes": 56326,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-42-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-42-1024x682.webp",
+   "bytes": 35566,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-44-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-44-1024x682.webp",
+   "bytes": 52176,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-43-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-43-1024x682.webp",
+   "bytes": 48016,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-46-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-46-1024x682.webp",
+   "bytes": 58786,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-05.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-05.webp",
+   "bytes": 69202,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-45-1024x682.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/akf-day1-45-1024x682.webp",
+   "bytes": 104280,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-06.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-06.webp",
+   "bytes": 83330,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-07.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-07.webp",
+   "bytes": 32210,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-08.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-08.webp",
+   "bytes": 48404,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-09.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-09.webp",
+   "bytes": 66978,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-11.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-11.webp",
+   "bytes": 114974,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-10.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-10.webp",
+   "bytes": 120202,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-13.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-13.webp",
+   "bytes": 110252,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-14.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-14.webp",
+   "bytes": 113416,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-15.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-15.webp",
+   "bytes": 58958,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-16.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-16.webp",
+   "bytes": 117056,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-18.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-18.webp",
+   "bytes": 77742,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-17.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-17.webp",
+   "bytes": 108006,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-19.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-19.webp",
+   "bytes": 163924,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-20.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-20.webp",
+   "bytes": 135560,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-21.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-21.webp",
+   "bytes": 117592,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-23.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-23.webp",
+   "bytes": 74420,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-22.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-22.webp",
+   "bytes": 82036,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-24.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-24.webp",
+   "bytes": 114766,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-26.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-26.webp",
+   "bytes": 77990,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-25.webp",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/10/festival-25.webp",
+   "bytes": 94372,
+   "type": "image/webp"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/11/logo-small.png",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/11/logo-small.png",
+   "bytes": 98633,
+   "type": "image/png"
+  },
+  {
+   "url": "https://arab-kulturfestival.de/wp-content/uploads/2026/11/ahmad.jpeg",
+   "status": 200,
+   "final": "https://arab-kulturfestival.de/wp-content/uploads/2026/11/ahmad.jpeg",
+   "bytes": 413688,
+   "type": "image/jpeg"
+  }
+ ]
+}
