@@ -356,6 +356,25 @@ function yd_schema_event() {
 		'inLanguage'          => yd_lang(),
 	);
 
+	// Partner logos double as performer names (e.g. Oriental Band Hamburg).
+	$partner_logos = get_post_meta( $id, 'yena_participant_logos', true );
+	if ( is_array( $partner_logos ) ) {
+		$performers = array();
+		foreach ( $partner_logos as $plogo ) {
+			$pname = isset( $plogo['name'] ) ? trim( $plogo['name'] ) : '';
+			if ( '' === $pname ) {
+				continue;
+			}
+			$performers[] = array(
+				'@type' => 'PerformingGroup',
+				'name'  => wp_strip_all_tags( $pname ),
+			);
+		}
+		if ( $performers ) {
+			$event['performer'] = $performers;
+		}
+	}
+
 	// Most events are free with a donation welcome; the price field is free text,
 	// so only build an Offer when it actually names a ticket price.
 	$is_free = ( '' === $price || false !== stripos( $price, 'frei' ) || false !== stripos( $price, 'free' ) );
