@@ -21,15 +21,29 @@ class AkfApp extends ConsumerStatefulWidget {
   ConsumerState<AkfApp> createState() => _AkfAppState();
 }
 
-class _AkfAppState extends ConsumerState<AkfApp> {
+class _AkfAppState extends ConsumerState<AkfApp> with WidgetsBindingObserver {
   bool _restored = false;
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     // Restore only after the first frame is drawn; secure-storage calls before
     // the first frame previously caused a blank launch screen on devices.
     WidgetsBinding.instance.addPostFrameCallback((_) => _restore());
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed && _restored) {
+      UpdateService.checkAndPrompt(context, ref);
+    }
   }
 
   @override

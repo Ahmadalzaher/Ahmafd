@@ -11,6 +11,7 @@ import '../providers.dart';
 /// directly through the Android package installer (no browser link).
 class UpdateService {
   static const _channel = MethodChannel('de.arabkulturfestival.yalla_events/updater');
+  static bool _promptShown = false;
 
   static Future<String> installedVersion() async {
     final info = await PackageInfo.fromPlatform();
@@ -27,7 +28,8 @@ class UpdateService {
       final remoteData = await ref.read(apiProvider).get('akf/v1/app/version');
       final remote = int.tryParse('${remoteData['version_code'] ?? 0}') ?? 0;
       final current = await installedBuildNumber();
-      if (remote <= current || remote == 0 || !context.mounted) return;
+      if (remote <= current || remote == 0 || !context.mounted || _promptShown) return;
+      _promptShown = true;
       final version = (remoteData['version_name'] ?? '').toString();
       final notes = (remoteData['changelog'] ?? '').toString();
       showDialog<void>(
