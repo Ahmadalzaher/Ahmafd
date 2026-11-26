@@ -431,7 +431,7 @@ final class YENA_Visitor_Accounts {
 		$body    = class_exists( 'AKF_SelfReg' )
 			? sprintf( AKF_SelfReg::tr( $lang, 'ticket_resend_body' ), $ticket['ticket_number'] )
 			: sprintf( __( 'Ticket number: %s', 'yalla-engage' ), $ticket['ticket_number'] );
-		$sent = wp_mail( $email, $subject, $body, array( 'From: Yalla Events <' . get_option( 'admin_email' ) . '>', 'Reply-To: Yalla Events <' . get_option( 'admin_email' ) . '>' ), $attachments );
+		$sent = wp_mail( $email, $subject, $body, array( 'From: ' . YENA_FROM_NAME . ' <' . YENA_FROM_EMAIL . '>', 'Reply-To: ' . YENA_FROM_NAME . ' <' . YENA_FROM_EMAIL . '>' ), $attachments );
 		$wpdb->insert( AKF_DB::table( 'email_logs' ), array(
 			'ticket_id' => (int) $ticket_id, 'event_id' => (int) $ticket['event_id'], 'recipient' => $email,
 			'subject' => $subject, 'status' => $sent ? 'sent' : 'failed',

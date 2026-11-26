@@ -1023,7 +1023,7 @@ class YENA_Forms {
 
 		$subject = str_replace( '{event}', $event_title, $texts['reg_confirm_subject'] );
 
-		$from_email = sanitize_email( get_option( 'admin_email' ) );
+		$from_email = YENA_FROM_EMAIL;
 		$from_name  = 'Yalla Events';
 
 		$headers = array(

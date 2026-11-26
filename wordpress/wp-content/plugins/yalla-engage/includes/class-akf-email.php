@@ -50,7 +50,12 @@ final class AKF_Email {
 			$body .= sprintf( "%s: %s\n", __( 'Ticket', 'yalla-engage' ), $t->ticket_number );
 		}
 
-		$sent = wp_mail( $to, $subject, $body );
+		$headers = array(
+			'From: ' . YENA_FROM_NAME . ' <' . YENA_FROM_EMAIL . '>',
+			'Reply-To: ' . YENA_FROM_NAME . ' <' . YENA_FROM_EMAIL . '>',
+			'Content-Type: text/plain; charset=UTF-8',
+		);
+		$sent = wp_mail( $to, $subject, $body, $headers );
 		update_post_meta( $order_id, '_akf_ticket_email_sent', $sent ? 'yes' : 'no' );
 
 		foreach ( $tickets as $t ) {
@@ -90,7 +95,12 @@ final class AKF_Email {
 
 		$subject = __( 'Your invitation ticket', 'yalla-engage' );
 		$body    = sprintf( __( 'Ticket number: %s', 'yalla-engage' ), $ticket->ticket_number );
-		$sent    = wp_mail( $ticket->guest_email, $subject, $body );
+		$headers = array(
+			'From: ' . YENA_FROM_NAME . ' <' . YENA_FROM_EMAIL . '>',
+			'Reply-To: ' . YENA_FROM_NAME . ' <' . YENA_FROM_EMAIL . '>',
+			'Content-Type: text/plain; charset=UTF-8',
+		);
+		$sent    = wp_mail( $ticket->guest_email, $subject, $body, $headers );
 
 		$wpdb->insert(
 			AKF_DB::table( 'email_logs' ),

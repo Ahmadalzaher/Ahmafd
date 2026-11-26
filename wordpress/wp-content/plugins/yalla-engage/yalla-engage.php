@@ -19,6 +19,23 @@ define( 'YENA_VERSION', '1.1.13' );
 define( 'YENA_DIR', plugin_dir_path( __FILE__ ) );
 define( 'YENA_URI', plugin_dir_url( __FILE__ ) );
 define( 'YENA_DB_VERSION', '1.1' );
+define( 'YENA_FROM_EMAIL', 'info@arab-kulturfestival.de' );
+define( 'YENA_FROM_NAME', 'Yalla Events' );
+
+// WordPress uses the admin address by default; force the festival identity
+// for every outgoing mail, including WooCommerce and form notifications.
+add_filter(
+	'wp_mail_from',
+	function () {
+		return YENA_FROM_EMAIL;
+	}
+);
+add_filter(
+	'wp_mail_from_name',
+	function () {
+		return YENA_FROM_NAME;
+	}
+);
 
 /**
  * Cron intervals used by the queue and reminder jobs.

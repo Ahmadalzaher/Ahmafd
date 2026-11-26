@@ -96,7 +96,11 @@ class YENA_Cron {
 					$reg->email,
 					sprintf( $texts['reg_confirm_subject'], get_the_title( $event_id ) . ' — تذكير' ),
 					$html,
-					array( 'Content-Type: text/html; charset=UTF-8' )
+					array(
+						'From: ' . YENA_FROM_NAME . ' <' . YENA_FROM_EMAIL . '>',
+						'Reply-To: ' . YENA_FROM_NAME . ' <' . YENA_FROM_EMAIL . '>',
+						'Content-Type: text/html; charset=UTF-8',
+					)
 				);
 			}
 		}

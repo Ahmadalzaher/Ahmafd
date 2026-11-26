@@ -148,8 +148,8 @@ final class AKF_Tickets_Admin {
 				__( 'Your invitation ticket — Yalla Events', 'yalla-engage' ),
 				$body,
 				array(
-					'From: Yalla Events <' . get_option( 'admin_email' ) . '>',
-					'Reply-To: Yalla Events <' . get_option( 'admin_email' ) . '>',
+					'From: ' . YENA_FROM_NAME . ' <' . YENA_FROM_EMAIL . '>',
+					'Reply-To: ' . YENA_FROM_NAME . ' <' . YENA_FROM_EMAIL . '>',
 				),
 				$attachments
 			);
@@ -623,7 +623,7 @@ final class AKF_SelfReg {
 				$ticket['number'],
 				max( 1, absint( $persons ) )
 			);
-			$mail_ok = wp_mail( $email, self::tr( $lang, 'ticket_subject' ), $body, array( 'From: Yalla Events <' . get_option( 'admin_email' ) . '>', 'Reply-To: Yalla Events <' . get_option( 'admin_email' ) . '>' ), array( $pdf ) );
+			$mail_ok = wp_mail( $email, self::tr( $lang, 'ticket_subject' ), $body, array( 'From: ' . YENA_FROM_NAME . ' <' . YENA_FROM_EMAIL . '>', 'Reply-To: ' . YENA_FROM_NAME . ' <' . YENA_FROM_EMAIL . '>' ), array( $pdf ) );
 			$wpdb->insert(
 				AKF_DB::table( 'email_logs' ),
 				array( 'ticket_id' => (int) $ticket['id'], 'event_id' => (int) $cfg['event_id'], 'recipient' => $email, 'subject' => self::tr( $lang, 'ticket_subject' ), 'status' => $mail_ok ? 'sent' : 'failed', 'created_at' => current_time( 'mysql', true ) ),
@@ -744,7 +744,7 @@ final class AKF_SelfReg {
 		$verify = AKF_Codes::verification_url( $ticket['token'] );
 		$body = sprintf( self::tr( $row['lang'], 'ticket_verify_body' ), $ticket['number'], $verify );
 		$attachments = $pdf && is_file( $pdf ) ? array( $pdf ) : array();
-		wp_mail( $row['email'], self::tr( $row['lang'], 'ticket_subject' ), $body, array( 'From: Yalla Events <' . get_option( 'admin_email' ) . '>', 'Reply-To: Yalla Events <' . get_option( 'admin_email' ) . '>' ), $attachments );
+		wp_mail( $row['email'], self::tr( $row['lang'], 'ticket_subject' ), $body, array( 'From: ' . YENA_FROM_NAME . ' <' . YENA_FROM_EMAIL . '>', 'Reply-To: ' . YENA_FROM_NAME . ' <' . YENA_FROM_EMAIL . '>' ), $attachments );
 		AKF_DB::audit( 'selfreg_verified', 'ticket', (int) $ticket['id'], array( 'event' => (int) $row['event_id'], 'persons' => (int) $row['persons'] ) );
 		do_action( 'akf_reg_verified', $row, $ticket );
 		return rest_ensure_response(
