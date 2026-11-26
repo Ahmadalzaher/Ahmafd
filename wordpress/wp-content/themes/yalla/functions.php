@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'YALLA_VERSION', '1.2.8' );
+define( 'YALLA_VERSION', '1.6.8' );
 define( 'YALLA_DIR', get_template_directory() );
 define( 'YALLA_URI', get_template_directory_uri() );
 

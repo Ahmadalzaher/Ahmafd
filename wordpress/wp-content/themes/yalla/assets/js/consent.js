@@ -16,6 +16,22 @@
 		mode: 'prompt'
 	};
 
+	/**
+	 * Focus after the layout caused by opening/closing a dialog has settled.
+	 * Calling focus() synchronously right after DOM/style writes forces a
+	 * synchronous layout (Chrome traces it as Layout under open/close).
+	 */
+	function focusSoon(element) {
+		if (!element) {
+			return;
+		}
+		window.setTimeout(function () {
+			if (element.isConnected) {
+				element.focus({ preventScroll: true });
+			}
+		}, 0);
+	}
+
 	/* ------------------------------------------------------------ store -- */
 	function read() {
 		try {
@@ -169,7 +185,7 @@
 		var card = modal.querySelector('.ytc__card');
 
 		if (card) {
-			card.focus({ preventScroll: true });
+			focusSoon(card);
 		}
 
 		document.addEventListener('keydown', onKeydown, true);
@@ -188,7 +204,7 @@
 		var restore = state.lastFocus;
 
 		if (restore && restore !== document.body && document.contains(restore) && restore.focus) {
-			restore.focus({ preventScroll: true });
+			focusSoon(restore);
 		} else if (modal.contains(document.activeElement) && document.activeElement.blur) {
 			// Keep the focus outside a hidden dialog.
 			document.activeElement.blur();

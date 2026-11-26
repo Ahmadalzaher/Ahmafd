@@ -7,11 +7,30 @@
 
 	var config = window.YallaConfig || {};
 
+	/** Defer focus until after the layout invalidated by DOM/style writes. */
+	function focusSoon(element) {
+		if (!element) {
+			return;
+		}
+		window.setTimeout(function () {
+			if (element.isConnected) {
+				element.focus({ preventScroll: true });
+			}
+		}, 0);
+	}
+
 	/* ---------------------------------------------------------- header -- */
 	var header = document.getElementById('site-header');
 	if (header) {
+		var stuck = null;
 		var onScroll = function () {
-			header.classList.toggle('is-stuck', window.scrollY > 8);
+			var next = window.scrollY > 8;
+			// Only touch the DOM when the state actually changes; classList.toggle
+			// with an unchanged value still invalidates style on every scroll.
+			if (next !== stuck) {
+				stuck = next;
+				header.classList.toggle('is-stuck', next);
+			}
 		};
 		onScroll();
 		window.addEventListener('scroll', onScroll, { passive: true });
@@ -36,7 +55,7 @@
 			if (open && mobileNav) {
 				var firstLink = mobileNav.querySelector('a');
 				if (firstLink) {
-					firstLink.focus({ preventScroll: true });
+					focusSoon(firstLink);
 				}
 			}
 		});
@@ -128,7 +147,7 @@
 				document.body.classList.add('is-locked');
 				var closeBtn = modal.querySelector('.modal__close');
 				if (closeBtn) {
-					closeBtn.focus({ preventScroll: true });
+					focusSoon(closeBtn);
 				}
 				return;
 			}

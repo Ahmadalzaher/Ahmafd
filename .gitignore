@@ -18,6 +18,7 @@
 /akf-seo-restore/
 /akf-cleanup/
 /akf-asset-writer/
+/backups/
 
 # OS/editor noise
 Thumbs.db
