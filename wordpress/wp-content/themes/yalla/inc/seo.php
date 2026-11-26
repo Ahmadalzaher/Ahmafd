@@ -108,6 +108,58 @@ function yd_meta_tags() {
 add_action( 'wp_head', 'yd_meta_tags', 2 );
 
 /**
+ * Add intrinsic dimensions to content images that lack them (CLS prevention).
+ *
+ * Theme templates already declare dimensions. This covers images inserted
+ * manually in the editor, such as event hero photos.
+ *
+ * @param string $content Post content.
+ * @return string
+ */
+function yd_content_image_dimensions( $content ) {
+	return preg_replace_callback(
+		'/<img\b[^>]*>/i',
+		function ( $match ) {
+			$tag = $match[0];
+			if ( preg_match( '/\b(?:width|height)\s*=/i', $tag ) ) {
+				return $tag;
+			}
+			if ( ! preg_match( '/\bsrc\s*=\s*["\']([^"\']+)["\']/i', $tag, $src ) ) {
+				return $tag;
+			}
+			$size = false;
+			if ( function_exists( 'attachment_url_to_postid' ) ) {
+				$attachment_id = attachment_url_to_postid( $src[1] );
+				if ( $attachment_id ) {
+					$size = wp_get_attachment_image_src( $attachment_id, 'full' );
+				}
+			}
+			if ( ! $size && function_exists( 'wp_getimagesize' ) ) {
+				$size = @wp_getimagesize( $src[1] );
+			}
+			if ( ! $size || empty( $size[0] ) || empty( $size[1] ) ) {
+				return $tag;
+			}
+			// wp_get_attachment_image_src() returns [url, width, height];
+			// wp_getimagesize() returns [width, height, ...].
+			if ( is_string( $size[0] ) ) {
+				$width  = isset( $size[1] ) ? $size[1] : 0;
+				$height = isset( $size[2] ) ? $size[2] : 0;
+			} else {
+				$width  = $size[0];
+				$height = $size[1];
+			}
+			if ( ! $width || ! $height ) {
+				return $tag;
+			}
+			return str_replace( '<img', '<img width="' . (int) $width . '" height="' . (int) $height . '"', $tag );
+		},
+		$content
+	);
+}
+add_filter( 'the_content', 'yd_content_image_dimensions', 20 );
+
+/**
  * Keep the document title language aware on the three home pages, the search
  * results and the 404 page.
  *
