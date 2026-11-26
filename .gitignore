@@ -1,0 +1,19 @@
+# Local toolchain and generated artifacts
+/tools/
+/NUL
+
+# Build outputs and deploy bundles
+*.apk
+*.aab
+*.zip
+*.b64
+/akf-mobile/builds/
+
+# Local QA previews, screenshots and temporary payloads
+/yalla-events/preview/
+/akf-seo-restore/
+
+# OS/editor noise
+Thumbs.db
+desktop.ini
+*.swp
