@@ -5,6 +5,9 @@
 # Build outputs and deploy bundles
 *.apk
 *.aab
+*.jks
+/android/key.properties
+/akf-mobile/android/app/release-keystore-info.txt
 *.zip
 *.b64
 /akf-mobile/builds/
