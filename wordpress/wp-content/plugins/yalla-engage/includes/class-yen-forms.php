@@ -325,8 +325,8 @@ class YENA_Forms {
 			$alert = '<div class="yena-form-alert' . ( 'ok' === $kind ? ' yena-form-alert--ok' : '' ) . '" role="status">' . esc_html( $texts[ $key ] ) . '</div>';
 		}
 
-		// Inline payment options: show available payment gateways on the event page
-		// itself instead of redirecting visitors to a separate checkout page.
+		// Inline payment: open the WooCommerce payment form in an embedded frame
+		// on the event page itself, so visitors never leave the event.
 		$payment_box = '';
 		if ( function_exists( 'wc_get_order' ) && function_exists( 'WC' ) ) {
 			$order_id = absint( isset( $_GET['yena_order'] ) ? wp_unslash( $_GET['yena_order'] ) : 0 );
@@ -334,13 +334,34 @@ class YENA_Forms {
 			if ( $order && $order->needs_payment() && (int) $order->get_meta( '_yena_event_id' ) === (int) $event_id ) {
 				$gateways = WC()->payment_gateways ? WC()->payment_gateways->get_available_payment_gateways() : array();
 				if ( $gateways ) {
-					$payment_box .= '<div class="yena-payment-box" style="margin:16px 0;padding:16px;border:1px solid #d9c7a3;border-radius:8px;background:#fff;">';
-					$payment_box .= '<h3 style="margin:0 0 12px;font-size:18px;">' . esc_html( $texts['pay_title'] ) . '</h3>';
-					foreach ( $gateways as $gateway ) {
-						$pay_url = add_query_arg( array( 'payment_method' => $gateway->id ), $order->get_checkout_payment_url() );
-						$payment_box .= '<p style="margin:8px 0;"><a class="button button-primary" style="display:block;text-align:center;padding:10px;" href="' . esc_url( $pay_url ) . '">' . esc_html( $gateway->get_title() ) . '</a></p>';
+					$first = reset( $gateways );
+					$pay_url = add_query_arg( array( 'payment_method' => $first->id ), $order->get_checkout_payment_url() );
+					$total   = $order->get_total();
+					$items   = array();
+					foreach ( $order->get_items() as $item ) {
+						$items[] = array( 'name' => $item->get_name(), 'qty' => $item->get_quantity() );
+					}
+					$payment_box .= '<div class="yena-payment-box" style="margin:16px 0;display:flex;gap:0;flex-wrap:wrap;border-radius:10px;overflow:hidden;font-family:Arial,sans-serif;">';
+					// Left column — order summary (Eventim-style basket).
+					$payment_box .= '<div style="flex:1 1 280px;background:#3a2418;color:#fff;padding:20px;box-sizing:border-box;">';
+					$payment_box .= '<h3 style="margin:0 0 6px;font-size:20px;">' . esc_html__( 'Warenkorb', 'yalla-engage' ) . '</h3>';
+					$payment_box .= '<p style="margin:0 0 16px;font-size:13px;opacity:.85;">' . esc_html__( 'Deine Bestellung', 'yalla-engage' ) . '</p>';
+					$payment_box .= '<div style="border-top:1px solid rgba(255,255,255,.2);padding-top:12px;">';
+					foreach ( $items as $it ) {
+						$payment_box .= '<p style="margin:0 0 8px;font-size:14px;">' . esc_html( $it['name'] ) . ' <span style="opacity:.7;">&times; ' . (int) $it['qty'] . '</span></p>';
 					}
 					$payment_box .= '</div>';
+					$payment_box .= '<div style="border-top:1px solid rgba(255,255,255,.2);margin-top:12px;padding-top:12px;display:flex;justify-content:space-between;font-size:18px;font-weight:700;">';
+					$payment_box .= '<span>' . esc_html__( 'Gesamtsumme', 'yalla-engage' ) . '</span><span>' . esc_html( wc_price( $total ) ) . '</span></div>';
+					$payment_box .= '<p style="font-size:12px;opacity:.8;margin-top:12px;">' . esc_html__( 'Die Tickets stehen dir unmittelbar nach Absenden der Zahlungsdaten zum Download zur Verfuegung und werden zusaetzlich per E-Mail versandt.', 'yalla-engage' ) . '</p>';
+					$payment_box .= '</div>';
+					// Right column — Express Checkout + payment form in frame.
+					$payment_box .= '<div style="flex:2 1 420px;background:#fff;padding:20px;box-sizing:border-box;">';
+					$payment_box .= '<h3 style="margin:0 0 12px;font-size:20px;color:#402315;">' . esc_html( $texts['pay_title'] ) . '</h3>';
+					$payment_box .= '<a class="button" href="' . esc_url( $pay_url ) . '" target="_blank" rel="noopener" style="display:block;text-align:center;background:#ffc439;color:#111;font-weight:800;font-size:18px;padding:12px;margin-bottom:14px;border-radius:4px;">Express Checkout &mdash; PayPal</a>';
+					$payment_box .= '<iframe id="yena-pay-frame" src="' . esc_url( $pay_url ) . '" title="' . esc_attr( $texts['pay_title'] ) . '" style="width:100%;height:640px;border:0;" loading="lazy"></iframe>';
+					$payment_box .= '<p style="margin:8px 0 0;font-size:12px;"><a href="' . esc_url( $pay_url ) . '" target="_blank" rel="noopener">' . esc_html( $texts['pay_open'] ) . '</a></p>';
+					$payment_box .= '</div></div>';
 				}
 			}
 		}
@@ -480,7 +501,9 @@ class YENA_Forms {
 					$name = isset( $logo['name'] ) ? $logo['name'] : '';
 					$link = isset( $logo['link'] ) ? esc_url( $logo['link'] ) : '';
 					if ( ! $url ) { continue; }
-					$img = '<img src="' . $url . '" alt="' . esc_attr( $name ) . '" loading="lazy" />';
+					$size = function_exists( 'wp_getimagesize' ) ? @wp_getimagesize( $url ) : @getimagesize( $url );
+					$dims = ( $size && ! empty( $size[0] ) && ! empty( $size[1] ) ) ? ' width="' . (int) $size[0] . '" height="' . (int) $size[1] . '"' : '';
+					$img  = '<img src="' . $url . '" alt="' . esc_attr( $name ) . '" loading="lazy"' . $dims . ' />';
 				?>
 					<div class="yena-participant-logos__item">
 						<?php if ( $link ) : ?><a href="<?php echo $link; ?>" target="_blank" rel="noopener noreferrer"><?php echo $img; ?></a><?php else : ?><?php echo $img; ?><?php endif; ?>
@@ -980,7 +1003,16 @@ class YENA_Forms {
 			home_url( '/' )
 		);
 
-		$qr_dir   = YENA_DIR . 'assets/qr';
+		// Tickets live in uploads (writable on all hosting setups), not in the
+		// plugin directory. Fall back to the plugin folder when uploads fail.
+		$uploads = function_exists( 'wp_get_upload_dir' ) ? wp_get_upload_dir() : wp_upload_dir();
+		$qr_dir  = trailingslashit( $uploads['basedir'] ) . 'yena-tickets';
+		if ( ! is_dir( $qr_dir ) && ! wp_mkdir_p( $qr_dir ) ) {
+			$qr_dir = YENA_DIR . 'assets/qr';
+			if ( ! is_dir( $qr_dir ) ) {
+				wp_mkdir_p( $qr_dir );
+			}
+		}
 		$qr_file  = $qr_dir . '/qr_' . $reg_id . '.png';
 		$pdf_file = $qr_dir . '/ticket_' . $reg_id . '.pdf';
 
@@ -992,7 +1024,7 @@ class YENA_Forms {
 		$subject = str_replace( '{event}', $event_title, $texts['reg_confirm_subject'] );
 
 		$from_email = sanitize_email( get_option( 'admin_email' ) );
-		$from_name  = sanitize_text_field( get_bloginfo( 'name' ) );
+		$from_name  = 'Yalla Events';
 
 		$headers = array(
 			'From: ' . $from_name . ' <' . $from_email . '>',
@@ -1309,6 +1341,7 @@ class YENA_Forms {
 				'ticket_number'       => 'رقم التذكرة',
 				'ticket_verify'       => 'تحقق من التذكرة',
 				'pay_title'           => 'اختر طريقة الدفع',
+				'pay_open'            => 'فتح الدفع في تبويب جديد',
 				'ticket_info'         => 'أرضِ هذه التذكرة عند الباب للدخول إلى الفعالية.',
 				'ticket_pdf'          => 'التذكرة مرفقة أيضاً كملف PDF.',
 				'ticket_cancel'       => 'لإلغاء التسجيل',
@@ -1387,6 +1420,7 @@ class YENA_Forms {
 				'ticket_number'       => 'Ticket number',
 				'ticket_verify'       => 'Verify ticket',
 				'pay_title'           => 'Choose a payment method',
+				'pay_open'            => 'Open payment in a new tab',
 				'ticket_info'         => 'Present this ticket at the entrance for entry.',
 				'ticket_pdf'          => 'The ticket is also attached as a PDF file.',
 				'ticket_cancel'       => 'To cancel your registration',

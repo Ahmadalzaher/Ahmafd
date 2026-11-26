@@ -57,7 +57,7 @@ class YENA_Emails {
 
 		$subject = self::strip_header_injection( $subject );
 		$from_email = sanitize_email( get_option( 'admin_email' ) );
-		$from_name  = sanitize_text_field( get_bloginfo( 'name' ) );
+		$from_name  = 'Yalla Events';
 
 		$boundary = md5( uniqid( 'yena_', true ) );
 
