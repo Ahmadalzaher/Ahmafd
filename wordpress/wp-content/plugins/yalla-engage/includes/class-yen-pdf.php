@@ -178,11 +178,11 @@ class YENA_PDF {
 		$content .= $this->dtext( 'F1', 30, 572, 656, $labels['date'] . ' / ' . $labels['time'], '0.45 0.38 0.34' );
 		$content .= $this->dtext( 'F2', 31, 572, 694, $date . '  ' . $time, $brown );
 		// People icon and count.
-		if ( $icon_people ) { $content .= $this->dplace( 'Ip', 1052, 660, 56, 56 ); }
-		$content .= $this->dtext( 'F1', 30, 1124, 656, $labels['persons'], '0.45 0.38 0.34' );
-		$content .= $this->dtext( 'F2', 40, 1124, 694, (string) $persons, $brown );
+		if ( $icon_people ) { $content .= $this->dplace( 'Ip', 1170, 660, 56, 56 ); }
+		$content .= $this->dtext( 'F1', 30, 1240, 656, $labels['persons'], '0.45 0.38 0.34' );
+		$content .= $this->dtext( 'F2', 40, 1240, 694, (string) $persons, $brown );
 		// Thin vertical rule between the two groups.
-		$content .= $brown . " RG\n0.4 w\n" . $this->dx( 1010 ) . ' ' . $this->dy( 742 ) . ' m ' . $this->dx( 1010 ) . ' ' . $this->dy( 650 ) . " l S\n";
+		$content .= $brown . " RG\n0.4 w\n" . $this->dx( 1120 ) . ' ' . $this->dy( 742 ) . ' m ' . $this->dx( 1120 ) . ' ' . $this->dy( 650 ) . " l S\n";
 
 		// Location row with pin icon (from the web design).
 		if ( $icon_pin ) { $content .= $this->dplace( 'In', 495, 758, 48, 56 ); }
