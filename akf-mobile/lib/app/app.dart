@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -42,33 +43,46 @@ class _AkfAppState extends ConsumerState<AkfApp> {
   }
 
   Future<void> _restore() async {
+    String? token;
     try {
-      final token = await ref.read(authProvider).restoreToken();
-      if (token != null && token.isNotEmpty) {
-        final me = await ref.read(authProvider).me();
-        ref.read(tokenProvider.notifier).set(ref.read(apiProvider).currentToken);
-        ref.read(staffNameProvider.notifier).set(me.name);
-        ref.read(canUndoProvider.notifier).set(me.canUndo);
-        ref.read(gateIdProvider.notifier).set(me.gate);
-        ref.read(onlineProvider.notifier).set(true);
-      } else {
-        ref.read(tokenProvider.notifier).set(null);
-      }
+      token = await ref.read(authProvider).restoreToken();
+    } catch (_) {
+      token = null;
+    }
+    ref.read(tokenProvider.notifier).set(token);
+    ref.read(onlineProvider.notifier).set(token != null);
+    // Draw the main UI immediately: the cached session is enough to open it.
+    // Profile refresh and update check run in the background.
+    if (mounted) setState(() => _restored = true);
+    if (token != null && token.isNotEmpty) {
+      unawaited(_refreshProfile());
+    }
+    unawaited(_checkUpdate());
+  }
+
+  /// Refresh staff profile without delaying startup.
+  Future<void> _refreshProfile() async {
+    try {
+      final me = await ref.read(authProvider).me();
+      if (!mounted) return;
+      ref.read(staffNameProvider.notifier).set(me.name);
+      ref.read(canUndoProvider.notifier).set(me.canUndo);
+      ref.read(gateIdProvider.notifier).set(me.gate);
+      ref.read(onlineProvider.notifier).set(true);
     } on ApiException catch (e) {
       if (e.status == 401 || e.status == 403) {
         await ref.read(authProvider).logout();
         ref.read(tokenProvider.notifier).set(null);
+        if (mounted) {
+          try {
+            Navigator.of(context).pushReplacementNamed(AppRouter.login);
+          } catch (_) {}
+        }
       } else {
-        // Server temporarily unavailable: keep the session, block admission.
         ref.read(onlineProvider.notifier).set(false);
       }
     } catch (_) {
       ref.read(onlineProvider.notifier).set(false);
-    } finally {
-      if (mounted) {
-        setState(() => _restored = true);
-        _checkUpdate();
-      }
     }
   }
 

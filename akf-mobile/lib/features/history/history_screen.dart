@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../app/localization/strings.dart';
 import '../../core/models/models.dart';
 import '../../core/providers.dart';
 import '../../core/state/app_state.dart';
@@ -18,6 +19,23 @@ class _HistoryScreenState extends ConsumerState<HistoryScreen> {
   bool _loading = true;
 
   static const filters = ['', 'valid', 'already_used', 'invalid', 'refunded', 'cancelled'];
+
+  String _resultLabel(String result, AppStrings s) {
+    switch (result) {
+      case 'valid':
+        return s.get('validShort');
+      case 'already_used':
+        return s.get('alreadyUsedShort');
+      case 'invalid':
+        return s.get('invalidShort');
+      case 'refunded':
+        return s.get('refundedShort');
+      case 'cancelled':
+        return s.get('cancelledShort');
+      default:
+        return result;
+    }
+  }
 
   @override
   void initState() {
@@ -53,7 +71,7 @@ class _HistoryScreenState extends ConsumerState<HistoryScreen> {
               Padding(
                 padding: const EdgeInsets.only(right: 6),
                 child: ChoiceChip(
-                  label: Text(f.isEmpty ? 'All' : f.replaceAll('_', ' ')),
+                  label: Text(f.isEmpty ? s.get('all') : _resultLabel(f, s)),
                   selected: _filter == f,
                   onSelected: (_) {
                     setState(() => _filter = f);
@@ -75,8 +93,12 @@ class _HistoryScreenState extends ConsumerState<HistoryScreen> {
                         r.result == 'valid' ? Icons.check_circle : Icons.error_outline,
                         color: r.result == 'valid' ? Colors.green : Colors.red,
                       ),
-                      title: Text(r.ticketNumber.isEmpty ? r.result : r.ticketNumber),
-                      subtitle: Text('${r.time} · ${r.result} · gate ${r.gate} · ${r.staff}'),
+                      title: Text(
+                        r.ticketNumber.isEmpty ? _resultLabel(r.result, s) : r.ticketNumber,
+                      ),
+                      subtitle: Text(
+                        '${r.time} · ${_resultLabel(r.result, s)} · ${s.get('gate')} ${r.gate} · ${s.get('staff')} ${r.staff}',
+                      ),
                     );
                   },
                 ),

@@ -1,7 +1,7 @@
 name: yalla_events
 description: Official admission companion for Arab Kulturfestival. Online-only ticket validation against AKF Tickets WordPress backend.
 publish_to: "none"
-version: 1.0.1+4
+version: 1.0.1+6
 
 environment:
   sdk: ">=3.3.0 <4.0.0"
