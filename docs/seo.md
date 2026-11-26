@@ -37,7 +37,7 @@ Rank Maths eigenes JSON-LD ist über `inc/rank-math.php` abgeschaltet (`rank_mat
 | Startseite / Home | `/` | Arabisches Kulturfestival Hamburg | Arabisches Kulturfestival Hamburg – Termine & Dabke | Das Arab Kulturfestival bringt Dabke, arabische Musik, Kalligrafie und Literatur nach Hamburg. Alle Termine, das Programm und Infos zum Mitmachen. | Organization, WebSite, BreadcrumbList |
 | Festival | `/festival/` | Interkulturelles Festival Hamburg | Festival in Hamburg: Arabische Kultur erleben | Musik, Dabke, Kalligrafie und Literatur: Das Arab Kulturfestival zeigt die Vielfalt arabischer Kultur in Hamburg – interkulturell und nahbar. | Organization, WebSite, BreadcrumbList |
 | Programm / Programme | `/programm/` | Dabke Kurs Hamburg | Dabke Kurs Hamburg & Festivalprogramm | Dabke lernen in Hamburg: offene Kurse, Musik und Mitmachangebote. Hier findest du das Programm des Arab Kulturfestivals und alle Termine. | Organization, WebSite, BreadcrumbList |
-| Termine / Events | `/termine/` | Arabische Veranstaltungen Hamburg | Arabische Veranstaltungen Hamburg: Termine 2026 | Alle Termine des Arab Kulturfestivals in Hamburg: Dabke-Kurse, Konzerte und Begegnungen. Datum, Uhrzeit und Ort auf einen Blick. | Organization, WebSite, BreadcrumbList |
+| Termine / Events | `/events/` | Arabische Veranstaltungen Hamburg | Arabische Veranstaltungen Hamburg: Termine 2026 | Alle Termine des Arab Kulturfestivals in Hamburg: Dabke-Kurse, Konzerte und Begegnungen. Datum, Uhrzeit und Ort auf einen Blick. | Organization, WebSite, BreadcrumbList |
 | Artikel / Articles | `/artikel/` | Arabische Musik Hamburg | Arabische Musik & Kultur: Artikel und Hintergründe | Geschichten über Dabke, arabische Musik, Kalligrafie und Kultur im Exil – gelesen und geschrieben von und mit der Community in Hamburg. | Organization, WebSite, BreadcrumbList |
 | Über uns / About us | `/ueber-uns/` | Arabische Kultur Hamburg | Arabische Kultur Hamburg: Über uns | Wer hinter dem Arab Kulturfestival steht: Ahmad AL Zaher und Arap Culture fördern arabische Kultur, Dabke und interkulturellen Austausch in Hamburg. | Organization, WebSite, BreadcrumbList |
 | Kontakt / Contact | `/kontakt/` | Arab Kulturfestival Hamburg Kontakt | Kontakt – Arab Kulturfestival Hamburg | Fragen zu Terminen, Dabke-Kursen oder Presse? Schreib uns an info@arab-kulturfestival.de oder nutze das Kontaktformular. | Organization, WebSite, BreadcrumbList |
@@ -145,6 +145,18 @@ Rank Maths eigenes JSON-LD ist über `inc/rank-math.php` abgeschaltet (`rank_mat
 2. `Sitemap` → `https://domain.tld/sitemap_index.xml` einreichen. Die Indexdatei listet `page-sitemap.xml`, `post-sitemap.xml` und `yd_event-sitemap.xml`.
 3. Unter `Internationale Targeting` prüfen, dass Google die hreflang-Angaben erkennt. Die Zuordnung kommt aus dem Theme, nicht aus Rank Math.
 4. Nach dem Launch `URL-Prüfung` für die drei Startseiten (`/`, `/en/`, `/ar/`) und je einen Termin nutzen und die Indexierung beantragen.
+
+## Wiederhergestellt / Restored / الاستعادة (2026-11-26)
+
+- Alle 60 SEO-Titel und -Beschreibungen dieser Tabelle wurden erneut in Rank Math gespeichert.
+- Live-Prüfung: **60/60 Seiten** mit korrektem `<title>` und korrekter Meta-Description; 0 Abweichungen.
+- Die deutsche Termine-Seite heißt live `/events/` (nicht `/termine/`); der Eintrag oben wurde korrigiert.
+- Zusätzlich optimiert (AudIT 2026-11-24): die drei `/angebot/`-Seiten mit 150–185 Zeichen langen Beschreibungen:
+  - `/angebot/orientalischer-tanz-otw-ensemble/` — Orientalischer Tanz OTW Ensemble Hamburg – Kurse & Termine
+  - `/angebot/oriental-dance-otw-ensemble/` — Oriental Dance OTW Ensemble Hamburg – Classes & Dates
+  - `/angebot/الخط-العربية/` — الخط العربي في هامبورغ – دورات OTW
+- Das temporäre Hilfs-Plugin `akf-seo-restore` wurde nach der Wiederherstellung wieder gelöscht.
+- Technik (unverändert): `robots.txt`, `sitemap_index.xml` (5 Sitemaps), hreflang-Cluster und JSON-LD aus `inc/seo.php` bleiben aktiv.
 
 ## Was hier bewusst nicht steht
 
