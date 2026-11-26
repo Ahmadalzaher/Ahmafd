@@ -13,6 +13,7 @@
 # Local QA previews, screenshots and temporary payloads
 /yalla-events/preview/
 /akf-seo-restore/
+/akf-cleanup/
 
 # OS/editor noise
 Thumbs.db
