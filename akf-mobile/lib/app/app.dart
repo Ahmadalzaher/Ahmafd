@@ -1,8 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter/services.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../core/errors/api_exception.dart';
 import '../core/providers.dart';
@@ -21,6 +23,7 @@ class AkfApp extends ConsumerStatefulWidget {
 }
 
 class _AkfAppState extends ConsumerState<AkfApp> {
+  static const _updater = MethodChannel('de.arabkulturfestival.yalla_events/updater');
   bool _restored = false;
   bool _updateChecked = false;
 
@@ -80,8 +83,6 @@ class _AkfAppState extends ConsumerState<AkfApp> {
       final remote = int.tryParse('${data['version_code'] ?? 0}') ?? 0;
       final current = int.tryParse(info.buildNumber) ?? 0;
       if (remote <= current || remote == 0 || !mounted) return;
-      final url = (data['url'] ?? '').toString();
-      if (url.isEmpty) return;
       final version = (data['version_name'] ?? '').toString();
       final notes = (data['changelog'] ?? '').toString();
       showDialog<void>(
@@ -99,20 +100,68 @@ class _AkfAppState extends ConsumerState<AkfApp> {
               child: const Text('Later / Später / لاحقاً'),
             ),
             TextButton(
-              onPressed: () async {
-                final uri = Uri.parse(url);
-                if (await canLaunchUrl(uri)) {
-                  await launchUrl(uri, mode: LaunchMode.externalApplication);
-                }
-                if (ctx.mounted) Navigator.pop(ctx);
+              onPressed: () {
+                Navigator.pop(ctx);
+                _downloadAndInstall();
               },
-              child: const Text('Download / Herunterladen / تحميل'),
+              child: const Text('Update / Aktualisieren / تحديث'),
             ),
           ],
         ),
       );
     } catch (_) {
       // Offline or unavailable endpoint: keep using the installed version.
+    }
+  }
+
+  /// Download the published APK and hand it to the Android installer.
+  Future<void> _downloadAndInstall() async {
+    if (!mounted) return;
+    final progress = Dialog(
+      child: Padding(
+        padding: const EdgeInsets.all(28),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: const [
+            CircularProgressIndicator(),
+            SizedBox(height: 16),
+            Text('Downloading update… / Update wird geladen… / جارٍ تحميل التحديث…'),
+          ],
+        ),
+      ),
+    );
+    showDialog<void>(context: context, barrierDismissible: false, builder: (_) => progress);
+    try {
+      final bytes = await ref.read(apiProvider).downloadBytes('akf/v1/app/apk');
+      final dir = await _updater.invokeMethod<String>('downloadDir');
+      if (dir == null || dir.isEmpty) throw StateError('No download directory');
+      final file = File('$dir/yalla-events-update.apk');
+      await file.writeAsBytes(bytes, flush: true);
+
+      final canInstall = await _updater.invokeMethod<bool>('canInstall') ?? false;
+      if (!canInstall) {
+        await _updater.invokeMethod('openInstallSettings');
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Bitte „Unbekannte Apps installieren“ für Yalla Events erlauben, dann erneut Update tippen.'),
+              duration: Duration(seconds: 8),
+            ),
+          );
+        }
+        return;
+      }
+      await _updater.invokeMethod('installApk', <String, dynamic>{'path': file.path});
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Update failed / Update fehlgeschlagen / فشل التحديث: $e')),
+        );
+      }
+    } finally {
+      if (mounted && Navigator.of(context).canPop()) {
+        Navigator.pop(context);
+      }
     }
   }
 

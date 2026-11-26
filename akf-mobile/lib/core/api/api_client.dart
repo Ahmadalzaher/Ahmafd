@@ -89,6 +89,23 @@ class ApiClient {
     }
   }
 
+  /// Download a large binary with a generous timeout (APK updates).
+  Future<Uint8List> downloadBytes(String path) async {
+    try {
+      final response = await _dio.get<List<int>>(
+        path,
+        options: Options(
+          responseType: ResponseType.bytes,
+          receiveTimeout: const Duration(minutes: 3),
+          sendTimeout: const Duration(seconds: 30),
+        ),
+      );
+      return Uint8List.fromList(response.data ?? <int>[]);
+    } on DioException catch (e) {
+      throw _map(e);
+    }
+  }
+
   ApiException _map(DioException e) {
     if (e.error is ApiException) {
       return e.error as ApiException;
