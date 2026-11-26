@@ -312,13 +312,8 @@ function yd_conditional_assets() {
 		}
 	}
 
-	$yena = get_query_var( 'akf_register' ) || get_query_var( 'akf_visitor' );
-	if ( ! $yena ) {
-		wp_dequeue_style( 'yena-front' );
-		wp_dequeue_script( 'yena-ajax' );
-		wp_dequeue_script( 'yena-jsqr' );
-		wp_dequeue_script( 'yena-qr-scanner' );
-	}
+	// Yena registration forms can appear on any page (shortcodes or event
+	// templates), so their styles and scripts stay available everywhere.
 
 	// style.css is only the theme header comment; the design lives in theme.css.
 	wp_dequeue_style( 'yalla-style' );
