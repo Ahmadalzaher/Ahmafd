@@ -66,6 +66,15 @@ final class AKFAPP_REST {
 		);
 		register_rest_route(
 			$ns,
+			'/version',
+			array(
+				'methods'             => 'GET',
+				'callback'            => array( __CLASS__, 'version' ),
+				'permission_callback' => '__return_true',
+			)
+		);
+		register_rest_route(
+			$ns,
 			'/admin/assign-event',
 			array(
 				'methods'             => 'POST',
@@ -179,11 +188,38 @@ final class AKFAPP_REST {
 		if ( false === file_put_contents( $file, $body ) ) {
 			return new WP_Error( 'akf_apk_write', __( 'Could not write APK.', 'akf-gate-app' ), array( 'status' => 500 ) );
 		}
+		update_option(
+			'akf_app_release',
+			array(
+				'version_name' => sanitize_text_field( (string) $request->get_param( 'version_name' ) ),
+				'version_code' => absint( $request->get_param( 'version_code' ) ),
+				'changelog'    => sanitize_text_field( (string) $request->get_param( 'changelog' ) ),
+				'size'         => strlen( $body ),
+				'updated_at'   => current_time( 'mysql', true ),
+			),
+			false
+		);
 		return rest_ensure_response(
 			array(
 				'ok'   => true,
 				'bytes'=> strlen( $body ),
 				'url'  => home_url( '/wp-json/akf/v1/app/apk' ),
+			)
+		);
+	}
+
+	/** Public release metadata used by the app to offer an in-app update. */
+	public static function version() {
+		$release = get_option( 'akf_app_release', array() );
+		$release = is_array( $release ) ? $release : array();
+		return rest_ensure_response(
+			array(
+				'version_name' => (string) ( $release['version_name'] ?? '' ),
+				'version_code' => absint( $release['version_code'] ?? 0 ),
+				'changelog'    => (string) ( $release['changelog'] ?? '' ),
+				'size'         => absint( $release['size'] ?? 0 ),
+				'updated_at'   => (string) ( $release['updated_at'] ?? '' ),
+				'url'          => home_url( '/wp-json/akf/v1/app/apk' ),
 			)
 		);
 	}

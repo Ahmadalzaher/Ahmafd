@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../core/errors/api_exception.dart';
 import '../core/providers.dart';
@@ -20,6 +22,7 @@ class AkfApp extends ConsumerStatefulWidget {
 
 class _AkfAppState extends ConsumerState<AkfApp> {
   bool _restored = false;
+  bool _updateChecked = false;
 
   @override
   void initState() {
@@ -59,7 +62,57 @@ class _AkfAppState extends ConsumerState<AkfApp> {
     } catch (_) {
       ref.read(onlineProvider.notifier).set(false);
     } finally {
-      if (mounted) setState(() => _restored = true);
+      if (mounted) {
+        setState(() => _restored = true);
+        _checkUpdate();
+      }
+    }
+  }
+
+  /// Offer the published APK when the server has a newer build.
+  /// A failed check never blocks the app.
+  Future<void> _checkUpdate() async {
+    if (_updateChecked) return;
+    _updateChecked = true;
+    try {
+      final info = await PackageInfo.fromPlatform();
+      final data = await ref.read(apiProvider).get('akf/v1/app/version');
+      final remote = int.tryParse('${data['version_code'] ?? 0}') ?? 0;
+      final current = int.tryParse(info.buildNumber) ?? 0;
+      if (remote <= current || remote == 0 || !mounted) return;
+      final url = (data['url'] ?? '').toString();
+      if (url.isEmpty) return;
+      final version = (data['version_name'] ?? '').toString();
+      final notes = (data['changelog'] ?? '').toString();
+      showDialog<void>(
+        context: context,
+        barrierDismissible: false,
+        builder: (ctx) => AlertDialog(
+          title: const Text('Update available / Update verfügbar / يوجد تحديث'),
+          content: Text(
+            '${version.isEmpty ? '' : 'Version $version\n\n'}'
+            '${notes.isEmpty ? 'A new version is ready / Eine neue Version ist verfügbar / يتوفر إصدار جديد' : notes}',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx),
+              child: const Text('Later / Später / لاحقاً'),
+            ),
+            TextButton(
+              onPressed: () async {
+                final uri = Uri.parse(url);
+                if (await canLaunchUrl(uri)) {
+                  await launchUrl(uri, mode: LaunchMode.externalApplication);
+                }
+                if (ctx.mounted) Navigator.pop(ctx);
+              },
+              child: const Text('Download / Herunterladen / تحميل'),
+            ),
+          ],
+        ),
+      );
+    } catch (_) {
+      // Offline or unavailable endpoint: keep using the installed version.
     }
   }
 

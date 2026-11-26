@@ -45,7 +45,7 @@ android {
     }
 
     signingConfigs {
-        if (keystorePropertiesFile.exists()) {
+        if (keystorePropertiesFile.exists() && project.hasProperty("playSigning")) {
             create("release") {
                 keyAlias = keystoreProperties["keyAlias"] as String
                 keyPassword = keystoreProperties["keyPassword"] as String
@@ -57,7 +57,7 @@ android {
 
     buildTypes {
         release {
-            signingConfig = if (keystorePropertiesFile.exists()) {
+            signingConfig = if (keystorePropertiesFile.exists() && project.hasProperty("playSigning")) {
                 signingConfigs.getByName("release")
             } else {
                 signingConfigs.getByName("debug")
