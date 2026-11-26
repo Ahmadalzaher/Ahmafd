@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../app/router.dart';
 import '../../core/providers.dart';
+import '../../core/updates/update_service.dart';
 import '../../core/state/app_state.dart';
 import '../../core/utils/logout.dart';
 
@@ -17,6 +18,7 @@ class SettingsScreen extends ConsumerStatefulWidget {
 class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   bool _sound = true;
   bool _vibration = true;
+  String _version = '…';
   final _languages = {'de': 'Deutsch', 'en': 'English', 'ar': 'العربية'};
 
   @override
@@ -27,9 +29,16 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
 
   Future<void> _load() async {
     final prefs = await SharedPreferences.getInstance();
+    String version;
+    try {
+      version = await UpdateService.installedVersion();
+    } catch (_) {
+      version = '?';
+    }
     if (mounted) setState(() {
       _sound = prefs.getBool('akf_sound') ?? true;
       _vibration = prefs.getBool('akf_vibration') ?? true;
+      _version = version;
     });
   }
 
@@ -77,7 +86,12 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             },
           ),
           ListTile(title: Text(s.get('server')), trailing: Text(online ? 'OK' : s.get('offline'))),
-          const ListTile(title: Text('Version'), trailing: Text('1.0.0')),
+          ListTile(title: const Text('Version'), trailing: Text(_version)),
+          ListTile(
+            leading: const Icon(Icons.system_update),
+            title: const Text('Update prüfen / Check for updates / فحص التحديث'),
+            onTap: () => UpdateService.checkAndPrompt(context, ref),
+          ),
           const SizedBox(height: 20),
           FilledButton.icon(
             onPressed: () async {
