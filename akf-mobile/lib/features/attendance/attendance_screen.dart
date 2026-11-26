@@ -75,6 +75,16 @@ class _AttendanceScreenState extends ConsumerState<AttendanceScreen> {
                           _load();
                         },
                       ),
+                    Card(child: ListTile(
+                      leading: const Icon(Icons.how_to_reg),
+                      title: const Text('Registrations / التسجيلات'),
+                      trailing: Text('${st.registrations}  (✓ ${st.confirmedRegistrations} · ⏳ ${st.pendingRegistrations})'),
+                    )),
+                    Card(child: ListTile(
+                      leading: const Icon(Icons.people_outline),
+                      title: const Text('Registered persons / عدد المسجلين'),
+                      trailing: Text('${st.registeredPersons}'),
+                    )),
                     Card(child: ListTile(title: Text(s.get('tickets')), trailing: Text('${st.tickets}'))),
                     Card(child: ListTile(title: Text(s.get('persons')), trailing: Text('${st.persons}'))),
                     Card(child: ListTile(title: Text(s.get('checkedIn')), trailing: Text('${st.checkedIn}'))),

@@ -441,6 +441,23 @@ final class AKFAPP_REST {
 			ARRAY_A
 		);
 		$row = $row ? $row : array( 'tickets' => 0, 'persons' => 0, 'checked_in' => 0, 'admitted_persons' => 0 );
+
+		// Self-registrations for this event, including people still awaiting
+		// email verification. Keep them separate from issued tickets.
+		$s   = AKF_DB::table( 'selfreg' );
+		$reg = $wpdb->get_row(
+			$wpdb->prepare(
+				"SELECT COUNT(*) AS registrations,
+				 COALESCE(SUM(CASE WHEN status='confirmed' THEN 1 ELSE 0 END),0) AS confirmed,
+				 COALESCE(SUM(CASE WHEN status='pending' THEN 1 ELSE 0 END),0) AS pending,
+				 COALESCE(SUM(CASE WHEN status IN ('confirmed','pending') THEN persons ELSE 0 END),0) AS registered_persons
+				 FROM {$s} WHERE event_id = %d",
+				$event
+			),
+			ARRAY_A
+		);
+		$reg = $reg ? $reg : array( 'registrations' => 0, 'confirmed' => 0, 'pending' => 0, 'registered_persons' => 0 );
+
 		$by_gate = $wpdb->get_results(
 			$wpdb->prepare(
 				"SELECT g.name, COUNT(*) AS total FROM {$t} t LEFT JOIN {$g} g ON g.id = t.gate_id
@@ -462,6 +479,10 @@ final class AKFAPP_REST {
 				'event'             => $event,
 				'tickets'           => (int) $row['tickets'],
 				'persons'           => (int) $row['persons'],
+				'registrations'        => (int) $reg['registrations'],
+				'confirmed_registrations' => (int) $reg['confirmed'],
+				'pending_registrations'   => (int) $reg['pending'],
+				'registered_persons'      => (int) $reg['registered_persons'],
 				'checked_in'        => (int) $row['checked_in'],
 				'admitted_persons'  => (int) $row['admitted_persons'],
 				'remaining_persons' => max( 0, (int) $row['persons'] - (int) $row['admitted_persons'] ),

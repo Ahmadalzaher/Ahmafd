@@ -120,6 +120,10 @@ class AttendanceStats {
   const AttendanceStats({
     required this.tickets,
     required this.persons,
+    required this.registrations,
+    required this.confirmedRegistrations,
+    required this.pendingRegistrations,
+    required this.registeredPersons,
     required this.checkedIn,
     required this.admittedPersons,
     required this.remainingPersons,
@@ -127,6 +131,10 @@ class AttendanceStats {
   });
   final int tickets;
   final int persons;
+  final int registrations;
+  final int confirmedRegistrations;
+  final int pendingRegistrations;
+  final int registeredPersons;
   final int checkedIn;
   final int admittedPersons;
   final int remainingPersons;
@@ -135,6 +143,10 @@ class AttendanceStats {
   factory AttendanceStats.fromJson(Map<String, dynamic> json) => AttendanceStats(
         tickets: int.tryParse('${json['tickets'] ?? 0}') ?? 0,
         persons: int.tryParse('${json['persons'] ?? 0}') ?? 0,
+        registrations: int.tryParse('${json['registrations'] ?? 0}') ?? 0,
+        confirmedRegistrations: int.tryParse('${json['confirmed_registrations'] ?? 0}') ?? 0,
+        pendingRegistrations: int.tryParse('${json['pending_registrations'] ?? 0}') ?? 0,
+        registeredPersons: int.tryParse('${json['registered_persons'] ?? 0}') ?? 0,
         checkedIn: int.tryParse('${json['checked_in'] ?? 0}') ?? 0,
         admittedPersons: int.tryParse('${json['admitted_persons'] ?? 0}') ?? 0,
         remainingPersons: int.tryParse('${json['remaining_persons'] ?? 0}') ?? 0,

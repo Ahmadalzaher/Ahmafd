@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -22,39 +20,14 @@ class AkfApp extends ConsumerStatefulWidget {
 
 class _AkfAppState extends ConsumerState<AkfApp> {
   bool _restored = false;
-  Timer? _inactivityTimer;
-  static const _inactivityLimit = Duration(minutes: 15);
 
   @override
   void initState() {
     super.initState();
-    _resetInactivity();
     // Restore only after the first frame is drawn; secure-storage calls before
     // the first frame previously caused a blank launch screen on devices.
     WidgetsBinding.instance.addPostFrameCallback((_) => _restore());
   }
-
-  @override
-  void dispose() {
-    _inactivityTimer?.cancel();
-    super.dispose();
-  }
-
-  void _resetInactivity() {
-    _inactivityTimer?.cancel();
-    _inactivityTimer = Timer(_inactivityLimit, _logoutForInactivity);
-  }
-
-  Future<void> _logoutForInactivity() async {
-    await ref.read(authProvider).logout();
-    ref.read(tokenProvider.notifier).set(null);
-    if (mounted) {
-      try {
-        Navigator.of(context).pushReplacementNamed(AppRouter.login);
-      } catch (_) {}
-    }
-  }
-
 
   @override
   Widget build(BuildContext context) {
@@ -127,10 +100,7 @@ class _AkfAppState extends ConsumerState<AkfApp> {
       onUnknownRoute: (_) => MaterialPageRoute(builder: (_) => const LoginScreen()),
       builder: (context, child) {
         final direction = locale.languageCode == 'ar' ? TextDirection.rtl : TextDirection.ltr;
-        return Listener(
-          onPointerDown: (_) => _resetInactivity(),
-          child: Directionality(textDirection: direction, child: child ?? const SizedBox.shrink()),
-        );
+        return Directionality(textDirection: direction, child: child ?? const SizedBox.shrink());
       },
     );
   }
