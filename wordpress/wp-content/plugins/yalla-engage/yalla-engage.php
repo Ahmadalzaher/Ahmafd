@@ -48,6 +48,22 @@ add_filter( 'cron_schedules', 'yena_cron_schedules' );
  * Require dependencies.
  */
 require_once YENA_DIR . '/includes/class-yen-db.php';
+require_once YENA_DIR . '/includes/class-akf-db.php';
+require_once YENA_DIR . '/includes/class-akf-events.php';
+require_once YENA_DIR . '/includes/class-akf-ticket-types.php';
+require_once YENA_DIR . '/includes/class-akf-inventory.php';
+require_once YENA_DIR . '/includes/class-akf-tickets.php';
+require_once YENA_DIR . '/includes/class-akf-tickets-admin.php';
+require_once YENA_DIR . '/includes/class-akf-email.php';
+require_once YENA_DIR . '/includes/class-akf-woocommerce.php';
+require_once YENA_DIR . '/includes/class-akf-codes.php';
+require_once YENA_DIR . '/includes/class-akf-pdf.php';
+require_once YENA_DIR . '/includes/class-akf-permissions.php';
+require_once YENA_DIR . '/includes/class-akf-reports.php';
+require_once YENA_DIR . '/includes/class-akf-rest.php';
+require_once YENA_DIR . '/includes/class-akf-gates.php';
+require_once YENA_DIR . '/includes/class-akf-audit.php';
+add_action( 'akf_expire_reservations', array( 'AKF_Inventory', 'run_expiry' ) );
 require_once YENA_DIR . '/includes/class-yen-forms.php';
 require_once YENA_DIR . '/includes/class-yen-emails.php';
 require_once YENA_DIR . '/includes/class-yen-queue.php';
@@ -65,9 +81,32 @@ require_once YENA_DIR . '/includes/class-yen-pdf.php';
  */
 function yena_activate() {
 	add_option( 'yena_install_pending', '1', '', false );
+	if ( class_exists( 'AKF_SelfReg' ) ) {
+		AKF_SelfReg::rules();
+	}
 	flush_rewrite_rules();
 }
 register_activation_hook( __FILE__, 'yena_activate' );
+
+/**
+ * Keep the public /akf-register/ rewrite rule alive after plugin swaps.
+ * WordPress stores rewrite rules in the database; a deactivate/activate
+ * cycle can otherwise leave the registration page returning 404.
+ */
+function yena_ensure_registration_rewrite() {
+	if ( get_transient( 'yena_rewrite_checked' ) ) {
+		return;
+	}
+	set_transient( 'yena_rewrite_checked', 1, HOUR_IN_SECONDS );
+	$rules = get_option( 'rewrite_rules' );
+	if ( ! is_array( $rules ) || ! isset( $rules['^akf-register/?$'] ) ) {
+		if ( class_exists( 'AKF_SelfReg' ) ) {
+			AKF_SelfReg::rules();
+		}
+		flush_rewrite_rules();
+	}
+}
+add_action( 'init', 'yena_ensure_registration_rewrite', 99 );
 
 /**
  * Deactivation: unschedule cron events, flush rewrite rules.
@@ -98,6 +137,16 @@ function yena_init() {
 
 	YENA_DB::init();
 
+	// AKF ticketing layer: safe, versioned, non-destructive table upgrade.
+	if ( class_exists( 'AKF_DB' ) ) {
+		try {
+			AKF_DB::upgrade();
+		} catch ( Throwable $e ) {
+			update_option( 'akf_db_error', $e->getMessage(), false );
+			error_log( 'AKF database upgrade failed: ' . $e->getMessage() );
+		}
+	}
+
 	// Do setup after activation so a database problem cannot block activation.
 	if ( '1' === get_option( 'yena_install_pending', '0' ) ) {
 		try {
@@ -124,6 +173,54 @@ function yena_init() {
 	YENA_Emails::init();
 	YENA_Queue::init();
 	YENA_Admin::init();
+
+	// AKF event management layer.
+	if ( class_exists( 'AKF_Events' ) ) {
+		AKF_Events::init();
+	}
+	// AKF ticket types and sessions.
+	if ( class_exists( 'AKF_Ticket_Types' ) ) {
+		AKF_Ticket_Types::init();
+	}
+	// AKF inventory: 15-minute reservations + reliable expiry.
+	if ( class_exists( 'AKF_Inventory' ) ) {
+		AKF_Inventory::schedule();
+	}
+	// AKF ticket services (used directly by WooCommerce/Email/PDF layers).
+	if ( class_exists( 'AKF_Tickets' ) ) { /* loaded */ }
+	if ( class_exists( 'AKF_Tickets_Admin' ) ) {
+		AKF_Tickets_Admin::init();
+	}
+	if ( class_exists( 'AKF_Email' ) ) { /* loaded */ }
+	if ( class_exists( 'AKF_Codes' ) ) { /* loaded */ }
+	if ( class_exists( 'AKF_PDF' ) ) { /* loaded */ }
+
+	// AKF WooCommerce bridge (payment lifecycle, idempotent issuance).
+	if ( class_exists( 'AKF_WooCommerce' ) ) {
+		AKF_WooCommerce::init();
+	}
+	// AKF roles, dashboard and reports.
+	if ( class_exists( 'AKF_Permissions' ) ) {
+		AKF_Permissions::install();
+	}
+	if ( class_exists( 'AKF_Reports' ) ) {
+		AKF_Reports::init();
+	}
+	// AKF REST API for the gate scanner.
+	if ( class_exists( 'AKF_REST' ) ) {
+		AKF_REST::init();
+	}
+	// AKF gate management.
+	if ( class_exists( 'AKF_Gates' ) ) {
+		AKF_Gates::init();
+	}
+	// AKF audit log viewer (append-only).
+	if ( class_exists( 'AKF_Audit' ) ) {
+		AKF_Audit::init();
+	}
+	if ( ! wp_next_scheduled( 'akf_expire_reservations' ) && class_exists( 'AKF_Inventory' ) ) {
+		wp_schedule_event( time() + MINUTE_IN_SECONDS, 'hourly', 'akf_expire_reservations' );
+	}
 	YENA_Settings::init();
 	YENA_Cron::init();
 	YENA_Privacy::init();
