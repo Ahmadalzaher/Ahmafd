@@ -8,6 +8,7 @@
 *.zip
 *.b64
 /akf-mobile/builds/
+/yalla-events/akf-deploy.json
 
 # Local QA previews, screenshots and temporary payloads
 /yalla-events/preview/
