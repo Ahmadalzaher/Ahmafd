@@ -37,6 +37,14 @@ add_filter(
 	}
 );
 
+/** White-label: no WordPress or plugin credits in public HTML. */
+add_filter( 'the_generator', '__return_empty_string' );
+add_filter( 'admin_footer_text', '__return_empty_string' );
+add_filter( 'login_headertext', function () { return 'Arab Kulturfestival'; } );
+add_filter( 'login_headerurl', function () { return home_url( '/' ); } );
+add_filter( 'login_title', function () { return 'Anmeldung – Arab Kulturfestival'; } );
+add_filter( 'rank_math/frontend/remove_credit_notice', '__return_true' );
+
 /**
  * Cron intervals used by the queue and reminder jobs.
  *
