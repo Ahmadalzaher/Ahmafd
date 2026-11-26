@@ -17,6 +17,7 @@
 /yalla-events/preview/
 /akf-seo-restore/
 /akf-cleanup/
+/akf-asset-writer/
 
 # OS/editor noise
 Thumbs.db

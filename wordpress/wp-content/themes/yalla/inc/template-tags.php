@@ -470,7 +470,10 @@ function yd_brand( $footer = false ) {
 	$name     = get_theme_mod( 'yd_brand_name', 'Arab Kulturfestival' );
 	?>
 	<a class="brand" href="<?php echo esc_url( yd_home_url() ); ?>" rel="home">
-		<img class="brand__mark" src="<?php echo esc_url( $logo_url ); ?>" alt="<?php echo esc_attr( $name ); ?>" width="46" height="46" />
+		<picture>
+			<source srcset="<?php echo esc_url( yd_asset( 'img/logo-mark.webp' ) ); ?>" type="image/webp" />
+			<img class="brand__mark" src="<?php echo esc_url( yd_asset( 'img/logo-mark.webp' ) ); ?>" alt="<?php echo esc_attr( $name ); ?>" width="122" height="224" />
+		</picture>
 		<span class="brand__text">
 			<span class="brand__name"><?php echo esc_html( $name ); ?></span>
 			<span class="brand__sub"><?php echo esc_html( $footer ? yd_t( 'footer_made_with' ) : yd_t( 'brand_sub' ) ); ?></span>
