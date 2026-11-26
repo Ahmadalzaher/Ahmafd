@@ -328,11 +328,93 @@ final class YENA_Visitor_Accounts {
 		return rest_ensure_response( array( 'profile' => $v, 'tickets' => self::api_tickets( $request )->get_data() ) );
 	}
 
+	/**
+	 * GDPR erasure: anonymize the visitor and every linked registration/ticket.
+	 * Ticket numbers, hashes and admission history stay intact so accounting and
+	 * gate audits remain valid; only personal data is removed.
+	 */
 	public static function api_delete_request( $request ) {
+		global $wpdb;
 		$v = self::visitor( $request );
 		if ( is_wp_error( $v ) ) { return $v; }
-		AKF_DB::audit( 'visitor_delete_request', 'visitor', (int) $v['id'] );
-		return rest_ensure_response( array( 'ok' => true, 'message' => __( 'Deletion request recorded.', 'yalla-engage' ) ) );
+		$id        = (int) $v['id'];
+		$old_email = (string) $v['email'];
+		$anonymous = __( 'Deleted visitor', 'yalla-engage' );
+
+		$regs = $wpdb->get_results(
+			$wpdb->prepare( 'SELECT id, email, ticket_id FROM ' . AKF_DB::table( 'selfreg' ) . ' WHERE visitor_id = %d', $id ),
+			ARRAY_A
+		);
+		$reg_emails = array();
+		$ticket_ids = array();
+		foreach ( (array) $regs as $reg ) {
+			$reg_emails[] = (string) $reg['email'];
+			if ( ! empty( $reg['ticket_id'] ) ) {
+				$ticket_ids[] = (int) $reg['ticket_id'];
+			}
+			$wpdb->update(
+				AKF_DB::table( 'selfreg' ),
+				array(
+					'name'  => $anonymous,
+					'email' => 'deleted-reg-' . (int) $reg['id'] . '@invalid.local',
+				),
+				array( 'id' => (int) $reg['id'] ),
+				array( '%s', '%s' ),
+				array( '%d' )
+			);
+		}
+
+		$ticket_ids = array_values( array_unique( $ticket_ids ) );
+		foreach ( $ticket_ids as $ticket_id ) {
+			$wpdb->update(
+				AKF_DB::table( 'tickets' ),
+				array(
+					'guest_name'  => $anonymous,
+					'guest_email' => 'deleted-ticket-' . $ticket_id . '@invalid.local',
+				),
+				array( 'id' => $ticket_id ),
+				array( '%s', '%s' ),
+				array( '%d' )
+			);
+		}
+
+		$emails = array_unique( array_merge( array( $old_email ), $reg_emails ) );
+		foreach ( $emails as $mail ) {
+			if ( ! is_email( $mail ) ) { continue; }
+			$wpdb->update(
+				AKF_DB::table( 'email_logs' ),
+				array( 'recipient' => 'deleted-' . $id . '@invalid.local' ),
+				array( 'recipient' => $mail ),
+				array( '%s' ),
+				array( '%s' )
+			);
+		}
+
+		// Clear the identity fields with real SQL NULLs (unique keys allow NULL).
+		$wpdb->query(
+			$wpdb->prepare(
+				'UPDATE ' . self::table() . ' SET name = %s, email = %s, google_sub = NULL, '
+				. 'account_token = NULL, email_verified_at = NULL, consent_at = NULL, marketing_consent = 0 WHERE id = %d',
+				$anonymous,
+				'deleted-' . $id . '@invalid.local',
+				$id
+			)
+		);
+
+		AKF_DB::audit(
+			'visitor_deleted',
+			'visitor',
+			$id,
+			array( 'registrations' => count( $regs ), 'tickets' => count( $ticket_ids ), 'at' => current_time( 'mysql', true ) )
+		);
+		return rest_ensure_response(
+			array(
+				'ok'            => true,
+				'message'       => __( 'Your personal data has been anonymized.', 'yalla-engage' ),
+				'registrations' => count( $regs ),
+				'tickets'       => count( $ticket_ids ),
+			)
+		);
 	}
 
 	/** Re-send a PDF ticket without creating a new ticket. */
